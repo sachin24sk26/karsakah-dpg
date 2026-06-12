@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions about KARSAKAH AI, its features, and how it helps farmers.">
+    <title>FAQs - KARSAKAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="faq.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <nav class="nav-links">
+                <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+                <a href="index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
+                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
+                <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                <a href="contacts.html" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
+                
+                
+                <div class="right-nav-mobile">
+                    <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="theme-checkbox-mobile">
+                        <span class="slider"></span>
+                    </label>
+                    <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                        <div class="avatar">AS</div>
+                        <span class="profile-name" data-i18n="my_account">My Account</span>
+                        <div class="profile-dropdown">
+                            <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                            <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                            <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="right-nav">
+                <div class="language-selector">
+                    <i class="ph-bold ph-translate"></i>
+                    <select id="lang-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                    </select>
+                </div>
+
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                
+                <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                    <div class="avatar">AS</div>
+                    <span class="profile-name" style="display: none;">User</span>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                        <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                        <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
+                        <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="faq-main">
+            <div class="faq-header">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about KARSAKAH AI</p>
+            </div>
+
+            <div class="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>1. What is Karsakah AI?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Karsakah AI is a smart agriculture platform that helps farmers make better farming decisions using artificial intelligence, weather data, and agricultural insights. It provides tools such as crop disease detection, crop recommendations, irrigation advice, and market price information.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>2. How does the crop disease detection feature work?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Farmers can upload an image of a crop leaf or plant. Our AI model analyzes the image and identifies possible diseases affecting the crop. The system then suggests recommended treatments and preventive measures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>3. How can Karsakah AI help farmers increase crop yield?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Karsakah AI provides data-driven insights such as weather forecasts, soil-based crop recommendations, and irrigation guidance. These insights help farmers make informed decisions that can improve crop productivity and reduce losses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>4. Does Karsakah AI provide weather information?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes. Karsakah AI integrates real-time weather data to provide information such as temperature, humidity, rainfall forecasts, and other climate conditions that affect farming activities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>5. Can farmers check market prices using Karsakah AI?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes. The platform provides access to agricultural market price data so farmers can stay informed about current crop prices and decide the best time and place to sell their produce.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>6. Is Karsakah AI easy to use for farmers?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes. Karsakah AI is designed with a simple and user-friendly interface so that farmers can easily access important information and tools without needing advanced technical knowledge.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>7. Is Karsakah AI free to use?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Currently, Karsakah AI is being developed as a research and innovation project to support farmers. In the future, the platform may include both free services and advanced features.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>8. What technologies are used in Karsakah AI?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Karsakah AI uses modern technologies including:</p>
+                            <ul style="list-style-type: disc;">
+                                <li>Artificial Intelligence for crop disease detection</li>
+                                <li>Web technologies for the platform</li>
+                                <li>Weather and agriculture data APIs</li>
+                                <li>Data analytics for smart farming recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 9 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>9. Will Karsakah AI support local languages?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes. In future versions, we plan to support multiple regional languages so farmers can interact with the platform more comfortably.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 10 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>10. What is the future vision of Karsakah AI?</span>
+                        <i class="ph-bold ph-caret-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Our long-term goal is to build a complete smart farming ecosystem that integrates AI, IoT sensors, satellite data, and mobile applications to help farmers manage crops efficiently and sustainably.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                </div>
+                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                </div>
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Sachin , Harshit & Saklain.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="session.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script src="translate.js" defer></script>
+    <script>
+        // Accordion functionality for FAQs
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    const answer = question.nextElementSibling;
+                    
+                    // Toggle current item
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        answer.style.maxHeight = null;
+                    } else {
+                        // Close all other items first (optional, comment out for independent opening)
+                        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                            activeItem.classList.remove('active');
+                            activeItem.querySelector('.faq-answer').style.maxHeight = null;
+                        });
+                        
+                        // Open this item
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

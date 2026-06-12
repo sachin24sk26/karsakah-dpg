@@ -1,0 +1,227 @@
+/* prices.css */
+
+.prices-container {
+    padding: 20px 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.prices-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.prices-header h1 {
+    font-size: 36px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.prices-header p {
+    font-size: 18px;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+}
+
+.powered-by {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ECFDF5;
+    color: #059669;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+
+/* Filters */
+.filters-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--text-dark);
+    background-color: var(--input-bg);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.filter-group select:focus {
+    border-color: var(--primary-blue);
+    background-color: var(--card-bg);
+}
+
+#search-btn {
+    height: 46px;
+    padding: 0 32px;
+}
+
+/* Table */
+.results-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    min-height: 400px;
+    position: relative;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.prices-table th {
+    background-color: var(--table-header-bg);
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-gray);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.prices-table td {
+    padding: 16px;
+    font-size: 15px;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.prices-table tbody tr:hover {
+    background-color: var(--table-hover-bg);
+}
+
+.price-val {
+    font-weight: 600;
+    color: #059669;
+}
+
+/* Status Elements */
+.hidden {
+    display: none !important;
+}
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 60px 0;
+    color: var(--primary-blue);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #EFF6FF;
+    border-top: 4px solid var(--primary-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    background-color: rgba(220, 38, 38, 0.1);
+    color: #DC2626;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.no-data {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--text-gray);
+}
+
+.no-data i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+    .prices-container {
+        padding: 20px 40px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .prices-container {
+        padding: 20px 16px 40px;
+    }
+
+    .prices-header h1 {
+        font-size: 28px;
+    }
+
+    .prices-header p {
+        font-size: 15px;
+    }
+
+    .filters-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    .results-card {
+        padding: 16px;
+    }
+}

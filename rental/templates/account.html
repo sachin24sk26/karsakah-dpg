@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account - KrishiKirai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-header">
+    <div class="logo-container">
+      <div class="logo-icon"><i class="fa-solid fa-tractor"></i></div>
+      <div class="logo-text">कृषि किराये (KrishiKirai)</div>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bookings.html">Bookings</a></li>
+        <li class="active"><a href="account.html">Account</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <select class="lang-selector">
+            <option>हिन्दी / English</option>
+            <option>English</option><option>हिन्दी</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+    <div class="inner-page-header">
+      <h1>My Profile</h1>
+      <p>Manage your account settings and preferences.</p>
+    </div>
+
+    <div class="card">
+      <form>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" class="form-control" value="Ram">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" class="form-control" value="Kumar">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" value="ram.kumar@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" class="form-control" value="+91 9876543210">
+        </div>
+
+        <div class="form-group">
+          <label for="address">Primary Farm Address</label>
+          <textarea id="address" class="form-control" rows="3">Village Sonapur, Taluka Haveli, Pune, Maharashtra 411000</textarea>
+        </div>
+
+        <button type="button" class="book-btn" style="max-width: 200px;">Save Changes</button>
+      </form>
+    </div>
+  </main>
+
+    <script src="session.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KARSAKAH is an expert agricultural platform for crop identification, market prices, and government schemes.">
+    <title>KARSAKAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <nav class="nav-links">
+                <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+                <a href="index.html" class="active" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
+                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
+                <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                
+                
+                <div class="right-nav-mobile">
+                    <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="theme-checkbox-mobile">
+                        <span class="slider"></span>
+                    </label>
+                    <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                        <div class="avatar">AS</div>
+                        <span class="profile-name" data-i18n="my_account">My Account</span>
+                        <div class="profile-dropdown">
+                            <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                            <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                            <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="right-nav">
+                <div class="language-selector">
+                    <i class="ph-bold ph-translate"></i>
+                    <select id="lang-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                    </select>
+                </div>
+
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                
+                <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                    <div class="avatar">AS</div>
+                    <span class="profile-name" style="display: none;">User</span>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                        <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                        <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
+                        <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <main>
+            <section class="hero" id="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Revolutionizing Farming<br>with AI & Live Data.</h1>
+                    <p>Identify Crops Instantly & Access Real-Time Market Prices.</p>
+                    <div class="hero-buttons">
+                        <a href="crop_id.html" class="btn btn-primary">Identify Crop Now</a>
+                        <a href="prices.html" class="btn btn-secondary">Check Prices</a>
+                    </div>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="setSlide(0)"></span>
+                    <span class="indicator" onclick="setSlide(1)"></span>
+                    <span class="indicator" onclick="setSlide(2)"></span>
+                </div>
+            </section>
+            
+            <script>
+                // Hero Slideshow Logic
+                const heroImages = [
+                    'assets/hero_bg.png',
+                    'assets/hero_bg 2.jpg',
+                    'assets/hero_bg 3.jpg'
+                ];
+                let currentSlide = 0;
+                const heroSection = document.getElementById('hero-section');
+                const indicators = document.querySelectorAll('.hero .indicator');
+                
+                function updateSlide() {
+                    heroSection.style.backgroundImage = `url('${heroImages[currentSlide]}')`;
+                    indicators.forEach((ind, index) => {
+                        ind.classList.toggle('active', index === currentSlide);
+                    });
+                }
+                
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % heroImages.length;
+                    updateSlide();
+                }
+                
+                function setSlide(index) {
+                    currentSlide = index;
+                    updateSlide();
+                }
+                
+                // Change slide every 5 seconds
+                setInterval(nextSlide, 2000);
+                
+                // Set initial slide
+                updateSlide();
+            </script>
+
+            <!-- Services Section -->
+            <section class="services">
+                <h2>Our Key Services</h2>
+                <div class="services-grid">
+
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/card_crop_id.png" alt="Crop Identification">
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-blue">
+                                <i class="ph-fill ph-plant"></i> Crop Identification System
+                            </div>
+                            <h3>Instant Crop Disease & Type Identification</h3>
+                            <p>Upload photos of your crops. Our AI detects diseases, identifies crop types, and provides
+                                actionable insights.</p>
+                            <a href="crop_id.html" class="btn btn-primary btn-sm">Try It Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/card_dashboard.png" alt="Live Market Prices">
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-green">
+                                <i class="ph-fill ph-chart-line-up"></i> Live Market Prices
+                            </div>
+                            <h3>Live Market Price Updates</h3>
+                            <p>Stay informed with real-time pricing for Corn, Wheat, Soybeans, and more. Track trends
+                                and make data-driven sales.</p>
+                            <a href="prices.html" class="btn btn-primary btn-sm">View Prices</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/card_schemes.png" alt="Government Schemes">
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-purple">
+                                <i class="ph-fill ph-file-text"></i> Government Schemes
+                            </div>
+                            <h3>Explore Agricultural Schemes</h3>
+                            <p>Discover government subsidies, insurance policies, and financial aid available for farmers to maximize your yield & profit.</p>
+                            <a href="schemes.html" class="btn btn-primary btn-sm">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/card_weather.png" alt="Climatic Conditions">
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-orange">
+                                <i class="ph-fill ph-sun"></i> Climatic Conditions
+                            </div>
+                            <h3>Real-Time Weather Updates</h3>
+                            <p>Get accurate, location-based weather forecasts, temperature, and humidity levels to perfectly plan your farming activities.</p>
+                            <a href="weather.html" class="btn btn-primary btn-sm">Check Weather</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/rental.png" style="object-fit: cover; width: 100%; height: 100%; opacity: 0.8;" alt="Tractor & Equipment Rental">
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-blue">
+                                <i class="ph-fill ph-truck"></i> Equipment Rental
+                            </div>
+                            <h3>Tractor & Equipment Rental</h3>
+                            <p>Rent tractors, harvesters, and other farming equipment easily. Find the best rates in your local area.</p>
+                            <a href="rental/templates/index.html" target="_blank" class="btn btn-primary btn-sm">Rent Now</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <!-- ** removed socials -->
+                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                    <a href="contacts.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">Contacts</a>
+                </div>
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Sachin , Harshit , Shubham & Saklain.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="session.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script src="translate.js" defer></script>
+</body>
+
+</html>

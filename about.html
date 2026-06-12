@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn more about KARSAKAH AI, our mission, vision, and the team behind the smart digital farming assistant.">
+    <title>About Us - KARSAKAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <nav class="nav-links">
+                <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+                <a href="index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
+                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
+                <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                <a href="contacts.html" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
+                
+                
+                <div class="right-nav-mobile">
+                    <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="theme-checkbox-mobile">
+                        <span class="slider"></span>
+                    </label>
+                    <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                        <div class="avatar">AS</div>
+                        <span class="profile-name" data-i18n="my_account">My Account</span>
+                        <div class="profile-dropdown">
+                            <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                            <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                            <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="right-nav">
+                <div class="language-selector">
+                    <i class="ph-bold ph-translate"></i>
+                    <select id="lang-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                    </select>
+                </div>
+
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                
+                <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                    <div class="avatar">AS</div>
+                    <span class="profile-name" style="display: none;">User</span>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                        <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                        <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
+                        <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="about-main">
+            <!-- Hero Section -->
+            <section class="about-hero">
+                <h1>🌾 About Us – Karsakah AI</h1>
+                <p>Empowering farmers with intelligent technology for smarter, more efficient, and sustainable agriculture.</p>
+            </section>
+
+            <!-- Mission Section -->
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-text">
+                        <h2>Our Mission</h2>
+                        <p>At Karsakah AI, our mission is to empower farmers with intelligent technology that makes farming smarter, more efficient, and sustainable. Agriculture is the backbone of many economies, yet millions of farmers still rely on traditional methods and limited data to make critical decisions.</p>
+                        <p>Our platform aims to bridge this gap by combining Artificial Intelligence, real-time data, and modern web technologies to support farmers in improving crop yield, managing resources, and reducing risks caused by climate and disease.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/hero_bg 2.jpg" alt="Mission Image">
+                    </div>
+                </div>
+
+                <!-- What is Karsakah AI? Section -->
+                <div class="about-container reverse">
+                    <div class="about-text">
+                        <h2>What is Karsakah AI?</h2>
+                        <p>Karsakah AI is a smart digital farming assistant designed to help farmers make better decisions using data-driven insights.</p>
+                        <p>By integrating multiple agricultural data sources and intelligent algorithms, Karsakah AI transforms complex data into simple, actionable insights for farmers.</p>
+                    </div>
+                    <div class="about-features">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="ph-fill ph-plant"></i></div>
+                            <h3>Crop Disease Detection</h3>
+                            <p>Using AI image analysis to detect diseases early and prevent crop loss.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="ph-fill ph-cloud-sun"></i></div>
+                            <h3>Weather Guidelines</h3>
+                            <p>Weather-based farming recommendations tailored to your location.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="ph-fill ph-leaf"></i></div>
+                            <h3>Crop Recommendation</h3>
+                            <p>Suggestions based on soil health and local climate conditions.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="ph-fill ph-drop"></i></div>
+                            <h3>Smart Irrigation</h3>
+                            <p>Suggestions to optimize water usage and conserve precious resources.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="ph-fill ph-currency-inr"></i></div>
+                            <h3>Market Price Insights</h3>
+                            <p>Helping farmers sell crops at the right time for maximum profit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vision Section -->
+                <div class="about-container">
+                    <div class="about-text">
+                        <h2>Our Vision</h2>
+                        <p>Our vision is to create a future where every farmer, regardless of location or resources, has access to smart agricultural technology.</p>
+                        <p>We believe that data and AI can play a crucial role in:</p>
+                        <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+                            <li>Increasing global food production</li>
+                            <li>Supporting sustainable farming practices</li>
+                            <li>Reducing crop losses</li>
+                            <li>Improving farmers’ income and livelihoods</li>
+                        </ul>
+                        <p>Karsakah AI aims to become a complete digital ecosystem for smart agriculture.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/hero_bg 3.jpg" alt="Vision Image">
+                    </div>
+                </div>
+
+                <!-- Future Scope Section -->
+                <div class="about-container reverse">
+                    <div class="about-text">
+                        <h2>Future Scope</h2>
+                        <p>Karsakah AI is just the beginning. In the future, we plan to expand the platform with advanced technologies such as:</p>
+                        <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+                            <li>📱 Mobile applications for easy farmer access in rural areas</li>
+                            <li>🗣 Voice assistant support in local languages for better usability</li>
+                            <li>📡 IoT sensor integration to monitor soil moisture and field conditions</li>
+                            <li>🛰 Satellite and drone data for crop health monitoring</li>
+                            <li>🤖 AI-powered yield prediction models to forecast production</li>
+                            <li>📊 Government scheme and subsidy integration to assist farmers with financial support</li>
+                        </ul>
+                        <p>Our long-term goal is to build a smart farming ecosystem that helps farmers increase productivity while promoting sustainable agriculture.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="team-section">
+                <div class="team-header">
+                    <h2>Our Team</h2>
+                    <p>Karsakah AI is developed by a passionate team of students who believe technology can solve real-world agricultural challenges.</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-member-icon"><i class="ph-fill ph-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p>Creating highly responsive, user-friendly and robust platforms to ensure accessibility for every farmer.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-icon"><i class="ph-fill ph-brain"></i></div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>Building state-of-the-art models for crop disease detection and yield optimization.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-icon"><i class="ph-fill ph-chart-bar"></i></div>
+                        <h3>Data Analysis</h3>
+                        <p>Processing big agricultural data, weather patterns, and market trends to deliver actionable insights.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-icon"><i class="ph-fill ph-plant"></i></div>
+                        <h3>Agricultural Research</h3>
+                        <p>Collaborating with local farmers and experts to ensure solutions align with real-world farming challenges.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 3rem; font-size: 1.1rem; color: var(--text-color);">Together, we are working to create innovative solutions that can positively impact the farming community.</p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                </div>
+                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                </div>
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Sachin , Harshit & Saklain.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="session.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script src="translate.js" defer></script>
+</body>
+
+</html>

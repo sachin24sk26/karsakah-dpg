@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KARSAKAH is an expert agricultural platform for crop identification, market prices, and government schemes.">
+    <title>Live Market Prices - KARSAKAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prices.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar -->
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <nav class="nav-links">
+                <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+                <a href="index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
+                <a href="prices.html" class="active" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
+                <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                
+                
+                <div class="right-nav-mobile">
+                    <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="theme-checkbox-mobile">
+                        <span class="slider"></span>
+                    </label>
+                    <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                        <div class="avatar">AS</div>
+                        <span class="profile-name" data-i18n="my_account">My Account</span>
+                        <div class="profile-dropdown">
+                            <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                            <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                            <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="right-nav">
+                <div class="language-selector">
+                    <i class="ph-bold ph-translate"></i>
+                    <select id="lang-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                    </select>
+                </div>
+
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                
+                <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                    <div class="avatar">AS</div>
+                    <span class="profile-name" style="display: none;">User</span>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                        <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                        <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
+                        <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Prices Section -->
+        <main class="prices-container">
+            <div class="prices-header">
+                <h1 data-i18n="page_title">Live Mandi Prices</h1>
+                <p data-i18n="page_subtitle">Real-time agricultural commodity prices across India from AGMARKNET.</p>
+                <div class="powered-by">
+                    <i class="ph-fill ph-check-circle"></i> <span data-i18n="powered_by">Powered by Data.gov.in
+                        (AGMARKNET API)</span>
+                </div>
+            </div>
+
+            <div class="filters-card">
+                <div class="filter-group">
+                    <label for="state-select" data-i18n="label_state">Select State</label>
+                    <select id="state-select">
+                        <option value="" data-i18n="option_all_states">All States</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Gujarat">Gujarat</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="commodity-select" data-i18n="label_commodity">Select Commodity</label>
+                    <select id="commodity-select">
+                        <option value="" data-i18n="option_all_commodities">All Commodities</option>
+                        <option value="Wheat">Wheat</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Soyabean">Soyabean</option>
+                        <option value="Potato">Potato</option>
+                        <option value="Onion">Onion</option>
+                        <option value="Cotton">Cotton</option>
+                    </select>
+                </div>
+                <button id="search-btn" class="btn btn-primary">
+                    <i class="ph-bold ph-magnifying-glass"></i> <span data-i18n="btn_search">Search Prices</span>
+                </button>
+            </div>
+
+            <div class="results-card">
+                <div id="loader" class="loader-container hidden">
+                    <div class="spinner"></div>
+                    <p data-i18n="loading">Fetching live prices...</p>
+                </div>
+
+                <div id="error-message" class="error-message hidden">
+                    <i class="ph-bold ph-warning-circle"></i>
+                    <span id="error-text">Failed to fetch data. Showing offline estimates.</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="prices-table" class="prices-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="th_commodity">Commodity</th>
+                                <th data-i18n="th_state">State</th>
+                                <th data-i18n="th_market">Market (Mandi)</th>
+                                <th data-i18n="th_min_price">Min Price (₹/Quintal)</th>
+                                <th data-i18n="th_max_price">Max Price (₹/Quintal)</th>
+                                <th data-i18n="th_modal_price">Modal Price (₹)</th>
+                                <th data-i18n="th_date">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="no-data" class="no-data hidden">
+                    <i class="ph-fill ph-empty"></i>
+                    <p data-i18n="no_data">No data found for the selected filters.</p>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                </div>
+                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                </div>
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Maker.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="session.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="prices.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script src="translate.js" defer></script>
+</body>
+
+</html>

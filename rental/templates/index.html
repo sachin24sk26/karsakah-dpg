@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KrishiKirai - Tractor Rental</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body>
+    <!-- Top Navigation Header -->
+    <header class="top-header">
+      <div class="logo-container">
+        <div class="logo-icon">
+          <i class="fa-solid fa-tractor"></i>
+        </div>
+        <div class="logo-text">कृषि किराये (KrishiKirai)</div>
+      </div>
+
+      <nav class="header-nav">
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="bookings.html">Bookings</a></li>
+          <li><a href="account.html">Account</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <select class="lang-selector">
+              <option>हिन्दी / English</option>
+              <option>English</option>
+              <option>हिन्दी</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Green Search Banner -->
+    <section class="search-banner">
+      <div class="search-input-wrapper">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" placeholder="Search equipment, e.g., Tractor" />
+      </div>
+      <div class="search-input-wrapper">
+        <i class="fa-solid fa-location-dot"></i>
+        <select>
+          <option value="">City/village</option>
+          <option value="pune">Pune</option>
+          <option value="nagpur">Nagpur</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Main Layout -->
+    <main class="main-container">
+      <!-- Left Sidebar: Filters -->
+      <aside class="filters-sidebar">
+        <h2 class="section-title">Filters</h2>
+
+        <!-- Price Filter -->
+        <div class="filter-section">
+          <div class="filter-heading">
+            Price
+            <i class="fa-solid fa-chevron-up" style="font-size: 0.8rem"></i>
+          </div>
+          <div class="price-values">
+            <span>₹500</span>
+            <span>₹10,000</span>
+          </div>
+          <input
+            type="range"
+            class="price-slider"
+            min="500"
+            max="10000"
+            value="5000"
+          />
+          <div class="price-subtext">
+            <span>₹/hour</span>
+            <span>₹/day</span>
+          </div>
+        </div>
+
+        <!-- Equipment Type Filter -->
+        <div class="filter-section">
+          <div class="filter-heading">
+            Equipment Type
+            <i class="fa-solid fa-chevron-up" style="font-size: 0.8rem"></i>
+          </div>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" checked /> Tractors
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" /> Tillers
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" /> Seeders
+            </label>
+          </div>
+        </div>
+
+        <!-- Fuel Filter -->
+        <div class="filter-section">
+          <div class="filter-heading">
+            Fuel
+            <i class="fa-solid fa-chevron-up" style="font-size: 0.8rem"></i>
+          </div>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" /> Petrol
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" /> Diesel
+            </label>
+          </div>
+        </div>
+
+        <!-- HP Filter -->
+        <div class="filter-section">
+          <div class="filter-heading">HP</div>
+          <select class="dropdown-select">
+            <option>15-30 HP</option>
+            <option>30-45 HP</option>
+            <option>45-60 HP</option>
+            <option>60+ HP</option>
+          </select>
+          <div class="filter-heading" style="margin-top: 1rem">Rental Type</div>
+          <select class="dropdown-select">
+            <option>With Driver</option>
+            <option>Without Driver</option>
+          </select>
+        </div>
+
+        <!-- Sale Categories -->
+        <div class="filter-section">
+          <div class="filter-heading">
+            Sale
+            <i class="fa-solid fa-chevron-up" style="font-size: 0.8rem"></i>
+          </div>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" /> Tractors
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" /> Harvesters
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" /> Sprayers
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" /> Rotary
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center Content -->
+      <section class="center-content">
+        <!-- Mains Categories -->
+        <div>
+          <h2 class="section-title" style="margin-bottom: 1rem">Categories</h2>
+          <div class="categories-grid">
+            <div class="category-item">
+              <div class="category-icon-bg">
+                <i class="fa-solid fa-tractor" style="font-size: 2rem; color: #2e7d32;"></i>
+              </div>
+              <div class="category-name">
+                Tractors<br /><span class="category-subname">Tractor</span>
+              </div>
+            </div>
+            <div class="category-item">
+              <div class="category-icon-bg">
+                <i class="fa-solid fa-wheat-awn" style="font-size: 2rem; color: #f57f17;"></i>
+              </div>
+              <div class="category-name">
+                Harvesters<br /><span class="category-subname">हर्वेस्टर</span>
+              </div>
+            </div>
+            <div class="category-item">
+              <div class="category-icon-bg">
+                <i class="fa-solid fa-gears" style="font-size: 2rem; color: #5c6bc0;"></i>
+              </div>
+              <div class="category-name">Tillers</div>
+            </div>
+            <div class="category-item">
+              <div class="category-icon-bg">
+                <i class="fa-solid fa-seedling" style="font-size: 2rem; color: #7cb342;"></i>
+              </div>
+              <div class="category-name">Seeders</div>
+            </div>
+            <div class="category-item">
+              <div class="category-icon-bg">
+                <i class="fa-solid fa-spray-can-sparkles" style="font-size: 2rem; color: #0288d1;"></i>
+              </div>
+              <div class="category-name">Sprayers</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Rentals -->
+        <div>
+          <h2 class="section-title">Popular Rentals in Your Area</h2>
+          <div class="section-subtitle">आपकी जगह में लोकप्रिय</div>
+
+          <div class="equipment-grid">
+            <!-- Card 1 -->
+            <div class="equipment-card">
+              <img
+                src="../static/images/mahindra_tractor.png"
+                alt="Mahindra 575 DI"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title">Mahindra 575 DI (Tractor)</h3>
+                <p class="card-specs">45 HP, 2023 Model, Diesel</p>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-text">₹500/hour</span><br />
+                    <span class="price-unit">per hour</span>
+                  </div>
+                  <div>
+                    <span class="rating-text"
+                      ><i class="fa-solid fa-star"></i> 4.8</span
+                    >
+                    <span class="availability">Availability</span>
+                  </div>
+                </div>
+                <button class="book-btn" onclick="window.location.href='/equipment_details.html'">View Details & Book</button>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="equipment-card">
+              <img
+                src="../static/images/john_deere_harvester.png"
+                alt="John Deere Combine"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title">John Deere Combine (Harvester)</h3>
+                <p class="card-specs">75 HP, 2022 Model, Diesel</p>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-text">₹50,000/day</span><br />
+                    <span class="price-unit">per hour/day</span>
+                  </div>
+                  <div>
+                    <span class="rating-text"
+                      ><i class="fa-solid fa-star"></i> 4.8</span
+                    >
+                    <span class="availability">Availability</span>
+                  </div>
+                </div>
+                <button class="book-btn" onclick="window.location.href='/equipment_details.html'">View Details & Book</button>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="equipment-card">
+              <img
+                src="../static/images/sonalika_tiller.png"
+                alt="Sonalika Tiller"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title">Sonalika Tiller (Rotavator)</h3>
+                <p class="card-specs">35 HP, 2024 Model, Diesel</p>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-text">₹600/day</span><br />
+                    <span class="price-unit">per hour/day</span>
+                  </div>
+                  <div>
+                    <span class="rating-text"
+                      ><i class="fa-solid fa-star"></i> 4.9</span
+                    >
+                    <span class="availability">Availability</span>
+                  </div>
+                </div>
+                <button class="book-btn" onclick="window.location.href='/equipment_details.html'">View Details & Book</button>
+              </div>
+            </div>
+
+            <!-- Card 4 (New Holland Tractor) -->
+            <div class="equipment-card">
+              <img
+                src="../static/images/new_holland_tractor.png"
+                alt="New Holland 3630"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title">New Holland 3630 TX Plus (Tractor)</h3>
+                <p class="card-specs">55 HP, 2021 Model, Diesel</p>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-text">₹650/hour</span><br />
+                    <span class="price-unit">per hour</span>
+                  </div>
+                  <div>
+                    <span class="rating-text"
+                      ><i class="fa-solid fa-star"></i> 4.7</span
+                    >
+                    <span class="availability">Availability</span>
+                  </div>
+                </div>
+                <button class="book-btn" onclick="window.location.href='/rental/templates/equipment_details.html?eq=new_holland'">View Details & Book</button>
+              </div>
+            </div>
+
+            <!-- Card 5 (Seeder) -->
+            <div class="equipment-card">
+              <img
+                src="../static/images/seeder_equipment.png"
+                alt="Modern Seed Drill"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title">Modern Seed Drill (Seeders)</h3>
+                <p class="card-specs">Zero Till, Multi-crop, 9 Tynes</p>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-text">₹400/hour</span><br />
+                    <span class="price-unit">per hour</span>
+                  </div>
+                  <div>
+                    <span class="rating-text"
+                      ><i class="fa-solid fa-star"></i> 4.9</span
+                    >
+                    <span class="availability" style="color: #ff9800;">Few Left</span>
+                  </div>
+                </div>
+                <button class="book-btn" onclick="window.location.href='/rental/templates/equipment_details.html?eq=seeder'">View Details & Book</button>
+              </div>
+            </div>
+
+            <!-- Card 6 (Sprayer) -->
+            <div class="equipment-card">
+              <img
+                src="../static/images/sprayer_equipment.png"
+                alt="Boom Sprayer"
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3 class="card-title">Tractor Mount Boom Sprayer</h3>
+                <p class="card-specs">400 Ltr Tank, 30ft Coverage</p>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-text">₹300/hour</span><br />
+                    <span class="price-unit">per hour</span>
+                  </div>
+                  <div>
+                    <span class="rating-text"
+                      ><i class="fa-solid fa-star"></i> 4.6</span
+                    >
+                    <span class="availability">Availability</span>
+                  </div>
+                </div>
+                <button class="book-btn" onclick="window.location.href='/rental/templates/equipment_details.html?eq=sprayer'">View Details & Book</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Offers -->
+        <div>
+          <h2 class="section-title" style="margin-bottom: 1rem">
+            Special Offers for Farmers
+          </h2>
+          <div class="offers-row">
+            <div class="offer-card green">
+              <h3 class="offer-title">50% off<br />Tillers</h3>
+              <p class="offer-subtitle">Get ₹500 off on tillers</p>
+            </div>
+            <div class="offer-card blue">
+              <h3 class="offer-title">30% off<br />First rental</h3>
+              <p class="offer-subtitle">
+                Get ₹500 off your first tractor rental!
+              </p>
+            </div>
+            <div class="offer-card blue">
+              <h3 class="offer-title">50% off</h3>
+              <p class="offer-subtitle">
+                Get ₹500 off your first tractor rental!
+              </p>
+            </div>
+            <div class="offer-card green">
+              <h3 class="offer-title">50% off<br />Discount</h3>
+              <p class="offer-subtitle">
+                Get ₹500 off your first tractor rental!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Sidebar -->
+      <aside class="right-sidebar">
+        <!-- Map Widget -->
+        <div class="map-container" id="map" style="position: relative;">
+          <iframe src="/map" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+
+        <!-- Featured of the Day -->
+        <div>
+          <h2 class="section-title">Featured of the Day</h2>
+          <div class="section-subtitle">आज का विशेष</div>
+          <div class="featured-card">
+            <div class="featured-img-container">
+              <img
+                src="../static/images/featured_tractor.png"
+                alt="Red Tractor"
+              />
+              <span class="featured-badge">Featured</span>
+            </div>
+            <div class="featured-content">
+              <div class="featured-details">
+                <h4>Mahindra 575 DI</h4>
+                <p>₹600/hour</p>
+              </div>
+              <span class="availability">Availability</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why Choose Block -->
+        <div class="why-choose">
+          <h3>Why Choose KrishiKirai?</h3>
+          <ul>
+            <li>Wide range of well-maintained equipment</li>
+            <li>Transparent hourly & daily pricing</li>
+            <li>Trusted by 10,000+ local farmers</li>
+          </ul>
+        </div>
+
+        <!-- Footer Inline Block -->
+        <div class="sidebar-footer">
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p>
+              <i
+                class="fa-solid fa-phone"
+                style="font-size: 0.7rem; margin-right: 4px"
+              ></i>
+              +91 900590
+            </p>
+            <p>
+              <i
+                class="fa-brands fa-whatsapp"
+                style="font-size: 0.8rem; margin-right: 4px"
+              ></i>
+              +91 80000050
+            </p>
+            <p>
+              <i
+                class="fa-solid fa-envelope"
+                style="font-size: 0.7rem; margin-right: 4px"
+              ></i>
+              info@krishi.com
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Links</h4>
+            <div class="footer-links">
+              <a href="#">About</a>
+              <a href="#">Terms</a>
+              <a href="#">Partners</a>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="../static/js/script.js"></script>
+      <script src="../../session.js" defer></script>
+</body>
+</html>

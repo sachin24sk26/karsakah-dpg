@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookings - KrishiKirai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-header">
+    <div class="logo-container">
+      <div class="logo-icon"><i class="fa-solid fa-tractor"></i></div>
+      <div class="logo-text">कृषि किराये (KrishiKirai)</div>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="bookings.html">Bookings</a></li>
+        <li><a href="account.html">Account</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <select class="lang-selector">
+            <option>हिन्दी / English</option>
+            <option>English</option><option>हिन्दी</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <div class="inner-page-header">
+      <h1>My Bookings</h1>
+      <p>View your upcoming and past equipment rentals.</p>
+    </div>
+
+    <div class="card">
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Equipment</th>
+              <th>Dates</th>
+              <th>Total Amount</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#BK-8829</td>
+              <td>Mahindra 575 DI (Tractor)</td>
+              <td>Oct 12 - Oct 14, 2026</td>
+              <td>₹4,500</td>
+              <td><span class="status-badge status-active">Active</span></td>
+              <td><button class="book-btn" style="padding: 0.4rem 0.8rem;">View</button></td>
+            </tr>
+            <tr>
+              <td>#BK-7104</td>
+              <td>Sonalika Tiller (Rotavator)</td>
+              <td>Sep 28 - Sep 29, 2026</td>
+              <td>₹1,200</td>
+              <td><span class="status-badge status-completed">Completed</span></td>
+              <td><button class="book-btn" style="padding: 0.4rem 0.8rem; background-color: var(--text-gray);">Invoice</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+    <script src="session.js" defer></script>
+</body>
+</html>

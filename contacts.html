@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="KARSAKAH is an expert agricultural platform for crop identification, market prices, and government schemes.">
+    <title>Contact Us - KARSAKAH</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contacts.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+
+  <body>
+    <div class="app-wrapper">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="logo">
+          <img
+            src="assets/karsakah-logo.png"
+            alt="KARSAKAH Logo"
+            class="logo-img"
+            style="height: 48px; width: auto; object-fit: contain"
+          />
+        </div>
+
+        <button
+          class="mobile-menu-btn"
+          aria-label="Menu"
+          onclick="toggleMobileMenu()"
+        >
+          <i class="ph-bold ph-list"></i>
+        </button>
+
+        <nav class="nav-links">
+          <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+            <i class="ph-bold ph-x"></i>
+          </button>
+          <a href="index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+          <a href="crop_id.html"
+            ><i class="ph-bold ph-scan"></i> Crop Identification</a
+          >
+          <a href="prices.html"
+            ><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a
+          >
+          <a href="schemes.html"
+            ><i class="ph-bold ph-newspaper"></i> Gov Schemes</a
+          >
+          <a href="contacts.html" class="active"
+            ><i class="ph-bold ph-phone"></i> Contacts</a
+          >
+
+          <div class="right-nav-mobile">
+            <label
+              class="switch"
+              id="theme-toggle-mobile"
+              aria-label="Toggle Dark Mode"
+            >
+              <input type="checkbox" id="theme-checkbox-mobile" />
+              <span class="slider"></span>
+            </label>
+            <div class="profile-menu" onclick="toggleProfileMenu(event)">
+              <div class="avatar">AS</div>
+              <span class="profile-name" data-i18n="my_account">My Account</span>
+              <div class="profile-dropdown">
+                <a href="profile.html"
+                  ><i class="ph-bold ph-user"></i> My Profile</a
+                >
+                <a href="profile.html"
+                  ><i class="ph-bold ph-gear"></i> Settings</a
+                >
+                <a href="#" class="danger"
+                  ><i class="ph-bold ph-sign-out"></i> Log Out</a
+                >
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="right-nav">
+          <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+            <input type="checkbox" id="theme-checkbox" />
+            <span class="slider"></span>
+          </label>
+
+          <div class="profile-menu" onclick="toggleProfileMenu(event)">
+            <div class="avatar">AS</div>
+            <span class="profile-name" style="display: none">User</span>
+            <div class="profile-dropdown" id="profileDropdown">
+              <a href="profile.html"
+                ><i class="ph-bold ph-user"></i> My Profile</a
+              >
+              <a href="profile.html"
+                ><i class="ph-bold ph-gear"></i> Settings</a
+              >
+              <a href="profile.html"
+                ><i class="ph-bold ph-clock-counter-clockwise"></i> History</a
+              >
+              <a href="#" class="danger"
+                ><i class="ph-bold ph-sign-out"></i> Log Out</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Contact Section -->
+      <main class="contact-container">
+        <div class="contact-header">
+          <h1>Get in Touch</h1>
+          <p>Have questions about KARSAKAH? We are here to help you.</p>
+        </div>
+
+        <div class="contact-content">
+          <!-- Contact Details Card -->
+          <div class="contact-card info-card">
+            <h2>Contact Information</h2>
+            <p class="subtitle">
+              Reach out to us through any of the following channels.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <div class="icon-wrapper">
+                  <i class="ph-fill ph-map-pin"></i>
+                </div>
+                <div class="info-details">
+                  <h3>Visit Us</h3>
+                  <p>123 Farming Valley Road,<br />AgriTech City, TX 75001</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon-wrapper">
+                  <i class="ph-fill ph-envelope"></i>
+                </div>
+                <div class="info-details">
+                  <h3>Email Us</h3>
+                  <p>support@agrismartai.com<br />info@agrismartai.com</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon-wrapper">
+                  <i class="ph-fill ph-phone"></i>
+                </div>
+                <div class="info-details">
+                  <h3>Call Us</h3>
+                  <p>+1 (555) 123-4567<br />Mon-Fri, 9am - 6pm EST</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Card -->
+          <div class="contact-card form-card">
+            <h2>Send a Message</h2>
+            <form class="contact-form" id="contact-form">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="John Doe" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="How can we help?"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  placeholder="Type your message here..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary submit-btn">
+                <i class="ph-bold ph-paper-plane-tilt"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"
+              ><i class="ph-fill ph-facebook-logo"></i
+            ></a>
+            <a href="#" aria-label="Twitter"
+              ><i class="ph-fill ph-twitter-logo"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="ph-fill ph-instagram-logo"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="ph-fill ph-linkedin-logo"></i
+            ></a>
+          </div>
+          <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                </div>
+                <div class="footer-credits">
+            <p>&copy; 2026 KARSAKAH. Designed & Developed by Maker.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="session.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script>
+      document
+        .getElementById("contact-form")
+        ?.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const btn = e.target.querySelector('button[type="submit"]');
+          const originalText = btn.innerHTML;
+          btn.innerHTML =
+            '<i class="ph-bold ph-paper-plane-tilt"></i> Sending...';
+          btn.disabled = true;
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+
+          try {
+            const response = await fetch("http://localhost:5000/api/messages", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                form_type: "contact",
+                name,
+                email,
+                subject,
+                message,
+              }),
+            });
+
+            if (response.ok) {
+              alert(
+                "Message sent successfully! You will receive a response shortly.",
+              );
+              e.target.reset();
+            } else {
+              alert("Failed to send message. Please try again.");
+            }
+          } catch (error) {
+            alert("Error connecting to server. Is the backend running?");
+            console.error(error);
+          } finally {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }
+        });
+    </script>
+      <script src="translate.js" defer></script>
+</body>
+</html>

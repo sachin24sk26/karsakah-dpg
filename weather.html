@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KARSAKAH is an expert agricultural platform for crop identification, market prices, and government schemes.">
+    <title>Climatic Conditions - KARSAKAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="weather.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar -->
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <nav class="nav-links">
+                <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+                <a href="index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
+                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
+                <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                <a href="contacts.html" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
+                
+                
+                <div class="right-nav-mobile">
+                    <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="theme-checkbox-mobile">
+                        <span class="slider"></span>
+                    </label>
+                    <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                        <div class="avatar">AS</div>
+                        <span class="profile-name" data-i18n="my_account">My Account</span>
+                        <div class="profile-dropdown">
+                            <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                            <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                            <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="right-nav">
+                <div class="language-selector">
+                    <i class="ph-bold ph-translate"></i>
+                    <select id="lang-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                    </select>
+                </div>
+
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                
+                <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                    <div class="avatar">AS</div>
+                    <span class="profile-name" style="display: none;">User</span>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                        <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                        <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
+                        <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Weather Section -->
+        <main class="weather-container">
+            <div class="weather-header">
+                <h1 data-i18n="weather_page_title">Climatic Conditions</h1>
+                <p data-i18n="weather_page_subtitle">Real-time weather, soil moisture estimates, and rain forecast.</p>
+                <div class="powered-by">
+                    <i class="ph-fill ph-check-circle"></i> <span>Powered by OpenWeather API</span>
+                </div>
+            </div>
+
+            <div class="search-card">
+                <div class="search-group" style="gap: 10px; display: flex; flex-wrap: wrap;">
+                    <select id="state-select" class="city-select" style="flex: 1; min-width: 150px;">
+                        <option value="" disabled selected>Select State</option>
+                    </select>
+                    <select id="city-select" class="city-select" disabled style="flex: 1; min-width: 150px;">
+                        <option value="" disabled selected>Select City</option>
+                    </select>
+                    <input type="text" id="manual-city-input" class="city-select" placeholder="Or enter city..." style="flex: 1; min-width: 150px;">
+                    <button id="search-btn" class="btn btn-primary" style="flex: 0 0 auto;">
+                        <i class="ph-bold ph-magnifying-glass"></i> <span data-i18n="weather_btn_search">Search</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p data-i18n="weather_loading">Fetching weather data...</p>
+            </div>
+
+            <div id="error-message" class="error-message hidden">
+                <i class="ph-bold ph-warning-circle"></i>
+                <span id="error-text">Failed to fetch data. Please check the city name.</span>
+            </div>
+
+            <div id="weather-results" class="weather-results hidden">
+                <div class="weather-grid">
+                    <!-- Card 1: Temperature -->
+                    <div class="weather-card">
+                        <div class="weather-icon temperature"><i class="ph-fill ph-thermometer"></i></div>
+                        <h3>Temperature</h3>
+                        <div class="weather-value" id="temp-value">--°C</div>
+                        <p class="weather-desc" id="temp-desc">--</p>
+                    </div>
+                    <!-- Card 2: Soil Moisture -->
+                    <div class="weather-card">
+                        <div class="weather-icon moisture"><i class="ph-fill ph-drop"></i></div>
+                        <h3>Soil Moisture (Est.)</h3>
+                        <div class="weather-value" id="moisture-value">--%</div>
+                        <p class="weather-desc">Based on humidity & rainfall</p>
+                    </div>
+                    <!-- Card 3: Wind Speed -->
+                    <div class="weather-card">
+                        <div class="weather-icon wind"><i class="ph-fill ph-wind"></i></div>
+                        <h3>Wind Speed</h3>
+                        <div class="weather-value" id="wind-value">-- km/h</div>
+                        <p class="weather-desc">Direction: <span id="wind-dir">--</span></p>
+                    </div>
+                    <!-- Card 4: Rain Forecast -->
+                    <div class="weather-card">
+                        <div class="weather-icon rain"><i class="ph-fill ph-cloud-rain"></i></div>
+                        <h3>Rain Forecast</h3>
+                        <div class="weather-value" id="rain-value">--</div>
+                        <p class="weather-desc">Next 3 hours</p>
+                    </div>
+                </div>
+                
+                <!-- Detailed Forecast -->
+                <div class="forecast-section mt-4">
+                    <h3>3-Day Forecast</h3>
+                    <div class="forecast-list" id="forecast-container">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                </div>
+                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                </div>
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Maker.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="session.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="weather.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script src="translate.js" defer></script>
+</body>
+
+</html>

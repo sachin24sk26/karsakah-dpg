@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipment Details - KrishiKirai</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="top-header">
+    <div class="logo-container">
+      <div class="logo-icon"><i class="fa-solid fa-tractor"></i></div>
+      <div class="logo-text">कृषि किराये (KrishiKirai)</div>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bookings.html">Bookings</a></li>
+        <li><a href="account.html">Account</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <select class="lang-selector">
+            <option>हिन्दी / English</option>
+            <option>English</option><option>हिन्दी</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <a href="index.html" style="display: inline-block; margin-bottom: 1.5rem; color: var(--primary-green); font-weight: 500;">
+      <i class="fa-solid fa-arrow-left"></i> Back to Search
+    </a>
+
+    <div style="display: grid; grid-template-columns: 1fr 350px; gap: 2rem;">
+      <!-- Left side: Image and specs -->
+      <div>
+        <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 2rem;">
+          <img src="../static/images/mahindra_tractor.png" alt="Equipment" style="width: 100%; height: 400px; object-fit: cover; display: block;" id="eq-main-image">
+        </div>
+
+        <div class="card">
+          <h2 style="margin-bottom: 1rem; color: var(--primary-green);">Equipment Specifications</h2>
+          <div class="table-responsive">
+            <table class="styled-table">
+              <tbody>
+                <tr><th>Model Name</th><td id="eq-model">Mahindra 575 DI (Tractor)</td></tr>
+                <tr><th>Horse Power (HP)</th><td>45 HP</td></tr>
+                <tr><th>Fuel Type</th><td>Diesel</td></tr>
+                <tr><th>Rental Category</th><td>Tractor</td></tr>
+                <tr><th>Owner Rating</th><td><i class="fa-solid fa-star" style="color: #ff9800;"></i> 4.8 / 5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <h3 style="margin-top: 2rem; margin-bottom: 0.5rem;">Description</h3>
+          <p style="color: var(--text-gray); line-height: 1.6;">
+            Well maintained 45 HP tractor perfect for heavy duty plowing, tilling, and transport. 
+            Driver available on request. Excellent fuel efficiency.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right side: Booking form widget -->
+      <div>
+        <div class="card" style="position: sticky; top: 100px;">
+          <h2 id="eq-title" style="font-size: 1.4rem; margin-bottom: 0.5rem;">Mahindra 575 DI</h2>
+          <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary-green);">₹<span id="eq-price">500</span></span>
+            <span style="color: var(--text-gray);"> / hour</span>
+          </div>
+
+          <form action="bookings.html">
+            <div class="form-group">
+              <label>Pick-up Date & Time</label>
+              <input type="datetime-local" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Return Date & Time</label>
+              <input type="datetime-local" class="form-control" required>
+            </div>
+            
+            <div class="checkbox-group" style="margin-bottom: 1.5rem;">
+               <label class="checkbox-label">
+                 <input type="checkbox"> Include Professional Driver (+₹200/day)
+               </label>
+               <label class="checkbox-label">
+                 <input type="checkbox" checked> Delivery to Farm (+₹300 flat)
+               </label>
+            </div>
+
+            <div style="background-color: var(--light-green); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 500;">Estimated Total</span>
+                <span style="font-weight: 700; font-size: 1.1rem;">₹4,800</span>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--text-gray); text-align: right;">Includes delivery fee</div>
+            </div>
+
+            <button type="submit" class="book-btn" style="font-size: 1rem; padding: 0.75rem;">Confirm Booking Request</button>
+          </form>
+          
+          <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 1rem;">
+            You won't be charged until the owner confirms availability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Extremely basic dynamic injection for prototype effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const eq = urlParams.get('eq');
+      
+      if(eq === 'harvester') {
+        document.getElementById('eq-main-image').src = "../static/images/john_deere_harvester.png";
+        document.getElementById('eq-title').innerText = 'John Deere Combine';
+        document.getElementById('eq-model').innerText = 'John Deere Combine (Harvester)';
+        document.getElementById('eq-price').innerText = '50,000';
+        document.querySelector('.card .table-responsive tr:nth-child(4) td').innerText = 'Harvester';
+      } else if(eq === 'tiller') {
+        document.getElementById('eq-main-image').src = "../static/images/sonalika_tiller.png";
+        document.getElementById('eq-title').innerText = 'Sonalika Tiller';
+        document.getElementById('eq-model').innerText = 'Sonalika Tiller (Rotavator)';
+        document.getElementById('eq-price').innerText = '600';
+        document.querySelector('.card .table-responsive tr:nth-child(4) td').innerText = 'Rotavator';
+      } else if(eq === 'new_holland') {
+        document.getElementById('eq-main-image').src = "../static/images/new_holland_tractor.png";
+        document.getElementById('eq-title').innerText = 'New Holland 3630';
+        document.getElementById('eq-model').innerText = 'New Holland 3630 TX Plus (Tractor)';
+        document.getElementById('eq-price').innerText = '650';
+        document.querySelector('.card .table-responsive tr:nth-child(4) td').innerText = 'Tractor';
+      } else if(eq === 'seeder') {
+        document.getElementById('eq-main-image').src = "../static/images/seeder_equipment.png";
+        document.getElementById('eq-title').innerText = 'Modern Seed Drill';
+        document.getElementById('eq-model').innerText = 'Zero Till Seed Drill (Seeder)';
+        document.getElementById('eq-price').innerText = '400';
+        document.querySelector('.card .table-responsive tr:nth-child(4) td').innerText = 'Seeders';
+      } else if(eq === 'sprayer') {
+        document.getElementById('eq-main-image').src = "../static/images/sprayer_equipment.png";
+        document.getElementById('eq-title').innerText = 'Boom Sprayer';
+        document.getElementById('eq-model').innerText = 'Tractor Mount Boom Sprayer';
+        document.getElementById('eq-price').innerText = '300';
+        document.querySelector('.card .table-responsive tr:nth-child(4) td').innerText = 'Sprayers';
+      } else if(eq === 'featured') {
+         document.getElementById('eq-main-image').src = "../static/images/featured_tractor.png";
+         document.getElementById('eq-title').innerText = 'Featured Red Tractor';
+      }
+    });
+  </script>
+    <script src="../../session.js" defer></script>
+</body>
+</html>

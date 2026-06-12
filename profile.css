@@ -1,0 +1,232 @@
+/* Profile Page Specific Styles */
+.profile-container .card {
+    display: block;
+}
+
+.profile-container {
+    padding: 32px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.profile-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.profile-header p {
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+}
+
+.profile-info-card {
+    text-align: center;
+    padding: 32px 24px;
+    height: fit-content;
+}
+
+.profile-avatar-large {
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.profile-info-card h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.text-muted {
+    color: var(--text-dark);
+    opacity: 0.6;
+}
+
+.profile-details-list {
+    margin-top: 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+.detail-item i {
+    font-size: 20px;
+    color: var(--primary-blue);
+    width: 24px;
+    text-align: center;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-4 {
+    margin-top: 24px;
+}
+
+.mt-2 {
+    margin-top: 8px;
+}
+
+.border-0 {
+    border: none !important;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+}
+
+.card h3 i {
+    color: var(--primary-blue);
+    font-size: 22px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 16px;
+}
+
+.setting-info strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+.settings-select {
+    padding: 10px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-dark);
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    min-width: 150px;
+}
+
+.settings-select:focus {
+    border-color: var(--primary-blue);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: var(--input-bg);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent;
+}
+
+.history-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.history-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+/* Utility Colors for Icons */
+.bg-green-light { background-color: rgba(34, 197, 94, 0.1); }
+.text-green { color: #22c55e; }
+.bg-blue-light { background-color: rgba(59, 130, 246, 0.1); }
+.text-blue { color: #3b82f6; }
+.bg-purple-light { background-color: rgba(168, 85, 247, 0.1); }
+.text-purple { color: #a855f7; }
+
+.history-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.history-details strong {
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.text-small {
+    font-size: 13px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-container {
+        padding: 16px;
+    }
+    
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .setting-item label, .setting-item select {
+        align-self: flex-start;
+    }
+}

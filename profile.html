@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KARSAKAH is an expert agricultural platform for crop identification, market prices, and government schemes.">
+    <title>My Account - KARSAKAH</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <nav class="nav-links">
+                <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+                <a href="index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
+                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
+                <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                <a href="contacts.html" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
+                
+                
+                <div class="right-nav-mobile">
+                    <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="theme-checkbox-mobile">
+                        <span class="slider"></span>
+                    </label>
+                    <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                        <div class="avatar">AS</div>
+                        <span class="profile-name" data-i18n="my_account">My Account</span>
+                        <div class="profile-dropdown">
+                            <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                            <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                            <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="right-nav">
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                
+                <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                    <div class="avatar">AS</div>
+                    <span class="profile-name" style="display: none;">User</span>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                        <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
+                        <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
+                        <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="profile-container">
+            <div class="profile-header">
+                <h1>My Account</h1>
+                <p>Manage your profile, settings, and view your activity history.</p>
+            </div>
+            
+            <div class="profile-grid">
+                <!-- User Info Card -->
+                <div class="card profile-info-card">
+                    <div class="profile-avatar-large" id="profile-page-avatar">AS</div>
+                    <h2 id="profile-page-name">AgriSmart User</h2>
+                    <p class="text-muted">Farmer & Agri-Entrepreneur</p>
+                    <div class="profile-details-list">
+                        <div class="detail-item">
+                            <i class="ph-bold ph-envelope"></i>
+                            <span id="profile-page-email">user@agrismart.ai</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="ph-bold ph-phone"></i>
+                            <span id="profile-page-phone">+91 98765 43210</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="ph-bold ph-map-pin"></i>
+                            <span>Maharashtra, India</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-100 mt-4">Edit Profile</button>
+                    <button class="btn btn-secondary w-100 mt-2" style="margin-top: 12px;">Share Profile</button>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="profile-main-content">
+                    <div class="card settings-card">
+                        <h3><i class="ph-bold ph-gear"></i> Account Settings</h3>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <strong>Notifications</strong>
+                                <p class="text-muted">Receive alerts for crop diseases and market price updates.</p>
+                            </div>
+                            <label class="switch" style="font-size: 14px;">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item border-0" style="padding-bottom: 0;">
+                            <div class="setting-info">
+                                <strong>Language Preference</strong>
+                                <p class="text-muted">Choose your preferred language for the app interface.</p>
+                            </div>
+                            <select class="settings-select">
+                                <option value="en">English</option>
+                                <option value="hi">हिन्दी (Hindi)</option>
+                                <option value="mr">मराठी (Marathi)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card history-card mt-4">
+                        <h3><i class="ph-bold ph-clock-counter-clockwise"></i> Recent Activity</h3>
+                        <div class="history-list">
+                            <div class="history-item">
+                                <div class="history-icon bg-green-light text-green">
+                                    <i class="ph-bold ph-scan"></i>
+                                </div>
+                                <div class="history-details">
+                                    <strong>Crop Identified: Tomato Early Blight</strong>
+                                    <span class="text-muted text-small">Today, 10:30 AM</span>
+                                </div>
+                            </div>
+                            <div class="history-item">
+                                <div class="history-icon bg-blue-light text-blue">
+                                    <i class="ph-bold ph-currency-inr"></i>
+                                </div>
+                                <div class="history-details">
+                                    <strong>Checked Prices: Wheat in Mumbai Market</strong>
+                                    <span class="text-muted text-small">Yesterday, 4:15 PM</span>
+                                </div>
+                            </div>
+                            <div class="history-item">
+                                <div class="history-icon bg-purple-light text-purple">
+                                    <i class="ph-bold ph-translate"></i>
+                                </div>
+                                <div class="history-details">
+                                    <strong>Changed Language: English to Hindi</strong>
+                                    <span class="text-muted text-small">Feb 24, 2026, 9:20 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                </div>
+                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                </div>
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Maker.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="theme.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script src="translate.js" defer></script>
+    <script src="session.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userStr = localStorage.getItem('karsakah_user');
+            if (userStr) {
+                const user = JSON.parse(userStr);
+                document.getElementById('profile-page-name').innerText = user.name || 'AgriSmart User';
+                document.getElementById('profile-page-email').innerText = user.email || 'user@agrismart.ai';
+                document.getElementById('profile-page-phone').innerText = user.phone || '+91 98765 43210';
+                
+                const getInitialsLocal = (name) => {
+                    if (!name) return 'U';
+                    const parts = name.split(' ');
+                    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+                    return (name.substring(0, 2)).toUpperCase();
+                };
+                
+                document.getElementById('profile-page-avatar').innerText = getInitialsLocal(user.name);
+            }
+        });
+    </script>
+</body>
+</html>

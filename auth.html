@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - KARSAKAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="session.js" defer></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Minimal Navbar for Auth Page -->
+        <header class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+            <div class="right-nav">
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <main class="auth-main">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h1 id="auth-title">Welcome Back</h1>
+                    <p id="auth-subtitle">Log in to your agricultural dashboard</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Log In</button>
+                    <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Sign Up</button>
+                </div>
+
+                <!-- Alert Box for errors/success -->
+                <div id="auth-alert" class="auth-alert hidden"></div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-envelope"></i>
+                            <input type="email" id="login-email" required placeholder="farmer@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-lock-key"></i>
+                            <input type="password" id="login-password" required placeholder="••••••••">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" id="login-btn">
+                        <span>Log In</span>
+                        <div class="spinner hidden" id="login-spinner"></div>
+                    </button>
+                    <div class="form-footer">
+                        <a href="#" class="forgot-password text-muted">Forgot Password?</a>
+                    </div>
+                </form>
+
+                <!-- Registration Form -->
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="reg-name">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-user"></i>
+                            <input type="text" id="reg-name" required placeholder="John Doe">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-envelope"></i>
+                            <input type="email" id="reg-email" required placeholder="farmer@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-phone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-phone"></i>
+                            <input type="tel" id="reg-phone" required placeholder="+91 9876543210">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-lock-key"></i>
+                            <input type="password" id="reg-password" required placeholder="••••••••">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" id="reg-btn">
+                        <span>Create Account</span>
+                        <div class="spinner hidden" id="reg-spinner"></div>
+                    </button>
+                    <div class="form-footer">
+                        <p class="text-muted text-small">By signing up, you agree to our Terms of Service & Privacy Policy.</p>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="theme.js" defer></script>
+    <script src="auth.js" defer></script>
+</body>
+</html>
