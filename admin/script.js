@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchData() {
         try {
             // Use absolute URL to support opening html directly
-            const response = await fetch('http://127.0.0.1:5000/api/admin/messages');
+            const response = await fetch('/api/admin/messages');
             if (!response.ok) {
                 console.error("Failed to fetch messages");
                 return;
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function deleteMessage(timestamp) {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/admin/messages', {
+            const response = await fetch('/api/admin/messages', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ timestamp: timestamp })

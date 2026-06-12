@@ -210,7 +210,7 @@ async function fetchWeather(city) {
   try {
     // Fetch from our local backend proxy which scrapes IMD
     const weatherRes = await fetch(
-      `http://localhost:5000/api/weather?city=${city}`,
+      `/api/weather?city=${city}`,
     );
     if (!weatherRes.ok) {
       const errData = await weatherRes.json();

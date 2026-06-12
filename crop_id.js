@@ -26,7 +26,7 @@ let stream = null;
 let currentImageBlob = null;
 
 // The URL of our Python Flask backend
-const API_URL = "http://127.0.0.1:5000/api/analyze";
+const API_URL = "/api/analyze";
 
 // --- Camera Logic ---
 

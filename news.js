@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // We use our local Python backend to proxy Bing News RSS safely 
             // and securely extract the correct images that aren't provided by standard RSS formats
             const encodedQuery = encodeURIComponent(query);
-            const apiUrl = `http://127.0.0.1:5000/api/news?q=${encodedQuery}`;
+            const apiUrl = `/api/news?q=${encodedQuery}`;
             
             const response = await fetch(apiUrl);
             
