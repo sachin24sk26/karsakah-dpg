@@ -342,6 +342,8 @@ def receive_message():
     data['timestamp'] = datetime.datetime.now().isoformat()
     
     messages_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'messages.json')
+    if os.environ.get('VERCEL'):
+        messages_file = '/tmp/messages.json'
     messages = []
     
     if os.path.exists(messages_file):
@@ -369,6 +371,8 @@ def get_admin_messages():
     Endpoint for admin panel to retrieve all messages.
     """
     messages_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'messages.json')
+    if os.environ.get('VERCEL'):
+        messages_file = '/tmp/messages.json'
     if os.path.exists(messages_file):
         try:
             with open(messages_file, 'r', encoding='utf-8') as f:
@@ -392,6 +396,8 @@ def delete_admin_message():
         
     timestamp = data['timestamp']
     messages_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'messages.json')
+    if os.environ.get('VERCEL'):
+        messages_file = '/tmp/messages.json'
     
     if os.path.exists(messages_file):
         try:
@@ -416,6 +422,8 @@ def delete_admin_message():
 # --- Authentication Endpoints ---
 
 USERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'users.json')
+if os.environ.get('VERCEL'):
+    USERS_FILE = '/tmp/users.json'
 
 def load_users():
     if os.path.exists(USERS_FILE):
