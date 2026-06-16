@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KARSAKAH Agriculture News - Latest updates for Indian farmers.">
-    <title>Agriculture News - KARSAKAH</title>
+    <meta name="description" content="Frequently Asked Questions about KARSAKAH AI, its features, and how it helps farmers.">
+    <title>Terms of Services - KARSAKAH</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="faq.css">
     <link rel="stylesheet" href="chatbot.css">
-    <link rel="stylesheet" href="news.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
                     <i class="ph-bold ph-info" style="margin-right: 6px;"></i> <span data-i18n="nav_more">More</span> <i class="ph-bold ph-caret-down" style="margin-left: 4px; font-size: 12px;"></i>
                     <div class="info-dropdown" style="position: absolute; top: 100%; left: 0; margin-top: 8px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); width: 200px; display: none; flex-direction: column; z-index: 50; overflow: hidden;">
                         <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
-                        <a href="news.html" class="active" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                        <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
                         <a href="about.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_about"><i class="ph-bold ph-info"></i> About Us</a>
                         <a href="faq.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_faq"><i class="ph-bold ph-question"></i> FAQs</a>
                         <a href="contacts.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
@@ -113,41 +113,28 @@
             </div>
         </header>
 
+        
         <!-- Main Content -->
-        <main class="news-main-content">
-            <section class="news-hero">
-                <div class="news-hero-content">
-                    <h1 data-i18n="news_title">Latest Agricultural News</h1>
-                    <p data-i18n="news_subtitle">Stay updated with the latest news, trends, and policies affecting Indian farmers.</p>
-                </div>
-            </section>
-
-            <section class="news-container">
-                <div class="news-filters">
-                    <button class="filter-btn active" data-category="indian agriculture" data-i18n="news_all">All News</button>
-                    <button class="filter-btn" data-category="indian farmers policies subsidies" data-i18n="news_schemes">Policies & Schemes</button>
-                    <button class="filter-btn" data-category="indian agriculture technology" data-i18n="news_tech">Agri-Tech</button>
-                    <button class="filter-btn" data-category="indian crop market prices" data-i18n="news_market">Market Trends</button>
-                </div>
-
-                <div id="news-loading" class="news-loading">
-                    <div class="spinner"></div>
-                    <p>Fetching latest updates...</p>
-                </div>
+        <main class='faq-main' style='padding: 60px 20px; max-width: 800px; margin: 0 auto;'>
+            <h1 style='text-align: center; margin-bottom: 2rem;'>Terms of Service</h1>
+            <div class='faq-container' style='background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border-color);'>
+                <h3>1. Acceptance of Terms</h3>
+                <p style='margin-bottom: 1.5rem; color: var(--text-color);'>By accessing and using Karsakah AI, you accept and agree to be bound by the terms and provision of this agreement.</p>
                 
-                <div id="news-error" class="news-error" style="display: none;">
-                    <i class="ph-fill ph-warning-circle"></i>
-                    <p>Unable to load news at the moment. Please try again later.</p>
-                    <button id="retry-btn" class="btn btn-secondary btn-sm">Retry</button>
-                </div>
-
-                <div id="news-grid" class="news-grid">
-                    <!-- News cards will be populated here by JS -->
-                </div>
-            </section>
+                <h3>2. Provision of Services</h3>
+                <p style='margin-bottom: 1.5rem; color: var(--text-color);'>You agree and acknowledge that Karsakah AI is entitled to modify, improve or discontinue any of its services at its sole discretion and without notice to you.</p>
+                
+                <h3>3. Proprietary Rights</h3>
+                <p style='margin-bottom: 1.5rem; color: var(--text-color);'>You acknowledge and agree that Karsakah AI may contain proprietary and confidential information including trademarks, service marks and patents protected by intellectual property laws.</p>
+                
+                <h3>4. Termination of Agreement</h3>
+                <p style='margin-bottom: 1.5rem; color: var(--text-color);'>The Terms of this agreement will continue to apply in perpetuity until terminated by either party without notice at any time for any reason.</p>
+                
+                <h3>5. Disclaimer of Warranties</h3>
+                <p style='color: var(--text-color);'>You understand and agree that your use of Karsakah AI is entirely at your own risk and that our services are provided As Is and As Available.</p>
+            </div>
         </main>
-
-        <!-- Footer -->
+<!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
                 <!-- ** removed socials -->
@@ -165,12 +152,39 @@
             </div>
         </footer>
     </div>
-    
     <script src="session.js" defer></script>
     <script src="theme.js" defer></script>
     <script src="chatbot.js" defer></script>
     <script src="translate.js" defer></script>
-    <script src="news.js" defer></script>
+    <script>
+        // Accordion functionality for FAQs
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    const answer = question.nextElementSibling;
+                    
+                    // Toggle current item
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        answer.style.maxHeight = null;
+                    } else {
+                        // Close all other items first (optional, comment out for independent opening)
+                        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                            activeItem.classList.remove('active');
+                            activeItem.querySelector('.faq-answer').style.maxHeight = null;
+                        });
+                        
+                        // Open this item
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

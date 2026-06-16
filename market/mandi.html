@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karsakah Mandi - Farmer's Market</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="mandi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <a href="../index.html"><img src="../assets/mandi.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;"></a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+                <i class="ph-bold ph-list"></i>
+            </button>
+
+            <nav class="nav-links">
+                <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+                <a href="../index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
+                <a href="mandi.html" class="active"><i class="ph-bold ph-storefront"></i> Mandi</a>
+                <a href="../prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Prices</a>
+                
+                <div class="info-menu" style="position: relative; display: flex; align-items: center; cursor: pointer; padding: 8px 12px; border-radius: 8px; font-weight: 500; font-size: 15px; color: var(--text-dark); transition: all 0.2s ease;" onclick="toggleInfoMenu(event)">
+                    <i class="ph-bold ph-info" style="margin-right: 6px;"></i> <span data-i18n="nav_more">More</span> <i class="ph-bold ph-caret-down" style="margin-left: 4px; font-size: 12px;"></i>
+                    <div class="info-dropdown" style="position: absolute; top: 100%; left: 0; margin-top: 8px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); width: 200px; display: none; flex-direction: column; z-index: 50; overflow: hidden;">
+                        <a href="../schemes.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                        <a href="../news.html"  style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;"><i class="ph-bold ph-article"></i> Agri News</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="right-nav">
+                <label class="switch" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                
+                <div class="profile-menu" onclick="toggleProfileMenu(event)">
+                    <div class="avatar">AS</div>
+                    <span class="profile-name">User</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="mandi-container">
+            <!-- Sidebar for Quick Access & Filters -->
+            <aside class="mandi-sidebar">
+                <div class="sidebar-section">
+                    <h3><i class="ph-fill ph-funnel"></i> Localized Mandi Filter</h3>
+                    <div class="filter-group">
+                        <label>State</label>
+                        <select id="stateFilter">
+                            <option value="all">All States</option>
+                            <option value="mh">Maharashtra</option>
+                            <option value="up">Uttar Pradesh</option>
+                            <option value="gj">Gujarat</option>
+                            <option value="pb">Punjab</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>District/Mandi</label>
+                        <select id="mandiFilter">
+                            <option value="all">Select Mandi</option>
+                            <option value="pune">Pune APMC</option>
+                            <option value="nashik">Nashik APMC</option>
+                            <option value="nagpur">Nagpur APMC</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Role</label>
+                        <div class="role-toggles">
+                            <button class="role-btn active" onclick="setRole('seller')">Seller</button>
+                            <button class="role-btn" onclick="setRole('buyer')">Buyer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="ph-fill ph-lightning"></i> Quick Access</h3>
+                    <ul class="quick-links">
+                        <li><a href="#raw-rates"><i class="ph-bold ph-chart-line-up"></i> View Prices</a></li>
+                        <li><a href="#inventory"><i class="ph-bold ph-package"></i> Available Inventory</a></li>
+                        <li><a href="#my-listings"><i class="ph-bold ph-list-plus"></i> List New Crop Lot</a></li>
+                        <li><a href="#manage-trade"><i class="ph-bold ph-handshake"></i> Pending Trades</a></li>
+                        <li><a href="#my-trades"><i class="ph-bold ph-clock-counter-clockwise"></i> My Trades</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section recent-updates">
+                    <h3><i class="ph-fill ph-bell-ringing"></i> Recent Updates</h3>
+                    <div class="update-item">
+                        <span class="time">10:30 AM</span>
+                        <p>Wheat prices up by ₹50/qtl in Pune APMC</p>
+                    </div>
+                    <div class="update-item">
+                        <span class="time">09:15 AM</span>
+                        <p>New buyer inquiry for Soybean Lot #402</p>
+                    </div>
+                    <div class="update-item">
+                        <span class="time">Yesterday</span>
+                        <p>Trade deal #T892 completed successfully</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Dashboard Area -->
+            <div class="mandi-content">
+                
+                <!-- 1. Raw Crop Rates / View Prices -->
+                <section id="raw-rates" class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="ph-fill ph-currency-inr"></i> Raw Crop Rates & View Prices</h2>
+                        <span class="badge badge-green">Live Localized Data</span>
+                    </div>
+                    <div class="rates-grid">
+                        <div class="rate-card">
+                            <h4>Wheat (Lokwan)</h4>
+                            <div class="price-info">
+                                <span class="current-price">₹2,450 <small>/ qtl</small></span>
+                                <span class="trend up"><i class="ph-bold ph-trend-up"></i> +2.4%</span>
+                            </div>
+                            <p class="mandi-location"><i class="ph-bold ph-map-pin"></i> Pune APMC</p>
+                        </div>
+                        <div class="rate-card">
+                            <h4>Soybean (Yellow)</h4>
+                            <div class="price-info">
+                                <span class="current-price">₹4,200 <small>/ qtl</small></span>
+                                <span class="trend down"><i class="ph-bold ph-trend-down"></i> -1.1%</span>
+                            </div>
+                            <p class="mandi-location"><i class="ph-bold ph-map-pin"></i> Nashik APMC</p>
+                        </div>
+                        <div class="rate-card">
+                            <h4>Cotton (Long Staple)</h4>
+                            <div class="price-info">
+                                <span class="current-price">₹7,100 <small>/ qtl</small></span>
+                                <span class="trend up"><i class="ph-bold ph-trend-up"></i> +0.8%</span>
+                            </div>
+                            <p class="mandi-location"><i class="ph-bold ph-map-pin"></i> Nagpur APMC</p>
+                        </div>
+                        <div class="rate-card">
+                            <h4>Onion (Red)</h4>
+                            <div class="price-info">
+                                <span class="current-price">₹1,800 <small>/ qtl</small></span>
+                                <span class="trend up"><i class="ph-bold ph-trend-up"></i> +5.0%</span>
+                            </div>
+                            <p class="mandi-location"><i class="ph-bold ph-map-pin"></i> Nashik APMC</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Crop Trade & Inventory -->
+                <section id="inventory" class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="ph-fill ph-barn"></i> Crop Trade & Available Inventories</h2>
+                        <div class="search-box">
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                            <input type="text" placeholder="Search inventories...">
+                        </div>
+                    </div>
+                    <div class="inventory-table-container">
+                        <table class="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Crop Lot ID</th>
+                                    <th>Commodity</th>
+                                    <th>Quantity</th>
+                                    <th>Expected Price</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#LOT-8932</td>
+                                    <td>Soybean</td>
+                                    <td>50 Quintals</td>
+                                    <td>₹4,250/qtl</td>
+                                    <td>Pune, MH</td>
+                                    <td><span class="status available">Available</span></td>
+                                    <td><button class="btn btn-sm btn-primary">Bid / Buy</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#LOT-8933</td>
+                                    <td>Wheat</td>
+                                    <td>100 Quintals</td>
+                                    <td>₹2,500/qtl</td>
+                                    <td>Nashik, MH</td>
+                                    <td><span class="status available">Available</span></td>
+                                    <td><button class="btn btn-sm btn-primary">Bid / Buy</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#LOT-8934</td>
+                                    <td>Corn</td>
+                                    <td>30 Quintals</td>
+                                    <td>₹2,100/qtl</td>
+                                    <td>Nagpur, MH</td>
+                                    <td><span class="status pending">In Negotiation</span></td>
+                                    <td><button class="btn btn-sm btn-secondary" disabled>Locked</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 3. My Crop Listings -->
+                <section id="my-listings" class="dashboard-section seller-only">
+                    <div class="section-header">
+                        <h2><i class="ph-fill ph-list-bullets"></i> My Crop Listings</h2>
+                        <button class="btn btn-primary" onclick="openListLotModal()"><i class="ph-bold ph-plus"></i> List New Crop Lot</button>
+                    </div>
+                    <div class="listings-grid">
+                        <div class="listing-card">
+                            <div class="card-header">
+                                <h4>Soybean - High Quality</h4>
+                                <span class="badge badge-blue">Active</span>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Quantity:</strong> 50 qtl</p>
+                                <p><strong>Listed Price:</strong> ₹4,300/qtl</p>
+                                <p><strong>Views:</strong> 124</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-sm btn-outline">Edit Listing</button>
+                                <button class="btn btn-sm btn-danger-outline">Unlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Manage Trade & Inquiries -->
+                <section id="manage-trade" class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="ph-fill ph-handshake"></i> Manage Trade</h2>
+                    </div>
+                    <div class="trade-splits">
+                        <div class="trade-panel">
+                            <h3>Pending Trade Deals</h3>
+                            <ul class="trade-list">
+                                <li>
+                                    <div class="trade-info">
+                                        <strong>Deal #T-442</strong> (Wheat, 20 qtl)
+                                        <span>Offered: ₹2,400/qtl</span>
+                                    </div>
+                                    <div class="trade-actions">
+                                        <button class="btn btn-sm btn-success">Accept</button>
+                                        <button class="btn btn-sm btn-danger">Reject</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="trade-panel">
+                            <h3>Buyer Inquiries</h3>
+                            <ul class="inquiry-list">
+                                <li>
+                                    <div class="inquiry-header">
+                                        <div class="avatar-sm">R</div>
+                                        <span class="buyer-name">Ramesh Patil</span>
+                                        <span class="time">2h ago</span>
+                                    </div>
+                                    <p class="inquiry-text">"Is the price negotiable for Soybean Lot #8932 if I take all 50 qtl?"</p>
+                                    <button class="btn btn-sm btn-outline">Reply</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Market Analytics -->
+                <section id="analytics" class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="ph-fill ph-chart-bar"></i> Market Analytics: Trends & Forecasting</h2>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="chart-card">
+                            <h3>Price Trend Analysis (Past 30 Days)</h3>
+                            <div class="chart-container">
+                                <canvas id="priceTrendChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Demand Forecasting</h3>
+                            <div class="demand-stats">
+                                <div class="stat-item high-demand">
+                                    <i class="ph-bold ph-trend-up"></i>
+                                    <div class="stat-info">
+                                        <span>Soybean</span>
+                                        <strong>High Demand Expected (+15%)</strong>
+                                    </div>
+                                </div>
+                                <div class="stat-item moderate-demand">
+                                    <i class="ph-bold ph-minus"></i>
+                                    <div class="stat-info">
+                                        <span>Wheat</span>
+                                        <strong>Stable Demand</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <h3>Regional Market Data & Commodity Insights</h3>
+                            <p><strong>Insight 1:</strong> Rainfall deficit in Marathwada region has increased soybean prices by 4% locally.</p>
+                            <p><strong>Insight 2:</strong> Upcoming festival season expected to boost demand for pulses across major APMCs.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. My Trades (History) -->
+                <section id="my-trades" class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="ph-fill ph-clock-counter-clockwise"></i> My Trades (History)</h2>
+                        <button class="btn btn-outline btn-sm"><i class="ph-bold ph-download"></i> Download Report</button>
+                    </div>
+                    <div class="history-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Trade ID</th>
+                                    <th>Commodity</th>
+                                    <th>Quantity</th>
+                                    <th>Price/qtl</th>
+                                    <th>Total Value</th>
+                                    <th>Counterparty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12 Oct 2026</td>
+                                    <td>#T-301</td>
+                                    <td>Wheat</td>
+                                    <td>40 qtl</td>
+                                    <td>₹2,350</td>
+                                    <td>₹94,000</td>
+                                    <td>Shree Traders</td>
+                                </tr>
+                                <tr>
+                                    <td>05 Sep 2026</td>
+                                    <td>#T-284</td>
+                                    <td>Corn</td>
+                                    <td>25 qtl</td>
+                                    <td>₹2,050</td>
+                                    <td>₹51,250</td>
+                                    <td>Agri Foods Pvt Ltd</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Listing New Crop -->
+    <div id="listLotModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeListLotModal()">&times;</span>
+            <h2>List New Crop Lot</h2>
+            <form id="listCropForm" onsubmit="event.preventDefault(); closeListLotModal(); alert('Crop Listed Successfully!');">
+                <div class="form-group">
+                    <label>Commodity</label>
+                    <select required>
+                        <option value="">Select Crop</option>
+                        <option value="wheat">Wheat</option>
+                        <option value="soybean">Soybean</option>
+                        <option value="corn">Corn</option>
+                        <option value="cotton">Cotton</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Quantity (in Quintals)</label>
+                    <input type="number" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Expected Price (₹ per Quintal)</label>
+                    <input type="number" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Mandi/Location</label>
+                    <select required>
+                        <option value="pune">Pune APMC</option>
+                        <option value="nashik">Nashik APMC</option>
+                        <option value="nagpur">Nagpur APMC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Additional Notes / Quality</label>
+                    <textarea rows="3" placeholder="e.g., Grade A, Moisture 10%..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit Listing</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../session.js" defer></script>
+    <script src="../theme.js" defer></script>
+    <script src="mandi.js" defer></script>
+</body>
+</html>

@@ -34,12 +34,34 @@
                 <a href="index.html" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
                 <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
                 <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
-                <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
-                <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
-                <a href="contacts.html" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
+                <a href="rental/templates/index.html" target="_blank" data-i18n="nav_rental"><i class="ph-bold ph-tractor"></i> Rental</a>
                 
-                
+                <div class="info-menu" style="position: relative; display: flex; align-items: center; cursor: pointer; padding: 8px 12px; border-radius: 8px; font-weight: 500; font-size: 15px; color: var(--text-dark); transition: all 0.2s ease;" onclick="toggleInfoMenu(event)">
+                    <i class="ph-bold ph-info" style="margin-right: 6px;"></i> <span data-i18n="nav_more">More</span> <i class="ph-bold ph-caret-down" style="margin-left: 4px; font-size: 12px;"></i>
+                    <div class="info-dropdown" style="position: absolute; top: 100%; left: 0; margin-top: 8px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); width: 200px; display: none; flex-direction: column; z-index: 50; overflow: hidden;">
+                        <a href="schemes.html" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                        <a href="news.html" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                        <a href="about.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_about"><i class="ph-bold ph-info"></i> About Us</a>
+                        <a href="faq.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_faq"><i class="ph-bold ph-question"></i> FAQs</a>
+                        <a href="contacts.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
+                    </div>
+                </div>
                 <div class="right-nav-mobile">
+                    <div class="language-selector" style="margin-bottom: 15px; width: 100%; justify-content: space-between;">
+                        <span style="font-weight: 500; color: var(--text-dark);"><i class="ph-bold ph-translate"></i> Language</span>
+                        <select class="lang-select" style="background: var(--card-bg); border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 6px; color: var(--text-dark);">
+                            <option value="en">English</option>
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="mr">मराठी (Marathi)</option>
+                            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                            <option value="bn">বাংলা (Bengali)</option>
+                            <option value="te">తెలుగు (Telugu)</option>
+                            <option value="ta">தமிழ் (Tamil)</option>
+                            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                            <option value="ml">മലയാളം (Malayalam)</option>
+                            <option value="ur">اردو (Urdu)</option>
+                        </select>
+                    </div>
                     <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
                         <input type="checkbox" id="theme-checkbox-mobile">
                         <span class="slider"></span>
@@ -48,7 +70,7 @@
                         <div class="avatar">AS</div>
                         <span class="profile-name" data-i18n="my_account">My Account</span>
                         <div class="profile-dropdown">
-                            <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                            <a href="profile.html" data-i18n="dashboard"><i class="ph-bold ph-user"></i> Dashboard</a>
                             <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
                             <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
                         </div>
@@ -59,11 +81,17 @@
             <div class="right-nav">
                 <div class="language-selector">
                     <i class="ph-bold ph-translate"></i>
-                    <select id="lang-select">
+                    <select class="lang-select">
                         <option value="en">English</option>
                         <option value="hi">हिन्दी (Hindi)</option>
                         <option value="mr">मराठी (Marathi)</option>
                         <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                        <option value="ml">മലയാളം (Malayalam)</option>
+                        <option value="ur">اردو (Urdu)</option>
                     </select>
                 </div>
 
@@ -74,9 +102,9 @@
                 
                 <div class="profile-menu" onclick="toggleProfileMenu(event)">
                     <div class="avatar">AS</div>
-                    <span class="profile-name" style="display: none;">User</span>
+                    <span class="profile-name">User</span>
                     <div class="profile-dropdown" id="profileDropdown">
-                        <a href="profile.html" data-i18n="my_profile"><i class="ph-bold ph-user"></i> My Profile</a>
+                        <a href="profile.html" data-i18n="dashboard"><i class="ph-bold ph-user"></i> Dashboard</a>
                         <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
                         <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
                         <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
@@ -107,38 +135,60 @@
                 </div>
 
                 <!-- What is Karsakah AI? Section -->
-                <div class="about-container reverse">
-                    <div class="about-text">
+                <div class="about-container reverse" style="flex-direction: column; align-items: stretch;">
+                    <div class="about-text" style="text-align: center; margin-bottom: 2rem; flex: none;">
                         <h2>What is Karsakah AI?</h2>
-                        <p>Karsakah AI is a smart digital farming assistant designed to help farmers make better decisions using data-driven insights.</p>
-                        <p>By integrating multiple agricultural data sources and intelligent algorithms, Karsakah AI transforms complex data into simple, actionable insights for farmers.</p>
+                        <p>Karsakah AI is a smart digital farming assistant designed to help farmers make better decisions using data-driven insights. By integrating multiple agricultural data sources and intelligent algorithms, Karsakah AI transforms complex data into simple, actionable insights for farmers.</p>
                     </div>
-                    <div class="about-features">
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="ph-fill ph-plant"></i></div>
-                            <h3>Crop Disease Detection</h3>
-                            <p>Using AI image analysis to detect diseases early and prevent crop loss.</p>
+                    
+                    <div class="tabs-container">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" onclick="openTab(event, 'tab-disease')"><i class="ph-fill ph-plant"></i> Disease Detection</button>
+                            <button class="tab-btn" onclick="openTab(event, 'tab-weather')"><i class="ph-fill ph-cloud-sun"></i> Weather</button>
+                            <button class="tab-btn" onclick="openTab(event, 'tab-crop')"><i class="ph-fill ph-leaf"></i> Crop Recommendation</button>
+                            <button class="tab-btn" onclick="openTab(event, 'tab-irrigation')"><i class="ph-fill ph-drop"></i> Smart Irrigation</button>
+                            <button class="tab-btn" onclick="openTab(event, 'tab-market')"><i class="ph-fill ph-currency-inr"></i> Market Prices</button>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="ph-fill ph-cloud-sun"></i></div>
-                            <h3>Weather Guidelines</h3>
-                            <p>Weather-based farming recommendations tailored to your location.</p>
+                        <div class="tabs-content">
+                            <div id="tab-disease" class="tab-pane active">
+                                <div class="feature-icon"><i class="ph-fill ph-plant"></i></div>
+                                <h3>Crop Disease Detection</h3>
+                                <p>Using AI image analysis to detect diseases early and prevent crop loss.</p>
+                            </div>
+                            <div id="tab-weather" class="tab-pane">
+                                <div class="feature-icon"><i class="ph-fill ph-cloud-sun"></i></div>
+                                <h3>Weather Guidelines</h3>
+                                <p>Weather-based farming recommendations tailored to your location.</p>
+                            </div>
+                            <div id="tab-crop" class="tab-pane">
+                                <div class="feature-icon"><i class="ph-fill ph-leaf"></i></div>
+                                <h3>Crop Recommendation</h3>
+                                <p>Suggestions based on soil health and local climate conditions.</p>
+                            </div>
+                            <div id="tab-irrigation" class="tab-pane">
+                                <div class="feature-icon"><i class="ph-fill ph-drop"></i></div>
+                                <h3>Smart Irrigation</h3>
+                                <p>Suggestions to optimize water usage and conserve precious resources.</p>
+                            </div>
+                            <div id="tab-market" class="tab-pane">
+                                <div class="feature-icon"><i class="ph-fill ph-currency-inr"></i></div>
+                                <h3>Market Price Insights</h3>
+                                <p>Helping farmers sell crops at the right time for maximum profit.</p>
+                            </div>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="ph-fill ph-leaf"></i></div>
-                            <h3>Crop Recommendation</h3>
-                            <p>Suggestions based on soil health and local climate conditions.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="ph-fill ph-drop"></i></div>
-                            <h3>Smart Irrigation</h3>
-                            <p>Suggestions to optimize water usage and conserve precious resources.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="ph-fill ph-currency-inr"></i></div>
-                            <h3>Market Price Insights</h3>
-                            <p>Helping farmers sell crops at the right time for maximum profit.</p>
-                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Rental Section -->
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="assets/rental.png" alt="Equipment Rental" style="object-fit: cover; width: 100%; height: 100%;">
+                    </div>
+                    <div class="about-text">
+                        <h2>Equipment Rental Services</h2>
+                        <p>Looking for a tractor, harvester, or other heavy farming machinery? We've got you covered.</p>
+                        <p>Karsakah provides an easy-to-use platform to rent high-quality farming equipment at the best local rates. Save on capital costs by renting machinery exactly when you need it.</p>
+                        <a href="rental/templates/index.html" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Explore Rentals</a>
                     </div>
                 </div>
 
@@ -188,24 +238,16 @@
                 
                 <div class="team-grid">
                     <div class="team-member">
-                        <div class="team-member-icon"><i class="ph-fill ph-code"></i></div>
-                        <h3>Web Development</h3>
-                        <p>Creating highly responsive, user-friendly and robust platforms to ensure accessibility for every farmer.</p>
+                        <img src="https://avatars.githubusercontent.com/u/109508053?s=400&u=c1356c99e9737941720750fcaee9b143d6d055b4&v=4" alt="Sachin" class="team-member-img">
+                        <h3>Sachin</h3>
+                        <span class="role">Developer</span>
+                        <p>Web Development & AI integration. Passionate about bringing technology to agriculture.</p>
                     </div>
                     <div class="team-member">
-                        <div class="team-member-icon"><i class="ph-fill ph-brain"></i></div>
-                        <h3>Artificial Intelligence</h3>
-                        <p>Building state-of-the-art models for crop disease detection and yield optimization.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-icon"><i class="ph-fill ph-chart-bar"></i></div>
-                        <h3>Data Analysis</h3>
-                        <p>Processing big agricultural data, weather patterns, and market trends to deliver actionable insights.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-icon"><i class="ph-fill ph-plant"></i></div>
-                        <h3>Agricultural Research</h3>
-                        <p>Collaborating with local farmers and experts to ensure solutions align with real-world farming challenges.</p>
+                        <img src="https://ui-avatars.com/api/?name=Harshit&background=3B82F6&color=fff&size=400" alt="Harshit" class="team-member-img">
+                        <h3>Harshit</h3>
+                        <span class="role">Developer</span>
+                        <p>Data Analysis & Backend architecture. Focused on scalable solutions for farmers.</p>
                     </div>
                 </div>
                 <p style="margin-top: 3rem; font-size: 1.1rem; color: var(--text-color);">Together, we are working to create innovative solutions that can positively impact the farming community.</p>
@@ -215,18 +257,17 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
-                <div class="footer-socials">
-                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
-                </div>
-                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 20px;">
-                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">About Us</a>
-                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'">FAQs</a>
+                <!-- ** removed socials -->
+                                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+                    <a href="index.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_home">Home</a>    
+                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_about">About Us</a>
+                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_faq">FAQs</a>
+                    <a href="contacts.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_contacts">Contacts</a>
+                    <a href="privacy.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_privacy">Privacy Policy</a>
+                    <a href="terms.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_terms">Terms of Service</a>
                 </div>
                 <div class="footer-credits">
-                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Sachin , Harshit & Saklain.</p>
+                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Sachin & Harshit.</p>
                 </div>
             </div>
         </footer>
@@ -235,6 +276,18 @@
     <script src="theme.js" defer></script>
     <script src="chatbot.js" defer></script>
     <script src="translate.js" defer></script>
+    <script>
+        function openTab(evt, tabId) {
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>

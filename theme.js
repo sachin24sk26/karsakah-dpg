@@ -56,3 +56,23 @@ document.addEventListener('click', (event) => {
         profileMenu.classList.remove('open');
     }
 });
+
+
+window.toggleInfoMenu = function(event) {
+    event.stopPropagation();
+    const dropdown = event.currentTarget.querySelector('.info-dropdown');
+    const isVisible = dropdown.style.display === 'flex';
+    document.querySelectorAll('.info-dropdown, .profile-dropdown').forEach(d => {
+        if (d) d.style.display = 'none';
+    });
+    if (!isVisible) {
+        dropdown.style.display = 'flex';
+    }
+};
+
+// Update the close dropdowns listener
+const oldClickListener = document.addEventListener('click', (event) => {
+    document.querySelectorAll('.info-dropdown, .profile-dropdown').forEach(d => {
+        if (d) d.style.display = 'none';
+    });
+});

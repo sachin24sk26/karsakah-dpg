@@ -106,7 +106,7 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 12px;
 }
 
 .mobile-close-btn {
@@ -124,6 +124,7 @@ body {
     gap: 6px;
     padding: 8px 12px;
     border-radius: 8px;
+    white-space: nowrap;
 }
 
 .nav-links a:hover:not(.active) {
@@ -541,7 +542,7 @@ input:checked + .slider:before {
     margin-bottom: 24px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -555,7 +556,7 @@ input:checked + .slider:before {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     body {
         padding: 16px;
     }
