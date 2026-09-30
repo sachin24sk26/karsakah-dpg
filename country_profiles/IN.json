@@ -1,0 +1,43 @@
+{
+  "country": "IN",
+  "country_name": "India",
+  "node_id": "node-in-punjab-01",
+  "languages": ["pa", "hi", "mr", "bn", "te", "ta", "kn", "ml", "ur", "en"],
+  "default_language": "pa",
+  "units": {
+    "area": "acre",
+    "currency": "INR",
+    "yield": "quintal/acre"
+  },
+  "major_crops": [
+    { "id": "moong", "name": "Moong (Green Gram)", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "wheat", "name": "Wheat", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "rice", "name": "Paddy / Rice", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "chickpea", "name": "Gram / Chickpea", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "mustard", "name": "Mustard", "family": "Brassicaceae (Oilseed)", "nitrogen_fixing": false },
+    { "id": "cotton", "name": "Cotton", "family": "Malvaceae (Fiber)", "nitrogen_fixing": false },
+    { "id": "sugarcane", "name": "Sugarcane", "family": "Poaceae (Perennial)", "nitrogen_fixing": false },
+    { "id": "maize", "name": "Maize / Corn", "family": "Poaceae (Cereal)", "nitrogen_fixing": false }
+  ],
+  "seasons": {
+    "kharif": { "start_month": 6, "end_month": 10, "type": "Monsoon" },
+    "rabi": { "start_month": 11, "end_month": 4, "type": "Winter" },
+    "zaid": { "start_month": 4, "end_month": 6, "type": "Summer" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "agmarknet-data.gov.in"
+  },
+  "soil_defaults": {
+    "ph_min": 6.5,
+    "ph_max": 7.8,
+    "target_organic_carbon_g_kg": 10.0
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Kisan Call Centre: 1800-180-1551",
+    "emergency": "District Krishi Vigyan Kendra (KVK)"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "country": "RU",
+  "country_name": "Russia",
+  "node_id": "node-ru-krasnodar-01",
+  "languages": ["ru", "en"],
+  "default_language": "ru",
+  "units": {
+    "area": "hectare",
+    "currency": "RUB",
+    "yield": "c/ha"
+  },
+  "major_crops": [
+    { "id": "wheat", "name": "Spring / Winter Wheat", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "sunflower", "name": "Sunflower (Oilseed)", "family": "Asteraceae (Oilseed)", "nitrogen_fixing": false },
+    { "id": "barley", "name": "Barley", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "pea", "name": "Field Pea", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "buckwheat", "name": "Buckwheat", "family": "Polygonaceae (Cover)", "nitrogen_fixing": false }
+  ],
+  "seasons": {
+    "spring_summer": { "start_month": 4, "end_month": 9, "type": "Main Growing Season" },
+    "winter": { "start_month": 10, "end_month": 3, "type": "Dormant Snow Cover" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "mcx-ru"
+  },
+  "soil_defaults": {
+    "ph_min": 6.5,
+    "ph_max": 7.5,
+    "target_organic_carbon_g_kg": 25.0
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Federal Scientific Agroengineering Center VIM",
+    "emergency": "Ministry of Agriculture of the Russian Federation"
+  }
+}

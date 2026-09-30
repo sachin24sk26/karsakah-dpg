@@ -1,0 +1,39 @@
+{
+  "country": "CN",
+  "country_name": "China",
+  "node_id": "node-cn-hunan-01",
+  "languages": ["zh", "en"],
+  "default_language": "zh",
+  "units": {
+    "area": "mu",
+    "currency": "CNY",
+    "yield": "jin/mu"
+  },
+  "major_crops": [
+    { "id": "rice", "name": "Hybrid Paddy Rice", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "wheat", "name": "Winter Wheat", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "soybean", "name": "Soybean (Intercropped)", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "rapeseed", "name": "Rapeseed (Canola)", "family": "Brassicaceae (Oilseed)", "nitrogen_fixing": false },
+    { "id": "tea", "name": "Green Tea", "family": "Theaceae (Perennial)", "nitrogen_fixing": false }
+  ],
+  "seasons": {
+    "spring": { "start_month": 3, "end_month": 6, "type": "Spring Sowing" },
+    "autumn": { "start_month": 7, "end_month": 11, "type": "Autumn Harvest" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "moa-gov-cn"
+  },
+  "soil_defaults": {
+    "ph_min": 5.8,
+    "ph_max": 7.2,
+    "target_organic_carbon_g_kg": 14.0
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Chinese Academy of Agricultural Sciences (CAAS)",
+    "emergency": "National Agro-Tech Extension and Service Center (NATESC)"
+  }
+}

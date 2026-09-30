@@ -1,0 +1,445 @@
+/* Field Advisory Page Styles for KARSAKAH (Track 4) */
+
+.advisory-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px 80px 20px;
+}
+
+/* Header Section */
+.advisory-hero {
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.08) 0%, rgba(37, 99, 235, 0.08) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+.advisory-hero-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-pill.green { background: #ECFDF5; color: #059669; }
+.hero-pill.blue { background: #EFF6FF; color: #2563EB; }
+.hero-pill.purple { background: #F3E8FF; color: #7E22CE; }
+
+.dark-mode .hero-pill.green { background: rgba(5, 150, 105, 0.2); color: #34D399; }
+.dark-mode .hero-pill.blue { background: rgba(37, 99, 235, 0.2); color: #60A5FA; }
+.dark-mode .hero-pill.purple { background: rgba(126, 34, 206, 0.2); color: #C084FC; }
+
+.advisory-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.advisory-subtitle {
+    font-size: 15px;
+    color: var(--text-gray);
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Farm Input & Location Form */
+.advisory-form-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-select, .form-input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-dark);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-select:focus, .form-input:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+}
+
+.btn-generate {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
+    width: 100%;
+}
+
+.btn-generate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+}
+
+/* Results Grid */
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Top Status Banner (Confidence & Freshness) */
+.confidence-banner {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 6px solid #059669;
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.confidence-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.confidence-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #ECFDF5;
+    color: #059669;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.dark-mode .confidence-icon {
+    background: rgba(5, 150, 105, 0.2);
+    color: #34D399;
+}
+
+.confidence-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.confidence-desc {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-top: 2px;
+}
+
+.voice-btn-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.listen-btn {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.listen-btn:hover {
+    background: #1D4ED8;
+    transform: translateY(-1px);
+}
+
+/* Primary Recommendation Card */
+.primary-card {
+    background: var(--card-bg);
+    border: 2px solid #059669;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.1);
+}
+
+.primary-card-header {
+    background: linear-gradient(90deg, rgba(5, 150, 105, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.primary-crop-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.score-badge {
+    background: #059669;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.primary-card-body {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 850px) {
+    .primary-card-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reasons-box, .practices-box {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.box-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reason-list, .practice-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reason-item, .practice-item {
+    font-size: 13px;
+    color: var(--text-dark);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.reason-item i {
+    color: #2563EB;
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.practice-item i {
+    color: #059669;
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* Water & Risk Alerts 2-Column Grid */
+.water-risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 850px) {
+    .water-risk-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.water-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    border-left: 5px solid #2563EB;
+}
+
+.risk-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    border-left: 5px solid #D97706;
+}
+
+.water-card-title, .risk-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.water-desc, .risk-desc {
+    font-size: 13px;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* Alternative Recommendations Grid */
+.alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.alt-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.alt-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alt-crop-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.alt-score {
+    font-size: 13px;
+    font-weight: 700;
+    color: #059669;
+    background: var(--badge-green-bg);
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.alt-why {
+    font-size: 12px;
+    color: var(--text-gray);
+    line-height: 1.4;
+}
+
+/* Provenance Card */
+.provenance-box {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: var(--text-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}

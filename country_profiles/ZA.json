@@ -1,0 +1,40 @@
+{
+  "country": "ZA",
+  "country_name": "South Africa",
+  "node_id": "node-za-kzn-03",
+  "languages": ["zu", "xh", "af", "st", "en"],
+  "default_language": "en",
+  "units": {
+    "area": "hectare",
+    "currency": "ZAR",
+    "yield": "t/ha"
+  },
+  "major_crops": [
+    { "id": "cowpea", "name": "Cowpea (Vigna unguiculata)", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "maize", "name": "White/Yellow Maize", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "sorghum", "name": "Sorghum", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "sunflower", "name": "Sunflower", "family": "Asteraceae (Oilseed)", "nitrogen_fixing": false },
+    { "id": "dry_bean", "name": "Dry Bean", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "citrus", "name": "Citrus", "family": "Rutaceae (Orchard)", "nitrogen_fixing": false }
+  ],
+  "seasons": {
+    "summer": { "start_month": 10, "end_month": 4, "type": "Summer Rainfall" },
+    "winter": { "start_month": 5, "end_month": 9, "type": "Dry / Coastal Winter" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "sagis-amts"
+  },
+  "soil_defaults": {
+    "ph_min": 5.8,
+    "ph_max": 7.2,
+    "target_organic_carbon_g_kg": 9.0
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Department of Agriculture, Land Reform and Rural Development (DALRRD)",
+    "emergency": "Agricultural Research Council (ARC) Helpline"
+  }
+}

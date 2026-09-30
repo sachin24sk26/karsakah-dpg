@@ -1,0 +1,38 @@
+{
+  "country": "EG",
+  "country_name": "Egypt",
+  "node_id": "node-eg-nile-01",
+  "languages": ["ar", "en"],
+  "default_language": "ar",
+  "units": {
+    "area": "feddan",
+    "currency": "EGP",
+    "yield": "ardeb/feddan"
+  },
+  "major_crops": [
+    { "id": "faba_bean", "name": "Faba Bean (Broad Bean)", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "wheat", "name": "Wheat (Triticum durum)", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "cotton", "name": "Egyptian Long-Staple Cotton", "family": "Malvaceae (Fiber)", "nitrogen_fixing": false },
+    { "id": "clover", "name": "Egyptian Clover / Berseem", "family": "Fabaceae (Legume)", "nitrogen_fixing": true }
+  ],
+  "seasons": {
+    "winter": { "start_month": 10, "end_month": 4, "type": "Winter Nile Season" },
+    "summer": { "start_month": 5, "end_month": 9, "type": "Summer Irrigated" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "malr-eg"
+  },
+  "soil_defaults": {
+    "ph_min": 7.6,
+    "ph_max": 8.4,
+    "target_organic_carbon_g_kg": 8.5
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Ministry of Agriculture and Land Reclamation (MALR)",
+    "emergency": "Agricultural Research Center (ARC) Helpline"
+  }
+}

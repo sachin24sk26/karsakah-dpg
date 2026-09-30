@@ -4,94 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KARSAKAH is an expert agricultural platform for crop identification, market prices, and government schemes.">
-    <title>KARSAKAH</title>
+    <meta name="description" content="KARSAKAH — AI-powered regenerative field advisory, crop disease diagnosis, BRICS federated network, and live market intelligence for smallholder farmers.">
+    <meta name="theme-color" content="#2563EB">
+    <title>KARSAKAH — Smart Farming Intelligence Platform</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="chatbot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
     <div class="app-wrapper">
-        <!-- Navbar -->
-        <header class="navbar">
-            <div class="logo">
-                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img" style="height: 48px; width: auto; object-fit: contain;">
-            </div>
-            
-            <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+
+        <!-- ========== NAVBAR ========== -->
+        <header class="navbar" id="main-navbar">
+            <a href="index.html" class="logo" aria-label="KARSAKAH Home">
+                <img src="assets/karsakah-logo.png" alt="KARSAKAH Logo" class="logo-img">
+            </a>
+
+            <button class="mobile-menu-btn" aria-label="Open Menu" onclick="toggleMobileMenu()" id="mobile-menu-open">
                 <i class="ph-bold ph-list"></i>
             </button>
 
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
                 <button class="mobile-close-btn" aria-label="Close Menu" onclick="toggleMobileMenu()">
                     <i class="ph-bold ph-x"></i>
                 </button>
+
                 <a href="index.html" class="active" data-i18n="nav_home"><i class="ph-bold ph-house"></i> Home</a>
-                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Identification</a>
-                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Live Market Prices</a>
-                
-                <div class="info-menu" style="position: relative; display: flex; align-items: center; cursor: pointer; padding: 8px 12px; border-radius: 8px; font-weight: 500; font-size: 15px; color: var(--text-dark); transition: all 0.2s ease;" onclick="toggleInfoMenu(event)">
-                    <i class="ph-bold ph-info" style="margin-right: 6px;"></i> <span data-i18n="nav_more">More</span> <i class="ph-bold ph-caret-down" style="margin-left: 4px; font-size: 12px;"></i>
-                    <div class="info-dropdown" style="position: absolute; top: 100%; left: 0; margin-top: 8px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); width: 200px; display: none; flex-direction: column; z-index: 50; overflow: hidden;">
-                        <a href="schemes.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
-                        <a href="rental/templates/index.html" data-i18n="nav_rental" target="_blank" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_contacts"><i class="ph-bold ph-tractor"></i> Rental</a>
-                        <a href="market/mandi.html" data-i18n="nav_mandi" data-i18n="nav_mandi" target="_blank" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_contacts"><i class="ph-bold ph-storefront"></i> Mandi</a>
-                        <a href="news.html"  style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
-                        <a href="about.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_about"><i class="ph-bold ph-info"></i> About Us</a>
-                        <a href="faq.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_faq"><i class="ph-bold ph-question"></i> FAQs</a>
-                        <a href="contacts.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-dark); font-size: 14px; display: flex; align-items: center; gap: 12px; transition: background-color 0.2s;" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contacts</a>
+                <a href="advisory.html"><i class="ph-bold ph-plant"></i> Advisory</a>
+                <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Doctor</a>
+                <a href="network.html"><i class="ph-bold ph-globe"></i> BRICS Hub</a>
+                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Prices</a>
+                <a href="weather.html"><i class="ph-bold ph-cloud-sun"></i> Weather</a>
+
+                <!-- More dropdown -->
+                <div class="info-menu" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" onclick="toggleInfoMenu(event)" onkeypress="if(event.key==='Enter')toggleInfoMenu(event)">
+                    <i class="ph-bold ph-dots-three-outline-vertical"></i> <span data-i18n="nav_more">More</span> <i class="ph-bold ph-caret-down" style="font-size:11px; margin-left:2px;"></i>
+                    <div class="info-dropdown" id="info-dropdown" role="menu">
+                        <a href="schemes.html" role="menuitem" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
+                        <a href="rental/templates/index.html" role="menuitem" target="_blank"><i class="ph-bold ph-tractor"></i> Equipment Rental</a>
+                        <a href="market/mandi.html" role="menuitem" target="_blank"><i class="ph-bold ph-storefront"></i> Mandi Market</a>
+                        <a href="news.html" role="menuitem" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                        <a href="about.html" role="menuitem" data-i18n="nav_about"><i class="ph-bold ph-info"></i> About</a>
+                        <a href="faq.html" role="menuitem" data-i18n="nav_faq"><i class="ph-bold ph-question"></i> FAQs</a>
+                        <a href="contacts.html" role="menuitem" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contact</a>
+                        <a href="implementation.html" role="menuitem"><i class="ph-bold ph-kanban"></i> Track 4 Roadmap</a>
                     </div>
                 </div>
+
+                <!-- Mobile-only bottom controls -->
                 <div class="right-nav-mobile">
-                    <div class="language-selector" style="margin-bottom: 15px; width: 100%; justify-content: space-between;">
-                        <span style="font-weight: 500; color: var(--text-dark);"><i class="ph-bold ph-translate"></i> Language</span>
-                        <select class="lang-select" style="background: var(--card-bg); border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 6px; color: var(--text-dark);">
+                    <div class="language-selector" style="width:100%">
+                        <i class="ph-bold ph-translate"></i>
+                        <select class="lang-select" aria-label="Select language">
                             <option value="en">English</option>
-                            <option value="hi">हिन्दी (Hindi)</option>
-                            <option value="mr">मराठी (Marathi)</option>
-                            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-                            <option value="bn">বাংলা (Bengali)</option>
-                            <option value="te">తెలుగు (Telugu)</option>
-                            <option value="ta">தமிழ் (Tamil)</option>
-                            <option value="kn">ಕನ್ನಡ (Kannada)</option>
-                            <option value="ml">മലയാളം (Malayalam)</option>
-                            <option value="ur">اردو (Urdu)</option>
+                            <option value="hi">हिन्दी</option>
+                            <option value="mr">मराठी</option>
+                            <option value="pa">ਪੰਜਾਬੀ</option>
+                            <option value="bn">বাংলা</option>
+                            <option value="te">తెలుగు</option>
+                            <option value="ta">தமிழ்</option>
+                            <option value="kn">ಕನ್ನಡ</option>
+                            <option value="ml">മലയാളം</option>
+                            <option value="ur">اردو</option>
                         </select>
                     </div>
-                    <label class="switch" id="theme-toggle-mobile" aria-label="Toggle Dark Mode">
+                    <label class="switch" aria-label="Toggle Dark Mode">
                         <input type="checkbox" id="theme-checkbox-mobile">
                         <span class="slider"></span>
                     </label>
                     <div class="profile-menu" onclick="toggleProfileMenu(event)">
-                        <div class="avatar">AS</div>
+                        <div class="avatar" id="mobile-avatar">AS</div>
                         <span class="profile-name" data-i18n="my_account">My Account</span>
                         <div class="profile-dropdown">
-                            <a href="profile.html" data-i18n="dashboard"><i class="ph-bold ph-user"></i> Dashboard</a>
-                            <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
-                            <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                            <a href="profile.html"><i class="ph-bold ph-user"></i> Dashboard</a>
+                            <a href="profile.html"><i class="ph-bold ph-gear"></i> Settings</a>
+                            <a href="#" class="danger"><i class="ph-bold ph-sign-out"></i> Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
 
+            <!-- Desktop right controls -->
             <div class="right-nav">
                 <div class="language-selector">
                     <i class="ph-bold ph-translate"></i>
-                    <select class="lang-select">
+                    <select class="lang-select" aria-label="Select language">
                         <option value="en">English</option>
-                        <option value="hi">हिन्दी (Hindi)</option>
-                        <option value="mr">मराठी (Marathi)</option>
-                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-                        <option value="bn">বাংলা (Bengali)</option>
-                        <option value="te">తెలుగు (Telugu)</option>
-                        <option value="ta">தமிழ் (Tamil)</option>
-                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
-                        <option value="ml">മലയാളം (Malayalam)</option>
-                        <option value="ur">اردو (Urdu)</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="mr">मराठी</option>
+                        <option value="pa">ਪੰਜਾਬੀ</option>
+                        <option value="bn">বাংলা</option>
+                        <option value="te">తెలుగు</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                        <option value="ml">മലയാളം</option>
+                        <option value="ur">اردو</option>
                     </select>
                 </div>
 
@@ -99,196 +110,258 @@
                     <input type="checkbox" id="theme-checkbox">
                     <span class="slider"></span>
                 </label>
-                
+
                 <div class="profile-menu" onclick="toggleProfileMenu(event)">
-                    <div class="avatar">AS</div>
-                    <span class="profile-name">User</span>
+                    <div class="avatar" id="desktop-avatar">AS</div>
+                    <span class="profile-name" id="nav-username">User</span>
                     <div class="profile-dropdown" id="profileDropdown">
-                        <a href="profile.html" data-i18n="dashboard"><i class="ph-bold ph-user"></i> Dashboard</a>
-                        <a href="profile.html" data-i18n="settings"><i class="ph-bold ph-gear"></i> Settings</a>
-                        <a href="profile.html" data-i18n="history"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
-                        <a href="#" class="danger" data-i18n="logout"><i class="ph-bold ph-sign-out"></i> Log Out</a>
+                        <a href="profile.html"><i class="ph-bold ph-user"></i> Dashboard</a>
+                        <a href="profile.html"><i class="ph-bold ph-gear"></i> Settings</a>
+                        <a href="profile.html"><i class="ph-bold ph-clock-counter-clockwise"></i> History</a>
+                        <a href="#" class="danger"><i class="ph-bold ph-sign-out"></i> Log Out</a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Hero Section -->
-        <main>
-            <section class="hero" id="hero-section">
+        <!-- ========== HERO ========== -->
+        <main id="main-content">
+            <section class="hero" id="hero-section" aria-label="Hero banner">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1>Revolutionizing Farming<br>with AI & Live Data.</h1>
-                    <p>Identify Crops Instantly & Access Real-Time Market Prices.</p>
+                    <div class="hero-dpg-strip">
+                        <span class="hero-dpg-pill"><i class="ph-bold ph-shield-check"></i> Digital Public Good</span>
+                        <span class="hero-dpg-pill"><i class="ph-bold ph-leaf"></i> Track 4 — BRICS</span>
+                        <span class="hero-dpg-pill"><i class="ph-bold ph-sparkle"></i> Gemini AI</span>
+                    </div>
+                    <h1>Revolutionizing Farming<br>with AI &amp; Live Data.</h1>
+                    <p>Regenerative field advisory, instant disease diagnosis, and cross-border agronomic intelligence — built for the world's 500M+ smallholder farmers.</p>
                     <div class="hero-buttons">
-                        <a href="crop_id.html" class="btn btn-primary">Identify Crop Now</a>
-                        <a href="prices.html" class="btn btn-secondary">Check Prices</a>
+                        <a href="advisory.html" class="btn btn-primary" id="hero-advisory-btn"><i class="ph-bold ph-plant"></i> Get Field Advisory</a>
+                        <a href="crop_id.html" class="btn btn-secondary" id="hero-doctor-btn"><i class="ph-bold ph-scan"></i> Crop Doctor</a>
+                        <a href="network.html" class="btn btn-secondary" id="hero-brics-btn"><i class="ph-bold ph-globe"></i> BRICS Hub</a>
                     </div>
                 </div>
-                <div class="carousel-indicators">
+                <div class="carousel-indicators" aria-hidden="true">
                     <span class="indicator active" onclick="setSlide(0)"></span>
                     <span class="indicator" onclick="setSlide(1)"></span>
                     <span class="indicator" onclick="setSlide(2)"></span>
                 </div>
             </section>
-            
+
+            <!-- Hero slideshow script (inline, fast) -->
             <script>
-                // Hero Slideshow Logic
-                const heroImages = [
-                    'assets/hero_bg.png',
-                    'assets/hero_bg 2.jpg',
-                    'assets/hero_bg 3.jpg'
-                ];
+                const heroImages = ['assets/hero_bg.png', 'assets/hero_bg 2.jpg', 'assets/hero_bg 3.jpg'];
                 let currentSlide = 0;
                 const heroSection = document.getElementById('hero-section');
                 const indicators = document.querySelectorAll('.hero .indicator');
-                
+
                 function updateSlide() {
                     heroSection.style.backgroundImage = `url('${heroImages[currentSlide]}')`;
-                    indicators.forEach((ind, index) => {
-                        ind.classList.toggle('active', index === currentSlide);
-                    });
+                    indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentSlide));
                 }
-                
+
                 function nextSlide() {
                     currentSlide = (currentSlide + 1) % heroImages.length;
                     updateSlide();
                 }
-                
-                function setSlide(index) {
-                    currentSlide = index;
-                    updateSlide();
-                }
-                
-                // Change slide every 5 seconds
-                setInterval(nextSlide, 2000);
-                
-                // Set initial slide
+
+                function setSlide(i) { currentSlide = i; updateSlide(); }
+
                 updateSlide();
+                setInterval(nextSlide, 4000);
             </script>
 
-            <!-- Services Section -->
-            <section class="services">
-                <h2>Our Key Services</h2>
-                <div class="services-grid">
+            <!-- ========== SERVICES SECTION ========== -->
+            <section class="services" aria-labelledby="services-heading">
+                <div class="services-heading">
+                    <h2 id="services-heading">Our Key Services</h2>
+                    <span class="services-subtext">8 integrated modules for modern farmers</span>
+                </div>
 
-                    <!-- Card 1 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/card_crop_id.png" alt="Crop Identification">
+                <div class="services-grid" id="services-grid">
+
+                    <!-- Field Advisory (featured) -->
+                    <div class="card" style="border: 2px solid var(--primary-green);">
+                        <div class="card-image" style="background: linear-gradient(135deg, rgba(5,150,105,0.18) 0%, rgba(37,99,235,0.12) 100%); display:flex; align-items:center; justify-content:center; height:160px;">
+                            <i class="ph-bold ph-plant" style="font-size:60px; color: var(--primary-green);"></i>
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-blue">
-                                <i class="ph-fill ph-plant"></i> Crop Identification System
-                            </div>
-                            <h3>Instant Crop Disease & Type Identification</h3>
-                            <p>Upload photos of your crops. Our AI detects diseases, identifies crop types, and provides
-                                actionable insights.</p>
-                            <a href="crop_id.html" class="btn btn-primary btn-sm">Try It Now</a>
+                            <div class="badge badge-green"><i class="ph-fill ph-sparkle"></i> Track 4 Core</div>
+                            <h3>Smart Regenerative Field Advisory</h3>
+                            <p>Data-driven crop recommendations using live soil pH, organic carbon &amp; 7-day weather forecasts. Includes TTS voice readout for low-literacy users.</p>
+                            <a href="advisory.html" class="btn btn-primary btn-sm" id="card-advisory-btn"><i class="ph-bold ph-arrow-right"></i> Get Advisory Plan</a>
                         </div>
                     </div>
 
-                    <!-- Card Mandi -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/mandi.png" style="object-fit: cover; width: 100%; height: 100%;" alt="Mandi (Agri Market)">
+                    <!-- BRICS Network (featured) -->
+                    <div class="card" style="border: 2px solid var(--primary-blue);">
+                        <div class="card-image" style="background: linear-gradient(135deg, rgba(37,99,235,0.18) 0%, rgba(124,58,237,0.12) 100%); display:flex; align-items:center; justify-content:center; height:160px;">
+                            <i class="ph-bold ph-globe-hemisphere-west" style="font-size:60px; color: var(--primary-blue);"></i>
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-green">
-                                <i class="ph-fill ph-storefront"></i> Agri Market
-                            </div>
-                            <h3>Mandi (Agri Market)</h3>
-                            <p>Connect directly with buyers and sellers. Trade your agricultural produce securely at the best local prices.</p>
-                            <a href="market/mandi.html" class="btn btn-primary btn-sm">Visit Mandi</a>
+                            <div class="badge badge-blue"><i class="ph-fill ph-globe"></i> BRICS Interoperability</div>
+                            <h3>BRICS Federated Agronomic Network</h3>
+                            <p>Sovereign nodes across India, Brazil &amp; South Africa exchanging early disease warnings with zero raw-data leakage — privacy-first by design.</p>
+                            <a href="network.html" class="btn btn-primary btn-sm" id="card-brics-btn"><i class="ph-bold ph-arrow-right"></i> Explore Hub</a>
                         </div>
                     </div>
 
-                    <!-- Card 2 -->
+                    <!-- Crop Doctor -->
                     <div class="card">
                         <div class="card-image">
-                            <img src="assets/card_dashboard.png" alt="Live Market Prices">
+                            <img src="assets/card_crop_id.png" alt="Crop Doctor — AI Disease Identification" loading="lazy">
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-green">
-                                <i class="ph-fill ph-chart-line-up"></i> Live Market Prices
-                            </div>
+                            <div class="badge badge-blue"><i class="ph-fill ph-scan"></i> AI Disease Diagnosis</div>
+                            <h3>Crop Doctor — Instant Disease ID</h3>
+                            <p>Upload a photo from any device. AI detects disease, identifies crop type, and gives organic-first treatment plans with 2G/3G image compression.</p>
+                            <a href="crop_id.html" class="btn btn-primary btn-sm" id="card-cropid-btn"><i class="ph-bold ph-arrow-right"></i> Try Crop Doctor</a>
+                        </div>
+                    </div>
+
+                    <!-- Mandi Market -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/mandi.png" alt="Mandi — Agricultural Marketplace" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-green"><i class="ph-fill ph-storefront"></i> Agri Market</div>
+                            <h3>Mandi — Agri Marketplace</h3>
+                            <p>Connect directly with verified buyers and sellers. Trade produce securely at transparent local prices — no middlemen.</p>
+                            <a href="market/mandi.html" class="btn btn-primary btn-sm" id="card-mandi-btn"><i class="ph-bold ph-arrow-right"></i> Visit Mandi</a>
+                        </div>
+                    </div>
+
+                    <!-- Market Prices -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/card_dashboard.png" alt="Live Market Price Dashboard" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-green"><i class="ph-fill ph-chart-line-up"></i> Live Market Prices</div>
                             <h3>Live Market Price Updates</h3>
-                            <p>Stay informed with real-time pricing for Corn, Wheat, Soybeans, and more. Track trends
-                                and make data-driven sales.</p>
-                            <a href="prices.html" class="btn btn-primary btn-sm">View Prices</a>
+                            <p>Real-time pricing for Corn, Wheat, Soybeans and more. Track trends and make data-driven sales decisions every day.</p>
+                            <a href="prices.html" class="btn btn-primary btn-sm" id="card-prices-btn"><i class="ph-bold ph-arrow-right"></i> View Prices</a>
                         </div>
                     </div>
 
-                    <!-- Card 3 -->
+                    <!-- Gov Schemes -->
                     <div class="card">
                         <div class="card-image">
-                            <img src="assets/card_schemes.png" alt="Government Schemes">
+                            <img src="assets/card_schemes.png" alt="Government Agricultural Schemes" loading="lazy">
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-purple">
-                                <i class="ph-fill ph-file-text"></i> Government Schemes
-                            </div>
-                            <h3>Explore Agricultural Schemes</h3>
-                            <p>Discover government subsidies, insurance policies, and financial aid available for farmers to maximize your yield & profit.</p>
-                            <a href="schemes.html" class="btn btn-primary btn-sm">Learn More</a>
+                            <div class="badge badge-purple"><i class="ph-fill ph-file-text"></i> Government Schemes</div>
+                            <h3>Agricultural Schemes &amp; Subsidies</h3>
+                            <p>Discover government subsidies, insurance policies, and financial aid tailored for farmers to maximize yield and profit.</p>
+                            <a href="schemes.html" class="btn btn-primary btn-sm" id="card-schemes-btn"><i class="ph-bold ph-arrow-right"></i> Explore Schemes</a>
                         </div>
                     </div>
 
-                    <!-- Card 4 -->
+                    <!-- Weather -->
                     <div class="card">
                         <div class="card-image">
-                            <img src="assets/card_weather.png" alt="Climatic Conditions">
+                            <img src="assets/card_weather.png" alt="Real-Time Weather Forecast" loading="lazy">
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-orange">
-                                <i class="ph-fill ph-sun"></i> Climatic Conditions
-                            </div>
+                            <div class="badge badge-orange"><i class="ph-fill ph-sun"></i> Weather Forecast</div>
                             <h3>Real-Time Weather Updates</h3>
-                            <p>Get accurate, location-based weather forecasts, temperature, and humidity levels to perfectly plan your farming activities.</p>
-                            <a href="weather.html" class="btn btn-primary btn-sm">Check Weather</a>
+                            <p>Accurate, location-based forecasts for temperature, humidity, and rainfall — plan every farming activity with confidence.</p>
+                            <a href="weather.html" class="btn btn-primary btn-sm" id="card-weather-btn"><i class="ph-bold ph-arrow-right"></i> Check Weather</a>
                         </div>
                     </div>
 
-                    <!-- Card 5 -->
+                    <!-- Equipment Rental -->
                     <div class="card">
                         <div class="card-image">
-                            <img src="assets/rental.png" style="object-fit: cover; width: 100%; height: 100%; opacity: 0.8;" alt="Tractor & Equipment Rental">
+                            <img src="assets/rental.png" alt="Tractor and Equipment Rental" loading="lazy" style="object-fit:cover; opacity:0.88;">
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-blue">
-                                <i class="ph-fill ph-truck"></i> Equipment Rental
-                            </div>
-                            <h3>Tractor & Equipment Rental</h3>
-                            <p>Rent tractors, harvesters, and other farming equipment easily. Find the best rates in your local area.</p>
-                            <a href="rental/templates/index.html" target="_blank" class="btn btn-primary btn-sm">Rent Now</a>
+                            <div class="badge badge-blue"><i class="ph-fill ph-tractor"></i> Equipment Rental</div>
+                            <h3>Tractor &amp; Equipment Rental</h3>
+                            <p>Rent tractors, harvesters, and farming equipment at the best local rates. No ownership costs — just get the job done.</p>
+                            <a href="rental/templates/index.html" target="_blank" class="btn btn-primary btn-sm" id="card-rental-btn"><i class="ph-bold ph-arrow-right"></i> Rent Now</a>
                         </div>
                     </div>
 
                 </div>
             </section>
         </main>
-        <!-- Footer -->
-        <footer class="footer">
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer" aria-label="Site footer">
             <div class="footer-content">
-                <!-- ** removed socials -->
-                                <div class="footer-links" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
-                    <a href="index.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_home">Home</a>    
-                    <a href="about.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_about">About Us</a>
-                    <a href="faq.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_faq">FAQs</a>
-                    <a href="contacts.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_contacts">Contacts</a>
-                    <a href="privacy.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_privacy">Privacy Policy</a>
-                    <a href="terms.html" style="color: var(--text-color); opacity: 0.8; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='var(--text-color)'" data-i18n="nav_terms">Terms of Service</a>
-                </div>
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="index.html" data-i18n="nav_home">Home</a>
+                    <a href="advisory.html">Advisory</a>
+                    <a href="crop_id.html">Crop Doctor</a>
+                    <a href="network.html">BRICS Hub</a>
+                    <a href="prices.html">Prices</a>
+                    <a href="weather.html">Weather</a>
+                    <a href="schemes.html">Schemes</a>
+                    <a href="news.html">News</a>
+                    <a href="about.html">About</a>
+                    <a href="faq.html">FAQs</a>
+                    <a href="contacts.html">Contact</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="implementation.html" class="highlight">Track 4 Roadmap</a>
+                </nav>
                 <div class="footer-credits">
-                    <p>&copy; 2026 KARSAKAH. Designed & Developed by Sachin & Harshit.</p>
+                    <p>&copy; 2026 KARSAKAH — Built for BRICS Track 4 · Designed &amp; Developed by Sachin &amp; Harshit</p>
                 </div>
             </div>
         </footer>
-    </div>
+
+    </div><!-- end .app-wrapper -->
+
+    <!-- Mobile menu overlay backdrop -->
+    <div id="menu-backdrop" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:400; backdrop-filter:blur(3px);" onclick="toggleMobileMenu()"></div>
+
     <script src="session.js" defer></script>
     <script src="theme.js" defer></script>
     <script src="chatbot.js" defer></script>
     <script src="translate.js" defer></script>
+
+    <script>
+        function toggleMobileMenu() {
+            const nav = document.getElementById('nav-links');
+            const backdrop = document.getElementById('menu-backdrop');
+            const isOpen = nav.classList.toggle('active');
+            backdrop.style.display = isOpen ? 'block' : 'none';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        function toggleInfoMenu(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('info-dropdown');
+            const isOpen = dropdown.style.display === 'flex';
+            // Close all first
+            document.querySelectorAll('.info-dropdown').forEach(d => d.style.display = 'none');
+            if (!isOpen) {
+                dropdown.style.display = 'flex';
+                dropdown.style.flexDirection = 'column';
+            }
+        }
+
+        function toggleProfileMenu(e) {
+            e.stopPropagation();
+            const menus = document.querySelectorAll('.profile-menu');
+            menus.forEach(m => {
+                if (m.contains(e.currentTarget || e.target)) {
+                    m.classList.toggle('open');
+                } else {
+                    m.classList.remove('open');
+                }
+            });
+        }
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.info-dropdown').forEach(d => d.style.display = 'none');
+            document.querySelectorAll('.profile-menu').forEach(m => m.classList.remove('open'));
+        });
+    </script>
 </body>
 
 </html>

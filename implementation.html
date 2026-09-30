@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KARSAKAH Track 4 Implementation Roadmap — Priority-based progress tracker for the BRICS Digital Public Good Agricultural Platform.">
+    <title>Track 4 Roadmap — KARSAKAH Implementation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="implementation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar (populated by navbar.js) -->
+        <header class="navbar"></header>
+
+        <main class="roadmap-container" id="roadmap-main">
+
+            <!-- Header / Hero -->
+            <section class="roadmap-header">
+                <div class="roadmap-badge-row">
+                    <span class="status-pill pill-urgent"><i class="ph-bold ph-lightning"></i> Track 4 · BRICS</span>
+                    <span class="status-pill pill-recommended"><i class="ph-bold ph-leaf"></i> Digital Public Good</span>
+                    <span class="status-pill" style="background:var(--badge-blue-bg); color:var(--badge-blue-color);">
+                        <i class="ph-bold ph-kanban"></i> Live Progress Tracker
+                    </span>
+                </div>
+                <h1 class="roadmap-title">
+                    <i class="ph-bold ph-kanban" style="color:#2563EB;"></i> KARSAKAH — Track 4 Implementation Roadmap
+                </h1>
+                <p class="roadmap-subtitle">Priority-weighted, interactive progress tracker for the 8-phase BRICS Federated Agricultural Intelligence Platform. Phases are ordered by impact × ease score — ship the highest-value work first.</p>
+            </section>
+
+            <!-- Overall Progress Bar -->
+            <div class="overall-progress-card" id="overall-progress-card"></div>
+
+            <!-- Phase Navigation Tabs -->
+            <div class="phase-tabs" id="phase-tabs"></div>
+
+            <!-- Filter & Search Bar -->
+            <div class="filter-bar" id="filter-bar"></div>
+
+            <!-- Task Grid (dynamic) -->
+            <div class="task-grid" id="task-grid"></div>
+
+            <!-- Architecture Simulator -->
+            <section class="arch-section" id="arch-section" style="display:none;"></section>
+
+            <!-- BRICS API Tester -->
+            <section class="api-tester-section" id="api-tester-section" style="display:none;"></section>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH — Track 4 Implementation Tracker &bull; BRICS Digital Public Good &bull; Built by Sachin &amp; Harshit</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="theme.js"></script>
+    <script src="implementation.js"></script>
+    <script src="session.js" defer></script>
+</body>
+
+</html>

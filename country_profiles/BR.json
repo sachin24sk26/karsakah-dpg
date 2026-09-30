@@ -1,0 +1,40 @@
+{
+  "country": "BR",
+  "country_name": "Brazil",
+  "node_id": "node-br-cerrado-02",
+  "languages": ["pt", "en", "es"],
+  "default_language": "pt",
+  "units": {
+    "area": "hectare",
+    "currency": "BRL",
+    "yield": "sc/ha"
+  },
+  "major_crops": [
+    { "id": "soybean", "name": "Soja (Soybean)", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "maize", "name": "Milho (Maize / Safrinha)", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "sugarcane", "name": "Cana-de-açúcar (Sugarcane)", "family": "Poaceae (Perennial)", "nitrogen_fixing": false },
+    { "id": "coffee", "name": "Café (Coffee)", "family": "Rubiaceae (Perennial)", "nitrogen_fixing": false },
+    { "id": "brachiaria", "name": "Braquiária (Cover/Forage)", "family": "Poaceae (Cover)", "nitrogen_fixing": false },
+    { "id": "cassava", "name": "Mandioca (Cassava)", "family": "Euphorbiaceae (Tuber)", "nitrogen_fixing": false }
+  ],
+  "seasons": {
+    "safra": { "start_month": 9, "end_month": 2, "type": "Summer Main Crop" },
+    "safrinha": { "start_month": 2, "end_month": 7, "type": "Second Crop" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "conab"
+  },
+  "soil_defaults": {
+    "ph_min": 5.5,
+    "ph_max": 6.5,
+    "target_organic_carbon_g_kg": 12.0
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Embrapa Assistência Técnica / EMATER",
+    "emergency": "Defesa Agropecuária Estadual"
+  }
+}

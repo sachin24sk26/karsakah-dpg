@@ -1,0 +1,186 @@
+openapi: 3.0.3
+info:
+  title: KARSAKAH Digital Public Good Advisory & Federation API
+  description: |
+    Standardized, interoperable API contract for smallholder regenerative agriculture,
+    geospatial data connectors, multi-modal disease diagnosis, and simulated BRICS federation.
+  version: 1.0.0
+  contact:
+    name: KARSAKAH Open Source Project
+    url: https://github.com/sachin24sk26/Karsakah
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+  - url: http://localhost:5000
+    description: Local Node Development Server
+  - url: https://karsakah.onrender.com
+    description: Primary India Node Gateway
+
+paths:
+  /v1/data:
+    get:
+      summary: Standardized Agricultural Data Bundle
+      description: Returns normalized 7-day weather, ISRIC 250m soil properties, and vegetation moisture proxy.
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          schema:
+            type: number
+            example: 30.90
+        - name: lon
+          in: query
+          required: true
+          schema:
+            type: number
+            example: 75.85
+        - name: country
+          in: query
+          required: false
+          schema:
+            type: string
+            example: IN
+      responses:
+        '200':
+          description: Successful normalized data bundle
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataBundleResponse'
+
+  /v1/advisory:
+    post:
+      summary: Explainable Regenerative Advisory Recommendation
+      description: Runs agronomic rule engine against location data to generate crop suitability, rotation, water timing, and risk alerts.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lat:
+                  type: number
+                  example: 30.90
+                lon:
+                  type: number
+                  example: 75.85
+                country:
+                  type: string
+                  example: IN
+                previous_crop:
+                  type: string
+                  example: wheat
+      responses:
+        '200':
+          description: Advisory recommendation with reasons and confidence
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvisoryResponse'
+
+  /v1/diagnose:
+    post:
+      summary: Multi-Modal Crop Disease Diagnosis
+      description: Validates leaf imagery, enforces organic-first treatments, and gates low confidence predictions (< 0.6).
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Structured disease diagnosis
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagnosisResponse'
+
+  /v1/node/info:
+    get:
+      summary: Federated Node Information & Metadata
+      description: Returns node identity, supported crops, active rules version, and shared cross-border insight feeds.
+      parameters:
+        - name: country
+          in: query
+          required: false
+          schema:
+            type: string
+            example: IN
+      responses:
+        '200':
+          description: Node metadata and federation contract
+
+components:
+  schemas:
+    DataBundleResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        location:
+          type: object
+        weather:
+          type: object
+        soil:
+          type: object
+        vegetation:
+          type: object
+        data_provenance:
+          type: object
+
+    AdvisoryResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        country:
+          type: string
+          example: IN
+        advisory:
+          type: object
+          properties:
+            confidence:
+              type: string
+              example: High (0.90)
+            primary_recommendation:
+              type: object
+            alternative_recommendations:
+              type: array
+            water_efficiency_plan:
+              type: string
+            risk_alerts:
+              type: array
+              items:
+                type: string
+
+    DiagnosisResponse:
+      type: object
+      properties:
+        crop:
+          type: string
+        disease:
+          type: string
+        status:
+          type: string
+        confidence:
+          type: number
+        treatment_organic:
+          type: array
+          items:
+            type: string
+        treatment_chemical:
+          type: array
+          items:
+            type: string
+        needs_expert:
+          type: boolean

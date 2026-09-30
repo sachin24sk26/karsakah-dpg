@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KARSAKAH BRICS Federated Network — Real-time sovereign agronomic insight exchange across India, Brazil, South Africa, China, and Russia.">
+    <title>BRICS Federated Network — KARSAKAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="network.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar (populated by navbar.js) -->
+        <header class="navbar"></header>
+
+        <main class="network-container">
+
+            <!-- Hero -->
+            <section class="network-hero">
+                <div class="network-hero-badges">
+                    <span class="network-pill purple"><i class="ph-bold ph-globe-hemisphere-west"></i> BRICS Federated Protocol</span>
+                    <span class="network-pill green"><i class="ph-bold ph-shield-check"></i> Privacy-First by Design</span>
+                    <span class="network-pill blue"><i class="ph-bold ph-lightning"></i> Real-Time Insight Exchange</span>
+                </div>
+                <h1 class="network-title"><i class="ph-bold ph-globe" style="color:#7E22CE;"></i> BRICS Agronomic Intelligence Hub</h1>
+                <p class="network-subtitle">Sovereign, decentralized nodes across India, Brazil, South Africa, China, and Russia — sharing early disease warnings, soil alerts, and model cards with zero raw-data leakage. The world's first open-source cross-border agricultural intelligence network.</p>
+            </section>
+
+            <!-- Network Stats -->
+            <div class="network-stats-grid" id="stats-grid">
+                <div class="net-stat-card">
+                    <div class="net-stat-icon purple"><i class="ph-bold ph-globe-hemisphere-west"></i></div>
+                    <div>
+                        <div class="net-stat-val" id="stat-nodes">5</div>
+                        <div class="net-stat-label">Active Sovereign Nodes</div>
+                    </div>
+                </div>
+                <div class="net-stat-card">
+                    <div class="net-stat-icon green"><i class="ph-bold ph-arrows-out-line-horizontal"></i></div>
+                    <div>
+                        <div class="net-stat-val" id="stat-insights">1,247</div>
+                        <div class="net-stat-label">Insights Exchanged Today</div>
+                    </div>
+                </div>
+                <div class="net-stat-card">
+                    <div class="net-stat-icon blue"><i class="ph-bold ph-shield-check"></i></div>
+                    <div>
+                        <div class="net-stat-val">100%</div>
+                        <div class="net-stat-label">Privacy Compliance</div>
+                    </div>
+                </div>
+                <div class="net-stat-card">
+                    <div class="net-stat-icon amber"><i class="ph-bold ph-clock"></i></div>
+                    <div>
+                        <div class="net-stat-val" id="stat-latency">124ms</div>
+                        <div class="net-stat-label">Avg. Sync Latency</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Node Cards -->
+            <h2 style="font-size:20px; font-weight:700; margin-bottom:16px; color:var(--text-dark);">
+                <i class="ph-bold ph-buildings" style="color:#7E22CE;"></i> Federated Nodes
+            </h2>
+            <div class="nodes-grid" id="nodes-grid">
+
+                <!-- India -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇮🇳</span>
+                            <div>
+                                <div class="node-name">India Node</div>
+                                <div class="node-id">node-IN-KARSAKAH-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge">
+                            <span class="node-status-dot"></span>Online
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Wheat, Rice, Cotton, Pulses</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">SoilGrids · Open-Meteo · IMD</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">~140M smallholders</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val"><span id="in-insights">342</span> today</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">Regenerative advisory engine covering 29 states. Integrated with PM-KISAN scheme database for subsidy-aware recommendations.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Last sync: <span id="in-sync">2s ago</span></span>
+                        <button class="btn-inspect" onclick="inspectNode('IN')">Inspect →</button>
+                    </div>
+                </div>
+
+                <!-- Brazil -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇧🇷</span>
+                            <div>
+                                <div class="node-name">Brazil Node</div>
+                                <div class="node-id">node-BR-EMBRAPA-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge">
+                            <span class="node-status-dot"></span>Online
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Soybean, Corn, Coffee, Sugar</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">INMET · MapBiomas · EMBRAPA</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">~15M smallholders</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val"><span id="br-insights">218</span> today</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">Cerrado biome specialist. Sends tropical pest early-warnings to Indian cotton belt. Zero raw genomic data shared.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Last sync: <span id="br-sync">5s ago</span></span>
+                        <button class="btn-inspect" onclick="inspectNode('BR')">Inspect →</button>
+                    </div>
+                </div>
+
+                <!-- South Africa -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇿🇦</span>
+                            <div>
+                                <div class="node-name">South Africa Node</div>
+                                <div class="node-id">node-ZA-ARC-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge">
+                            <span class="node-status-dot"></span>Online
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Maize, Sunflower, Grapes, Citrus</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">SAWS · ARC-ARC · NDVI feeds</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">~2.5M smallholders</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val"><span id="za-insights">187</span> today</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">Drought-stress index specialist. Shares water-deficit models with India's Rajasthan cluster during monsoon offset periods.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Last sync: <span id="za-sync">11s ago</span></span>
+                        <button class="btn-inspect" onclick="inspectNode('ZA')">Inspect →</button>
+                    </div>
+                </div>
+
+                <!-- China -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇨🇳</span>
+                            <div>
+                                <div class="node-name">China Node</div>
+                                <div class="node-id">node-CN-CAAS-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge" style="background:rgba(251,191,36,0.15); color:#D97706; border-color:transparent;">
+                            <span class="node-status-dot" style="background:#D97706;"></span>Syncing
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Rice, Wheat, Vegetables, Tea</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">CMA · CAAS · MODIS-China</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">~250M smallholders</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val">Pending provisioning</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">Integration underway. Bilateral MOU for rice blast and locust outbreak early-warning exchange with India node.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Provisioning in progress</span>
+                        <button class="btn-inspect" onclick="inspectNode('CN')">Inspect →</button>
+                    </div>
+                </div>
+
+                <!-- Russia -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇷🇺</span>
+                            <div>
+                                <div class="node-name">Russia Node</div>
+                                <div class="node-id">node-RU-RSAC-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge" style="background:rgba(251,191,36,0.15); color:#D97706;">
+                            <span class="node-status-dot" style="background:#D97706;"></span>Provisioning
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Wheat, Barley, Sunflower, Rye</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">Roshydromet · RSAC · Copernicus</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">~36M smallholders</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val">API key exchange pending</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">Black Sea wheat rust specialist. Planned contribution of cold-stress phenology models to global node cluster.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Signing MOU Q1 2027</span>
+                        <button class="btn-inspect" onclick="inspectNode('RU')">Inspect →</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Simulation + Live Stream -->
+            <div class="fed-action-grid">
+
+                <!-- Simulate -->
+                <div class="action-card">
+                    <div class="action-title"><i class="ph-bold ph-play-circle" style="color:#7E22CE;"></i> Simulate Cross-Border Sync</div>
+                    <p style="font-size:13px; color:var(--text-gray); line-height:1.5;">Trigger a federated insight exchange between active nodes. Observe how disease alerts and soil-carbon data propagate while raw data stays in-country.</p>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <div class="form-group">
+                            <label class="form-label" style="font-size:13px;"><i class="ph-bold ph-arrow-square-out"></i> Source Node</label>
+                            <select class="form-select" id="sim-source">
+                                <option value="IN">🇮🇳 India</option>
+                                <option value="BR">🇧🇷 Brazil</option>
+                                <option value="ZA">🇿🇦 South Africa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-size:13px;"><i class="ph-bold ph-arrow-square-in"></i> Payload Type</label>
+                            <select class="form-select" id="sim-payload">
+                                <option value="disease">Disease Early Warning</option>
+                                <option value="soil">Soil Health Alert</option>
+                                <option value="water">Water Deficit Index</option>
+                                <option value="pest">Pest Migration Model</option>
+                            </select>
+                        </div>
+                        <button class="btn-generate" onclick="simulateFed()" id="sim-btn" style="width:100%;">
+                            <i class="ph-bold ph-paper-plane-tilt"></i> Broadcast to Network
+                        </button>
+                    </div>
+                    <div id="sim-result" style="display:none; background:var(--input-bg); border:1px solid var(--border-color); border-radius:12px; padding:14px; font-size:13px; line-height:1.6; color:var(--text-dark);"></div>
+                </div>
+
+                <!-- Live Stream -->
+                <div class="stream-card">
+                    <div class="stream-title-wrap">
+                        <span style="font-size:16px; font-weight:700; color:var(--text-dark);"><i class="ph-bold ph-broadcast" style="color:#7E22CE;"></i> Live Insight Stream</span>
+                        <span style="font-size:12px; color:var(--text-gray);" id="stream-count">Loading…</span>
+                    </div>
+                    <div class="insight-timeline" id="insight-timeline">
+                        <div style="text-align:center; padding:40px; color:var(--text-gray); font-size:13px;">
+                            <i class="ph-bold ph-spinner" style="font-size:24px; display:block; margin-bottom:8px;"></i>
+                            Connecting to federated nodes…
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Privacy callout -->
+            <div class="privacy-callout">
+                <div>
+                    <div style="font-size:17px; font-weight:700; color:var(--text-dark); margin-bottom:4px;"><i class="ph-bold ph-shield-check" style="color:#059669;"></i> Privacy by Design — GDPR &amp; PDP Compliant</div>
+                    <p style="font-size:13px; color:var(--text-gray); max-width:600px; line-height:1.5;">All federated exchanges transmit only statistical summaries, model confidence scores, and alert flags — never raw farmer or plot data. Each nation's node maintains full data sovereignty under its domestic data protection law.</p>
+                </div>
+                <a href="docs/privacy-and-governance.md" class="btn btn-secondary-dark btn-sm" target="_blank"><i class="ph-bold ph-file-text"></i> Read Privacy Policy</a>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH — BRICS Federated Network &bull; Track 4 Digital Public Good &bull; Privacy-First Agricultural Intelligence</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="navbar.js"></script>
+    <script src="theme.js"></script>
+    <script src="network.js"></script>
+    <script src="session.js" defer></script>
+    <script src="chatbot.js" defer></script>
+</body>
+
+</html>

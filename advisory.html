@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KARSAKAH Field Advisory - Explainable, regenerative crop recommendations, biological soil health, and weather-synchronized water planning.">
+    <title>KARSAKAH - Field Advisory & Regenerative Planning</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="advisory.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <!-- Navbar (populated by navbar.js) -->
+        <header class="navbar"></header>
+
+        <!-- Main Content -->
+        <main class="advisory-container">
+            
+            <!-- Hero Banner -->
+            <section class="advisory-hero">
+                <div class="advisory-hero-badges">
+                    <span class="hero-pill green"><i class="ph-bold ph-leaf"></i> Regenerative Agronomics</span>
+                    <span class="hero-pill blue"><i class="ph-bold ph-chart-polar"></i> Open-Meteo & SoilGrids 250m</span>
+                    <span class="hero-pill purple"><i class="ph-bold ph-speaker-high"></i> Multilingual Voice Readout</span>
+                </div>
+                <h1 class="advisory-title">
+                    <i class="ph-bold ph-plant" style="color: #059669;"></i> Smart Field Advisory
+                </h1>
+                <p class="advisory-subtitle">
+                    Data-driven crop recommendations tailored to your soil pH, texture, organic carbon, and 7-day weather forecast. Built to restore soil health, maximize water efficiency, and reduce synthetic chemical dependency.
+                </p>
+            </section>
+
+            <!-- Input / Configuration Card -->
+            <section class="advisory-form-card">
+                <div class="form-header">
+                    <div class="form-title">
+                        <i class="ph-bold ph-faders" style="color: #059669;"></i>
+                        <span>Select Location & Field Parameters</span>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <button type="button" id="btn-voice-input" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--input-bg); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text-dark); display: inline-flex; align-items: center; gap: 6px;">
+                            <i class="ph-bold ph-microphone"></i> Speak Location / Crop
+                        </button>
+                        <button type="button" id="btn-gps" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--input-bg); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text-dark); display: inline-flex; align-items: center; gap: 6px;">
+                            <i class="ph-bold ph-crosshair"></i> Use My GPS
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Location Preset -->
+                    <div class="form-group">
+                        <label class="form-label"><i class="ph-bold ph-map-pin"></i> Location Preset</label>
+                        <select class="form-select" id="location-preset">
+                            <option value="in_punjab" selected>🇮🇳 Punjab (Ludhiana - 30.90°N, 75.85°E)</option>
+                            <option value="in_mp">🇮🇳 Madhya Pradesh (Indore - 22.71°N, 75.85°E)</option>
+                            <option value="in_mh">🇮🇳 Maharashtra (Pune - 18.52°N, 73.85°E)</option>
+                            <option value="br_cerrado">🇧🇷 Brazil (Bahia / Cerrado - 12.97°S, 38.50°W)</option>
+                            <option value="za_kzn">🇿🇦 South Africa (KwaZulu-Natal - 29.85°S, 31.02°E)</option>
+                            <option value="custom">⚙️ Custom Coordinates...</option>
+                        </select>
+                    </div>
+
+                    <!-- Country Node -->
+                    <div class="form-group">
+                        <label class="form-label"><i class="ph-bold ph-globe"></i> Active Country Node</label>
+                        <select class="form-select" id="country-select">
+                            <option value="IN" selected>India (ICAR Agro Baseline)</option>
+                            <option value="BR">Brazil (Embrapa Baseline)</option>
+                            <option value="ZA">South Africa (ARC Baseline)</option>
+                        </select>
+                    </div>
+
+                    <!-- Previous Crop (Rotation Input) -->
+                    <div class="form-group">
+                        <label class="form-label"><i class="ph-bold ph-arrows-clockwise"></i> Previous Harvested Crop</label>
+                        <select class="form-select" id="prev-crop-select">
+                            <option value="wheat" selected>Wheat (Cereal Stubble)</option>
+                            <option value="rice">Paddy / Rice (Cereal)</option>
+                            <option value="maize">Maize / Corn</option>
+                            <option value="cotton">Cotton (Fiber)</option>
+                            <option value="sugarcane">Sugarcane (Perennial)</option>
+                            <option value="fallow">Fallow / Rested Soil</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Custom Lat/Lon (Hidden unless selected) -->
+                <div class="form-grid" id="custom-coords-wrap" style="display: none; margin-bottom: 20px;">
+                    <div class="form-group">
+                        <label class="form-label">Latitude</label>
+                        <input type="number" step="0.0001" class="form-input" id="lat-input" value="30.9000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Longitude</label>
+                        <input type="number" step="0.0001" class="form-input" id="lon-input" value="75.8500">
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <span id="unit-indicator" style="font-size: 12px; color: var(--text-gray); font-weight: 600;">
+                        Units: Acre | Currency: ₹ INR
+                    </span>
+                    <span style="font-size: 12px; color: #059669; font-weight: 600;">
+                        <i class="ph-bold ph-shield-check"></i> Zero Raw-Data Exchange Enforced
+                    </span>
+                </div>
+
+                <button type="button" class="btn-generate" id="generate-advisory-btn">
+                    <i class="ph-bold ph-sparkle"></i> Generate Regenerative Advisory
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-container" id="results-section">
+                
+                <!-- Confidence & Freshness Banner -->
+                <div class="confidence-banner">
+                    <div class="confidence-info">
+                        <div class="confidence-icon"><i class="ph-bold ph-seal-check"></i></div>
+                        <div>
+                            <div class="confidence-title" id="conf-badge-text">Confidence: High (0.90)</div>
+                            <div class="confidence-desc" id="data-freshness-text">Weather: live (Open-Meteo) • Soil: SoilGrids (ISRIC 250m)</div>
+                        </div>
+                    </div>
+
+                    <div class="voice-btn-wrap">
+                        <select id="advisory-lang-select" style="padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-dark); font-size: 13px; font-weight: 600;">
+                            <option value="en">English Readout</option>
+                            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="pt">Português (Brazil)</option>
+                        </select>
+                        <button type="button" class="listen-btn" id="btn-listen-advisory">
+                            <i class="ph-bold ph-speaker-high"></i> Listen
+                        </button>
+                        <button type="button" class="listen-btn" id="btn-open-share-modal" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                            <i class="ph-bold ph-whatsapp-logo"></i> Dispatch WhatsApp/SMS
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Primary Crop Card -->
+                <div class="primary-card">
+                    <div class="primary-card-header">
+                        <div class="primary-crop-name" id="primary-crop-name">
+                            <i class="ph-bold ph-plant" style="color: #059669;"></i> Moong (Green Gram / Vigna radiata)
+                        </div>
+                        <div class="score-badge" id="primary-suitability-score">
+                            98% Suitability Match
+                        </div>
+                    </div>
+
+                    <div class="primary-card-body">
+                        <!-- Reasons -->
+                        <div class="reasons-box">
+                            <div class="box-heading">
+                                <i class="ph-bold ph-question" style="color: #2563EB;"></i>
+                                <span>Why This Crop? (Explainability)</span>
+                            </div>
+                            <ul class="reason-list" id="primary-reasons-list">
+                                <li class="reason-item"><i class="ph-bold ph-check-circle"></i> <span>Soil pH is in optimal range (6.2 - 7.8).</span></li>
+                                <li class="reason-item"><i class="ph-bold ph-check-circle"></i> <span>Rotating after cereal restores natural soil nitrogen via root nodulation.</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Regenerative Practices -->
+                        <div class="practices-box">
+                            <div class="box-heading">
+                                <i class="ph-bold ph-shield-check" style="color: #059669;"></i>
+                                <span>Regenerative Action Checklist</span>
+                            </div>
+                            <ul class="practice-list" id="primary-practices-list">
+                                <li class="practice-item"><i class="ph-bold ph-shield-check"></i> <span>Retain stubble as surface mulch to conserve moisture.</span></li>
+                                <li class="practice-item"><i class="ph-bold ph-shield-check"></i> <span>Inoculate with Rhizobium bio-fertilizer to replace synthetic urea.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Water Plan & Weather Risk Grid -->
+                <div class="water-risk-grid">
+                    <div class="water-card">
+                        <div class="water-card-title">
+                            <i class="ph-bold ph-drop" style="color: #2563EB;"></i>
+                            <span>Water Efficiency & Irrigation Plan</span>
+                        </div>
+                        <div class="water-desc" id="water-plan-desc">
+                            Analyzing 7-day Open-Meteo precipitation against FAO ET₀ evapotranspiration rates...
+                        </div>
+                    </div>
+
+                    <div class="risk-card">
+                        <div class="risk-card-title">
+                            <i class="ph-bold ph-warning" style="color: #D97706;"></i>
+                            <span>Weather & Agro-Risk Alerts</span>
+                        </div>
+                        <div class="risk-desc" id="risk-alerts-desc">
+                            No severe weather anomalies detected for the upcoming 7-day period.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative Recommendations -->
+                <div>
+                    <h3 style="font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="ph-bold ph-list-plus" style="color: #2563EB;"></i>
+                        <span>Alternative Suitable Crops & Intercrops</span>
+                    </h3>
+                    <div class="alternatives-grid" id="alternatives-container">
+                        <!-- Populated dynamically via advisory.js -->
+                    </div>
+                </div>
+
+                <!-- Data Provenance Metadata -->
+                <div class="provenance-box">
+                    <div><i class="ph-bold ph-database"></i> <span id="provenance-weather">Weather: Open-Meteo Live API</span></div>
+                    <div><i class="ph-bold ph-compass"></i> <span id="provenance-soil">Soil: SoilGrids (ISRIC 250m)</span></div>
+                    <div><i class="ph-bold ph-shield"></i> DPG Version: 2.4-agro</div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- WhatsApp / SMS Dispatch Modal -->
+        <div id="share-modal" class="share-modal-overlay" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 20px;">
+            <div class="share-modal-content" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; width: 100%; max-width: 580px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); overflow: hidden; animation: popIn 0.25s ease-out;">
+                <div style="padding: 20px 24px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; background: var(--bg-alt);">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="ph-bold ph-whatsapp-logo" style="font-size: 24px; color: #10B981;"></i>
+                        <div>
+                            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin: 0;">Smallholder Push Advisory</h3>
+                            <p style="font-size: 12px; color: var(--text-gray); margin: 2px 0 0 0;">Zero-data / 2G-ready WhatsApp & SMS message payload</p>
+                        </div>
+                    </div>
+                    <button type="button" id="btn-close-modal" style="background: none; border: none; font-size: 20px; color: var(--text-gray); cursor: pointer; padding: 4px;">
+                        <i class="ph-bold ph-x"></i>
+                    </button>
+                </div>
+
+                <div style="padding: 24px;">
+                    <!-- Format switch -->
+                    <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                        <button type="button" id="tab-whatsapp" class="modal-tab-btn active" style="flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid #10B981; background: #ECFDF5; color: #065F46; font-weight: 600; font-size: 13px; cursor: pointer;">
+                            <i class="ph-bold ph-whatsapp-logo"></i> WhatsApp Format
+                        </button>
+                        <button type="button" id="tab-sms" class="modal-tab-btn" style="flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-dark); font-weight: 600; font-size: 13px; cursor: pointer;">
+                            <i class="ph-bold ph-chat-text"></i> SMS (160 Chars)
+                        </button>
+                        <button type="button" id="tab-json" class="modal-tab-btn" style="flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-dark); font-weight: 600; font-size: 13px; cursor: pointer;">
+                            <i class="ph-bold ph-code"></i> JSON Payload
+                        </button>
+                    </div>
+
+                    <!-- Target Farmer Phone -->
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-size: 12px; font-weight: 600; color: var(--text-dark); margin-bottom: 6px;">Farmer Mobile Number (Optional):</label>
+                        <div style="display: flex; gap: 8px;">
+                            <input type="tel" id="farmer-phone-input" placeholder="+91 98765 43210" style="flex: 1; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-dark); font-size: 14px;">
+                        </div>
+                    </div>
+
+                    <!-- Message Preview Area -->
+                    <div>
+                        <label style="display: block; font-size: 12px; font-weight: 600; color: var(--text-dark); margin-bottom: 6px;">Formatted Outbound Message:</label>
+                        <textarea id="share-payload-text" rows="7" readonly style="width: 100%; box-sizing: border-box; padding: 12px; border-radius: 10px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-dark); font-family: monospace; font-size: 12.5px; line-height: 1.5; resize: none;"></textarea>
+                    </div>
+
+                    <!-- Actions -->
+                    <div style="display: flex; gap: 10px; margin-top: 18px;">
+                        <button type="button" id="btn-copy-payload" style="flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-dark); font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                            <i class="ph-bold ph-copy"></i> Copy Text
+                        </button>
+                        <button type="button" id="btn-send-whatsapp" style="flex: 1.5; padding: 12px; border-radius: 10px; border: none; background: #25D366; color: white; font-weight: 700; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                            <i class="ph-bold ph-whatsapp-logo"></i> Open in WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-credits">
+                    <p>&copy; 2026 KARSAKAH — Field Advisory Engine &bull; Digital Public Good &bull; Track 4 BRICS</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="navbar.js"></script>
+    <script src="theme.js"></script>
+    <script src="advisory.js"></script>
+    <script src="session.js" defer></script>
+    <script src="chatbot.js" defer></script>
+</body>
+</html>
