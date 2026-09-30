@@ -38,9 +38,9 @@ Farmer (Web App / Voice / WhatsApp Mock)
    - Confidence is computed from data availability and freshness (e.g. live weather forecast + 250m soil grid vs. regional defaults).
    - When confidence is below threshold (<0.6), the platform prompts for local extension officer consultation instead of guessing.
 
-4. **Zero-Raw-Data Privacy (Federated Learning Ready)**:
-   - Identifiable farmer records and field boundaries remain local to each country node.
-   - Cross-node exchange is restricted to aggregated insights, model cards, and early pest/disease outbreak warnings.
+4. **Sovereign Data Boundary & Indicator Exchange (Federated Node Architecture)**:
+   - Identifiable farmer records, farm imagery, and plot-level coordinates remain strictly domestic within each sovereign national node.
+   - Cross-border federation exchanges exclusively **anonymized macro-indicators, regional pathogen risk alerts, and standardized Model Cards** (not distributed weight training or centralized data pooling).
 
 ---
 

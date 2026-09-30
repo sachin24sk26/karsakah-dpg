@@ -45,10 +45,10 @@ This document contains the word-for-word timed presentation script, live demo se
 
 ### 4. BRICS Federation & Sovereign Nodes (02:30 – 03:45)
 > *(Open `network.html` and trigger simulated Soybean Rust alert sync)*
-> *"Here is KARSAKAH's biggest architectural breakthrough: **BRICS Federation**.
-> Rather than a centralized database that extracts farmer data, KARSAKAH runs a config-driven node model. India, Brazil, South Africa, Egypt, and China each run independent sovereign nodes driven by lightweight JSON profiles.
+> *"Here is KARSAKAH's architectural framework for cross-border cooperation: **The BRICS Federated Node Protocol**.
+> To be technically precise: this is not distributed weight-gradient machine learning (federated learning); it is a **sovereign indicator and pathogen risk exchange protocol**. 
 > 
-> When Brazil detects an early outbreak of Asian Soybean Rust in Bahia, the Brazil node generates an anonymized, aggregated insight card. Watch our live simulator: with **zero raw-data leakage**, this insight syncs to the India and South Africa nodes, allowing Indian agronomists in Madhya Pradesh to take preventative biological action before the pathogen strikes."*
+> Rather than extracting farmer records into a centralized overseas cloud, each country (India, Brazil, South Africa, etc.) runs an independent, sovereign node. In our live protocol simulation, watch what happens when Brazil logs an elevated Asian Soybean Rust risk: with **zero raw-data transfer** — no farmer names, photos, or GPS plots leaving Brazil — the system broadcasts an anonymized macro-alert card to the India node, allowing agronomists in Madhya Pradesh to prepare biological defenses weeks before spores arrive."*
 
 ---
 
