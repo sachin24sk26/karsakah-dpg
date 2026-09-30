@@ -57,19 +57,19 @@
 
             <!-- Mobile-only bottom controls -->
             <div class="right-nav-mobile">
-                <div class="language-selector" style="width:100%">
+                <div class="language-selector" style="width:100%" title="Page Text Translation (10 Indic Languages). Note: Audio voice readout (TTS) is available in Punjabi, Hindi, English &amp; Portuguese on Advisory.">
                     <i class="ph-bold ph-translate"></i>
-                    <select class="lang-select" aria-label="Select language" id="lang-select-mobile">
-                        <option value="en">English</option>
-                        <option value="hi">हिन्दी</option>
-                        <option value="mr">मराठी</option>
-                        <option value="pa">ਪੰਜਾਬੀ</option>
-                        <option value="bn">বাংলা</option>
-                        <option value="te">తెలుగు</option>
-                        <option value="ta">தமிழ்</option>
-                        <option value="kn">ಕನ್ನಡ</option>
-                        <option value="ml">മലയാളം</option>
-                        <option value="ur">اردو</option>
+                    <select class="lang-select" aria-label="Select text translation language" id="lang-select-mobile">
+                        <option value="en">English (Text)</option>
+                        <option value="hi">हिन्दी (Text)</option>
+                        <option value="mr">मराठी (Text)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Text + Voice)</option>
+                        <option value="bn">বাংলা (Text)</option>
+                        <option value="te">తెలుగు (Text)</option>
+                        <option value="ta">தமிழ் (Text)</option>
+                        <option value="kn">ಕನ್ನಡ (Text)</option>
+                        <option value="ml">മലയാളം (Text)</option>
+                        <option value="ur">اردو (Text)</option>
                     </select>
                 </div>
                 <label class="switch" aria-label="Toggle dark mode">
@@ -90,19 +90,19 @@
 
         <!-- Desktop right controls -->
         <div class="right-nav">
-            <div class="language-selector">
+            <div class="language-selector" title="Page Text Translation (10 Indic Languages). Note: Audio voice readout (TTS) is available in Punjabi, Hindi, English &amp; Portuguese on Advisory.">
                 <i class="ph-bold ph-translate"></i>
-                <select class="lang-select" aria-label="Select language" id="lang-select-desktop">
-                    <option value="en">English</option>
-                    <option value="hi">हिन्दी</option>
-                    <option value="mr">मराठी</option>
-                    <option value="pa">ਪੰਜਾਬੀ</option>
-                    <option value="bn">বাংলা</option>
-                    <option value="te">తెలుగు</option>
-                    <option value="ta">தமிழ்</option>
-                    <option value="kn">ಕನ್ನಡ</option>
-                    <option value="ml">മലയാളം</option>
-                    <option value="ur">اردو</option>
+                <select class="lang-select" aria-label="Select text translation language" id="lang-select-desktop">
+                    <option value="en">English (Text)</option>
+                    <option value="hi">हिन्दी (Text)</option>
+                    <option value="mr">मराठी (Text)</option>
+                    <option value="pa">ਪੰਜਾਬੀ (Text + Voice)</option>
+                    <option value="bn">বাংলা (Text)</option>
+                    <option value="te">తెలుగు (Text)</option>
+                    <option value="ta">தமிழ் (Text)</option>
+                    <option value="kn">ಕನ್ನಡ (Text)</option>
+                    <option value="ml">മലയാളം (Text)</option>
+                    <option value="ur">اردو (Text)</option>
                 </select>
             </div>
             <label class="switch" aria-label="Toggle dark mode">

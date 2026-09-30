@@ -30,7 +30,8 @@ This document contains the word-for-word timed presentation script, live demo se
 > *(Open `advisory.html` & click Ludhiana, Punjab preset)*
 > *"Unlike black-box AI tools, KARSAKAH operates on an explainable agronomic rules engine. When a farmer inputs their location, our system queries live Open-Meteo weather and ISRIC SoilGrids 250m soil chemistry.*
 > 
-> *Notice the output: it doesn't just name a crop; it provides the **scientific rationale** — why rotating Moong after Wheat captures biological nitrogen, restores organic carbon, and saves water. Most importantly, for smallholders who cannot read complex dashboards, one click triggers high-fidelity voice readouts in their native language — Punjabi, Hindi, or Portuguese."*
+> *Notice the output: it doesn't just name a crop; it provides the **scientific rationale** — why rotating Moong after Wheat captures biological nitrogen, restores organic carbon, and saves water. Most importantly, for smallholders who cannot read complex dashboards, one click triggers high-fidelity voice readouts in their native language — Punjabi, Hindi, English, or Portuguese."*
+
 > *(Click 'Listen' in Punjabi for 5 seconds)*
 
 ---
@@ -89,3 +90,10 @@ This document contains the word-for-word timed presentation script, live demo se
 > 1. **Agronomic conditioning:** When Sentinel-2 detects low canopy vigor (NDVI < 0.42), the rules engine awards a +10% suitability bonus to fast-canopy legumes (e.g., Moong / Cowpea) to protect exposed topsoil from solar desiccation and erosion. Conversely, when NDVI ≥ 0.70, it mandates surface residue mulching and zero-till seeding.
 > 2. **Transparent Freshness UI:** The Advisory UI explicitly states satellite revisit freshness and cloud obstruction (e.g., *'Sentinel-2 pass from 2 days ago, 18% cloud cover'*).
 > 3. **Cloud Obscuration Protocol:** Optical sensors are blind during heavy monsoon rainfall. When cloud cover exceeds 40%, the system automatically trips an automated fallback to **Sentinel-1 C-Band Synthetic Aperture Radar (SAR)**. SAR microwaves penetrate clouds, rain, and nocturnal darkness to measure surface dielectric roughness and soil moisture, while cloud-masked multi-temporal composites preserve canopy estimates until the next clear pass."*
+
+#### Q6: "Your navbar shows 10 languages, but your TTS voice readout covers 4 languages. How do you distinguish them?"
+> **Answer:** *"We maintain strict truth-in-advertising between **visual UI localization** and **acoustic speech synthesis (TTS)**:
+> 1. **UI Text Translation (10 Indic Languages):** The navbar language selector uses client-side Google Translate to translate full screen text (English, Hindi, Marathi, Punjabi, Bengali, Telugu, Tamil, Kannada, Malayalam, Urdu) so literate farmers and field officers can read the UI.
+> 2. **Audio Voice Synthesis (4 Validated Engines):** Speech synthesis (TTS) requires localized phonetics and domain-specific agronomic vocabularies. Our acoustic voice engine (`/v1/advisory` + Web Speech API) is validated for **Punjabi (`pa-IN`), Hindi (`hi-IN`), English (`en-US`), and Portuguese (`pt-BR`)**.
+> 3. The UI explicitly separates these: the voice dropdown on `advisory.html` only offers the 4 tested voice engines and clearly labels them as audio engines to avoid overpromising voice where only text translation exists."*
+

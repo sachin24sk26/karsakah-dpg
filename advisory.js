@@ -151,6 +151,7 @@ function renderAdvisory(data) {
     const weather = bundle.weather || {};
     const soil = bundle.soil || {};
     const provenance = adv.data_provenance || {};
+    window.currentVoiceSummary = adv.voice_summary || null;
 
     // 1. Confidence & Freshness Banner
     const vegetation = bundle.vegetation || adv.vegetation || {
@@ -349,15 +350,21 @@ function playAdvisoryAudio() {
     const langSelect = document.getElementById('advisory-lang-select');
     const selectedLang = langSelect ? langSelect.value : 'en';
 
-    let speechText = `Recommended crop is ${cropName}. ${waterText}. Please retain crop stubble as mulch to conserve soil moisture.`;
-
-    if (selectedLang === 'pa') {
-        speechText = `ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਫ਼ਸਲ ${cropName} ਹੈ। ${waterText}। ਨਮੀ ਬਚਾਉਣ ਲਈ ਪਰਾਲੀ ਦੀ ਮਲਚਿੰਗ ਕਰੋ।`;
-    } else if (selectedLang === 'hi') {
-        speechText = `अनुशंसित फसल ${cropName} है। ${waterText}। नमी बचाने के लिए पराली का मल्च लगाएं।`;
-    } else if (selectedLang === 'pt') {
-        speechText = `Cultura recomendada: ${cropName}. ${waterText}. Mantenha a palhada no solo.`;
+    let speechText = "";
+    if (window.currentVoiceSummary && window.currentVoiceSummary[selectedLang]) {
+        speechText = window.currentVoiceSummary[selectedLang];
+    } else {
+        if (selectedLang === 'pa') {
+            speechText = `ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਫ਼ਸਲ ${cropName} ਹੈ। ${waterText}। ਨਮੀ ਬਚਾਉਣ ਲਈ ਪਰਾਲੀ ਦੀ ਮਲਚਿੰਗ ਕਰੋ।`;
+        } else if (selectedLang === 'hi') {
+            speechText = `अनुशंसित फसल ${cropName} है। ${waterText}। नमी बचाने के लिए पराली का मल्च लगाएं।`;
+        } else if (selectedLang === 'pt') {
+            speechText = `Cultura recomendada: ${cropName}. ${waterText}. Mantenha a palhada no solo para proteger a umidade.`;
+        } else {
+            speechText = `Recommended crop is ${cropName}. ${waterText}. Please retain crop stubble as mulch to conserve soil moisture.`;
+        }
     }
+
 
     const utterance = new SpeechSynthesisUtterance(speechText);
     const langMap = { 'pa': 'pa-IN', 'hi': 'hi-IN', 'pt': 'pt-BR', 'en': 'en-US' };

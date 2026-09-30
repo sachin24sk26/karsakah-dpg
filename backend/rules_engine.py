@@ -315,6 +315,8 @@ def generate_advisory(data_bundle: Dict[str, Any], previous_crop: str = "wheat",
         "voice_summary": {
             "en": voice_script_en,
             "pa": f"ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਫ਼ਸਲ {primary_crop} ਹੈ। {water_risk['water_efficiency_plan']}",
-            "hi": f"अनुशंसित फसल {primary_crop} है। {water_risk['water_efficiency_plan']}"
+            "hi": f"अनुशंसित फसल {primary_crop} है। {water_risk['water_efficiency_plan']}",
+            "pt": f"A cultura recomendada é {primary_crop}. {water_risk['water_efficiency_plan']}"
         }
     }
+

@@ -28,7 +28,7 @@
                 <div class="advisory-hero-badges">
                     <span class="hero-pill green"><i class="ph-bold ph-leaf"></i> Regenerative Agronomics</span>
                     <span class="hero-pill blue"><i class="ph-bold ph-chart-polar"></i> Open-Meteo & SoilGrids 250m</span>
-                    <span class="hero-pill purple"><i class="ph-bold ph-speaker-high"></i> Multilingual Voice Readout</span>
+                    <span class="hero-pill purple"><i class="ph-bold ph-speaker-high"></i> Voice TTS (Punjabi · Hindi · English · Portuguese)</span>
                 </div>
                 <h1 class="advisory-title">
                     <i class="ph-bold ph-plant" style="color: #059669;"></i> Smart Field Advisory
@@ -132,20 +132,29 @@
                         </div>
                     </div>
 
-                    <div class="voice-btn-wrap">
-                        <select id="advisory-lang-select" style="padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-dark); font-size: 13px; font-weight: 600;">
-                            <option value="en">English Readout</option>
-                            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-                            <option value="hi">हिन्दी (Hindi)</option>
-                            <option value="pt">Português (Brazil)</option>
-                        </select>
-                        <button type="button" class="listen-btn" id="btn-listen-advisory">
-                            <i class="ph-bold ph-speaker-high"></i> Listen
-                        </button>
-                        <button type="button" class="listen-btn" id="btn-open-share-modal" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
-                            <i class="ph-bold ph-whatsapp-logo"></i> Dispatch WhatsApp/SMS
-                        </button>
+                    <div class="voice-btn-wrap" style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                            <div style="display:inline-flex; align-items:center; gap:6px; background:var(--input-bg); border:1px solid var(--border-color); border-radius:8px; padding:2px 8px;">
+                                <span style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-gray); letter-spacing:0.5px;">TTS Audio:</span>
+                                <select id="advisory-lang-select" style="padding: 6px 8px; border-radius: 6px; border: none; background: transparent; color: var(--text-dark); font-size: 13px; font-weight: 600; cursor: pointer;">
+                                    <option value="pa">🗣️ ਪੰਜਾਬੀ (Punjabi · pa-IN)</option>
+                                    <option value="hi">🗣️ हिन्दी (Hindi · hi-IN)</option>
+                                    <option value="en" selected>🗣️ English (en-US)</option>
+                                    <option value="pt">🗣️ Português (Brazil · pt-BR)</option>
+                                </select>
+                            </div>
+                            <button type="button" class="listen-btn" id="btn-listen-advisory">
+                                <i class="ph-bold ph-speaker-high"></i> Listen to Advisory
+                            </button>
+                            <button type="button" class="listen-btn" id="btn-open-share-modal" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                                <i class="ph-bold ph-whatsapp-logo"></i> Dispatch WhatsApp/SMS
+                            </button>
+                        </div>
+                        <div style="font-size:11px; color:var(--text-gray); text-align:right;">
+                            <i class="ph-bold ph-info"></i> Audio TTS validated in 4 regional languages. Top navbar handles 10-language UI text translation.
+                        </div>
                     </div>
+
                 </div>
 
                 <!-- Primary Crop Card -->
