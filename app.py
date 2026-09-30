@@ -666,6 +666,7 @@ if __name__ == '__main__':
     # Add clear logging to show server start
     print("="*60)
     print("AgriSmart AI - Plant Disease Identification Backend Started")
-    print("Serving on http://127.0.0.1:5000")
+    port = int(os.environ.get("PORT", 5000))
+    print(f"Serving on port {port}")
     print("="*60)
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=False)
