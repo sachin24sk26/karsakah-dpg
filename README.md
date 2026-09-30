@@ -38,8 +38,8 @@ Farmer (Web App / Multilingual Voice / WhatsApp Mock)
    └── Country Profile Loader (/country_profiles/IN.json, BR.json, ZA.json)
         │
         ▼
- Node Registry & Federated Insight Exchange (Zero Raw-Data Leakage)
-   🇮🇳 India Node (Punjab / ICAR) · 🇧🇷 Brazil Node (Cerrado / Embrapa) · 🇿🇦 South Africa Node (KZN / ARC)
+ Sovereign Node Registry & Aggregated Alert Protocol (Zero Raw-Data Transfer · Simulation Mode)
+   🇮🇳 India Node (Punjab / ICAR) · 🇧🇷 Brazil Node (Cerrado / Embrapa) · 🇿🇦 South Africa Node (KZN / ARC) · 🇨🇳 China · 🇷🇺 Russia · 🇪🇬 Egypt · 🇪🇹 Ethiopia · 🇦🇪 UAE
 ```
 
 ---
@@ -49,8 +49,8 @@ Farmer (Web App / Multilingual Voice / WhatsApp Mock)
 * **🌱 Explainable Regenerative Advisory**: Transparent agronomic rules for crop suitability, biological nitrogen fixation, and organic soil enhancement with confidence scores.
 * **🔬 Multi-Modal Disease Diagnosis**: Upload leaf images to receive structured JSON diagnosis with organic-first treatments and confidence threshold gates.
 * **🗣️ Smallholder Speech Synthesis**: One-click audio readout (TTS) of recommendations in Punjabi, Hindi, English, and Portuguese.
-* **🌍 Config-Driven Country Profiles**: Instant multi-country scaling for India (`IN.json`), Brazil (`BR.json`), and South Africa (`ZA.json`).
-* **🔒 Privacy by Design**: Zero raw farmer data transmission across borders; only aggregated insights and model metadata are federated.
+* **🌍 Config-Driven Country Profiles**: Instant multi-country scaling for India (`IN.json`), Brazil (`BR.json`), South Africa (`ZA.json`), China, Russia, Egypt, Ethiopia, and UAE.
+* **🔒 Sovereign Data Boundary**: Zero raw farmer data transmission across borders; only aggregated pathogen alerts and standardized Model Cards are exchanged (demonstrated in protocol simulation mode).
 * **⚡ Live Interactive Roadmap**: Built-in progress tracking and API simulator on `implementation.html`.
 
 ---

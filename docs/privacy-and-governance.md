@@ -23,3 +23,11 @@ Smallholder farmer data sovereignty is paramount:
 
 ## 3. Right to Forget & Data Erasure
 Farmers can request immediate deletion of their local profile and interaction logs directly through the user settings dashboard.
+
+---
+
+## 4. Technical Precision Note on "Federation"
+- **Not Distributed Machine Learning**: KARSAKAH does **not** perform distributed weight-gradient aggregation (such as Federated Learning / FedAvg).
+- **Federated Node Architecture**: Each sovereign nation operates its own independent backend node governed by domestic institutions.
+- **What is Exchanged**: Strictly aggregated risk indicator cards (e.g. regional humidity spikes, spore migration alerts) and standardized Model Cards.
+- **Protocol Simulation**: The cross-border exchange showcased on `network.html` runs in an interactive simulation mode to demonstrate the multi-national communication protocol before real-world inter-governmental deployment.

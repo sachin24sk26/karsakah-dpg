@@ -6,7 +6,7 @@ Thank you for your interest in contributing to **KARSAKAH**, an open-source, int
 1. **Digital Public Goods Standard**: All components must be open source, modular, non-proprietary, and privacy-preserving.
 2. **Farmer-First & Explainable**: AI recommendations must never be black boxes; always provide agronomic reasons, organic-first options, and data freshness metrics.
 3. **Interoperable & Multi-Country Ready**: New country extensions must be configurable via `/country_profiles/{ISO}.json` without hardcoding region logic in core engines.
-4. **Zero Raw Data Leakage**: Federated nodes exchange only aggregated model cards, insight metrics, and disease alerts—never identifiable farmer records.
+4. **Sovereign Data Boundary (Zero Raw-Data Transfer)**: Sovereign nodes exchange strictly aggregated Model Cards and macro-level disease risk indicators—never personal farmer records, plot coordinates, or farm images.
 
 ---
 

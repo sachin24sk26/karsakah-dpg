@@ -11,7 +11,7 @@ This document contains the word-for-word timed presentation script, live demo se
 | **00:00 – 00:45** | **The Crisis & Problem Statement** | Slide 1 / Hero Page ([index.html](file:///s:/s/ByteForce/index.html)) | Soil degradation, urea overapplication, smallholder barriers, climate unpredictability. |
 | **00:45 – 01:45** | **Smart Field Advisory & TTS Demo** | [advisory.html](file:///s:/s/ByteForce/advisory.html) | Live SoilGrids 250m + Open-Meteo sync, explainable 'Why', and **Punjabi voice synthesis**. |
 | **01:45 – 02:30** | **2G/3G WhatsApp & SMS Dispatch** | WhatsApp/SMS Modal on [advisory.html](file:///s:/s/ByteForce/advisory.html) | 160-char SMS for feature phones, 95% image compression for low-bandwidth 2G/3G. |
-| **02:30 – 03:45** | **BRICS Federation & Sovereign Nodes** | [network.html](file:///s:/s/ByteForce/network.html) | Multi-country profiles (IN, BR, ZA), simulated cross-border disease warning, **Zero Raw-Data Leakage**. |
+| **02:30 – 03:45** | **BRICS Federation & Sovereign Nodes** | [network.html](file:///s:/s/ByteForce/network.html) | Multi-country profiles (8 BRICS+ nodes), simulated cross-border alert protocol, **Zero Raw-Data Transfer**. |
 | **03:45 – 04:30** | **Crop Doctor & Organic Controls** | [crop_id.html](file:///s:/s/ByteForce/crop_id.html) | Structured JSON schema, organic-first biocontrols, <0.6 confidence extension gate. |
 | **04:30 – 05:00** | **DPG Status & Impact Summary** | [README.md](file:///s:/s/ByteForce/README.md) & Roadmap | Apache-2.0, OpenAPI 3.0, instant 30-minute onboarding for new nations. |
 
