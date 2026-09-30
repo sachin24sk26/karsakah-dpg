@@ -32,8 +32,7 @@
             <a href="advisory.html" class="${isActive('advisory.html')}"><i class="ph-bold ph-plant"></i> Advisory</a>
             <a href="crop_id.html" class="${isActive('crop_id.html')}"><i class="ph-bold ph-scan"></i> Crop Doctor</a>
             <a href="network.html" class="${isActive('network.html')}"><i class="ph-bold ph-globe"></i> BRICS Hub</a>
-            <a href="prices.html" class="${isActive('prices.html')}"><i class="ph-bold ph-currency-inr"></i> Prices</a>
-            <a href="weather.html" class="${isActive('weather.html')}"><i class="ph-bold ph-cloud-sun"></i> Weather</a>
+            <a href="implementation.html" class="${isActive('implementation.html')}" style="color: var(--primary-green); font-weight: 700;"><i class="ph-bold ph-kanban"></i> Track 4 Roadmap</a>
 
             <div class="info-menu" role="button" tabindex="0" aria-haspopup="true"
                  onclick="KNav.toggleDropdown(event)"
@@ -42,14 +41,17 @@
                 <span>More</span>
                 <i class="ph-bold ph-caret-down" style="font-size:11px; margin-left:2px;"></i>
                 <div class="info-dropdown" id="knav-dropdown" role="menu">
+                    <div style="padding:6px 14px 4px; font-size:11px; text-transform:uppercase; letter-spacing:0.6px; color:var(--text-gray); font-weight:700;">Smallholder Utilities</div>
+                    <a href="prices.html" role="menuitem" class="${isActive('prices.html')}"><i class="ph-bold ph-currency-inr"></i> Market Prices</a>
+                    <a href="weather.html" role="menuitem" class="${isActive('weather.html')}"><i class="ph-bold ph-cloud-sun"></i> Weather Forecast</a>
                     <a href="schemes.html" role="menuitem" class="${isActive('schemes.html')}"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
-                    <a href="rental/templates/index.html" role="menuitem" target="_blank"><i class="ph-bold ph-tractor"></i> Equipment Rental</a>
                     <a href="market/mandi.html" role="menuitem" target="_blank"><i class="ph-bold ph-storefront"></i> Mandi Market</a>
+                    <a href="rental/templates/index.html" role="menuitem" target="_blank"><i class="ph-bold ph-tractor"></i> Equipment Rental</a>
                     <a href="news.html" role="menuitem" class="${isActive('news.html')}"><i class="ph-bold ph-article"></i> Agri News</a>
+                    <div style="border-top:1px solid var(--border-color); margin:4px 0;"></div>
                     <a href="about.html" role="menuitem" class="${isActive('about.html')}"><i class="ph-bold ph-info"></i> About</a>
                     <a href="faq.html" role="menuitem" class="${isActive('faq.html')}"><i class="ph-bold ph-question"></i> FAQs</a>
                     <a href="contacts.html" role="menuitem" class="${isActive('contacts.html')}"><i class="ph-bold ph-phone"></i> Contact</a>
-                    <a href="implementation.html" role="menuitem" class="${isActive('implementation.html')}" style="color: var(--primary-green); font-weight: 700;"><i class="ph-bold ph-kanban"></i> Track 4 Roadmap</a>
                 </div>
             </div>
 

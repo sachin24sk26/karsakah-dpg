@@ -37,21 +37,22 @@
                 <a href="advisory.html"><i class="ph-bold ph-plant"></i> Advisory</a>
                 <a href="crop_id.html" data-i18n="nav_crop"><i class="ph-bold ph-scan"></i> Crop Doctor</a>
                 <a href="network.html"><i class="ph-bold ph-globe"></i> BRICS Hub</a>
-                <a href="prices.html" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Prices</a>
-                <a href="weather.html"><i class="ph-bold ph-cloud-sun"></i> Weather</a>
 
-                <!-- More dropdown -->
+                <!-- More dropdown (Utilities & Extensions) -->
                 <div class="info-menu" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" onclick="toggleInfoMenu(event)" onkeypress="if(event.key==='Enter')toggleInfoMenu(event)">
                     <i class="ph-bold ph-dots-three-outline-vertical"></i> <span data-i18n="nav_more">More</span> <i class="ph-bold ph-caret-down" style="font-size:11px; margin-left:2px;"></i>
                     <div class="info-dropdown" id="info-dropdown" role="menu">
+                        <div style="padding:6px 14px 4px; font-size:11px; text-transform:uppercase; letter-spacing:0.6px; color:var(--text-gray); font-weight:700;">Smallholder Utilities</div>
+                        <a href="prices.html" role="menuitem" data-i18n="nav_prices"><i class="ph-bold ph-currency-inr"></i> Market Prices</a>
+                        <a href="weather.html" role="menuitem"><i class="ph-bold ph-cloud-sun"></i> Weather Forecast</a>
                         <a href="schemes.html" role="menuitem" data-i18n="nav_schemes"><i class="ph-bold ph-newspaper"></i> Gov Schemes</a>
-                        <a href="rental/templates/index.html" role="menuitem" target="_blank"><i class="ph-bold ph-tractor"></i> Equipment Rental</a>
                         <a href="market/mandi.html" role="menuitem" target="_blank"><i class="ph-bold ph-storefront"></i> Mandi Market</a>
+                        <a href="rental/templates/index.html" role="menuitem" target="_blank"><i class="ph-bold ph-tractor"></i> Equipment Rental</a>
                         <a href="news.html" role="menuitem" data-i18n="nav_news"><i class="ph-bold ph-article"></i> Agri News</a>
+                        <div style="border-top:1px solid var(--border-color); margin:4px 0;"></div>
                         <a href="about.html" role="menuitem" data-i18n="nav_about"><i class="ph-bold ph-info"></i> About</a>
                         <a href="faq.html" role="menuitem" data-i18n="nav_faq"><i class="ph-bold ph-question"></i> FAQs</a>
                         <a href="contacts.html" role="menuitem" data-i18n="nav_contacts"><i class="ph-bold ph-phone"></i> Contact</a>
-                        <a href="implementation.html" role="menuitem"><i class="ph-bold ph-kanban"></i> Track 4 Roadmap</a>
                     </div>
                 </div>
 
@@ -173,118 +174,141 @@
             </script>
 
             <!-- ========== SERVICES SECTION ========== -->
-            <section class="services" aria-labelledby="services-heading">
-                <div class="services-heading">
-                    <h2 id="services-heading">Our Key Services</h2>
-                    <span class="services-subtext">8 integrated modules for modern farmers</span>
+            <!-- ========== CORE DPG ENGINES (TRACK 4 FOUNDATION) ========== -->
+            <section class="services" aria-labelledby="core-heading" style="padding-bottom: 24px;">
+                <div class="services-heading" style="display:block; text-align:center; margin-bottom: 32px;">
+                    <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 14px; background:rgba(5,150,105,0.12); border:1px solid rgba(5,150,105,0.3); border-radius:999px; color:var(--primary-green); font-size:12px; font-weight:700; margin-bottom:12px;">
+                        <i class="ph-bold ph-shield-check"></i> TRACK 4 DIGITAL PUBLIC GOOD CORE
+                    </div>
+                    <h2 id="core-heading" style="font-size:30px; font-weight:800; color:var(--text-dark); margin-bottom:6px;">Core Agricultural Intelligence Engines</h2>
+                    <p style="font-size:15px; color:var(--text-gray); max-width:680px; margin:0 auto;">Three foundational, open-source systems built for climate-resilient farming, explainable agronomy, and sovereign BRICS knowledge sharing.</p>
                 </div>
 
-                <div class="services-grid" id="services-grid">
+                <div class="services-grid" id="core-services-grid" style="grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px;">
 
-                    <!-- Field Advisory (featured) -->
-                    <div class="card" style="border: 2px solid var(--primary-green);">
+                    <!-- 1. Field Advisory (Core) -->
+                    <div class="card" style="border: 2px solid var(--primary-green); box-shadow: 0 4px 16px rgba(5,150,105,0.08);">
                         <div class="card-image" style="background: linear-gradient(135deg, rgba(5,150,105,0.18) 0%, rgba(37,99,235,0.12) 100%); display:flex; align-items:center; justify-content:center; height:160px;">
-                            <i class="ph-bold ph-plant" style="font-size:60px; color: var(--primary-green);"></i>
+                            <i class="ph-bold ph-plant" style="font-size:64px; color: var(--primary-green);"></i>
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-green"><i class="ph-fill ph-sparkle"></i> Track 4 Core</div>
+                            <div class="badge badge-green"><i class="ph-fill ph-sparkle"></i> Track 4 Core · Explainable AI</div>
                             <h3>Smart Regenerative Field Advisory</h3>
-                            <p>Data-driven crop recommendations using live soil pH, organic carbon &amp; 7-day weather forecasts. Includes TTS voice readout for low-literacy users.</p>
-                            <a href="advisory.html" class="btn btn-primary btn-sm" id="card-advisory-btn"><i class="ph-bold ph-arrow-right"></i> Get Advisory Plan</a>
+                            <p>Data-driven crop recommendations combining ISRIC SoilGrids 250m chemistry (pH, organic carbon) with Open-Meteo 7-day weather. Includes native voice readouts (TTS) and 160-char SMS / WhatsApp dispatch for feature phones.</p>
+                            <a href="advisory.html" class="btn btn-primary btn-sm" id="card-advisory-btn" style="background: var(--primary-green);"><i class="ph-bold ph-arrow-right"></i> Open Advisory Plan</a>
                         </div>
                     </div>
 
-                    <!-- BRICS Network (featured) -->
-                    <div class="card" style="border: 2px solid var(--primary-blue);">
+                    <!-- 2. Crop Doctor (Core) -->
+                    <div class="card" style="border: 2px solid var(--primary-blue); box-shadow: 0 4px 16px rgba(37,99,235,0.08);">
                         <div class="card-image" style="background: linear-gradient(135deg, rgba(37,99,235,0.18) 0%, rgba(124,58,237,0.12) 100%); display:flex; align-items:center; justify-content:center; height:160px;">
-                            <i class="ph-bold ph-globe-hemisphere-west" style="font-size:60px; color: var(--primary-blue);"></i>
+                            <i class="ph-bold ph-scan" style="font-size:64px; color: var(--primary-blue);"></i>
                         </div>
                         <div class="card-body">
-                            <div class="badge badge-blue"><i class="ph-fill ph-globe"></i> BRICS Interoperability</div>
+                            <div class="badge badge-blue"><i class="ph-fill ph-scan"></i> Track 4 Core · Gemini Vision</div>
+                            <h3>Crop Doctor — AI Disease Diagnosis</h3>
+                            <p>Multi-modal plant pathology powered by Gemini AI with strict structured JSON schemas. Enforces organic-first biocontrols (Neem, Trichoderma), &lt;60% confidence safety gating, and 95% client-side 2G/3G compression.</p>
+                            <a href="crop_id.html" class="btn btn-primary btn-sm" id="card-cropid-btn"><i class="ph-bold ph-arrow-right"></i> Launch Crop Doctor</a>
+                        </div>
+                    </div>
+
+                    <!-- 3. BRICS Network (Core) -->
+                    <div class="card" style="border: 2px solid #7E22CE; box-shadow: 0 4px 16px rgba(126,34,206,0.08);">
+                        <div class="card-image" style="background: linear-gradient(135deg, rgba(126,34,206,0.18) 0%, rgba(236,72,153,0.12) 100%); display:flex; align-items:center; justify-content:center; height:160px;">
+                            <i class="ph-bold ph-globe-hemisphere-west" style="font-size:64px; color: #7E22CE;"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="badge badge-purple" style="background: rgba(126,34,206,0.12); color:#7E22CE;"><i class="ph-fill ph-globe"></i> Track 4 Core · BRICS Federation</div>
                             <h3>BRICS Federated Agronomic Network</h3>
-                            <p>Sovereign nodes across India, Brazil &amp; South Africa exchanging early disease warnings with zero raw-data leakage — privacy-first by design.</p>
-                            <a href="network.html" class="btn btn-primary btn-sm" id="card-brics-btn"><i class="ph-bold ph-arrow-right"></i> Explore Hub</a>
+                            <p>Sovereign nodes across India, Brazil, South Africa, China, Russia, Egypt, Ethiopia, and UAE. Exchanges anonymized pathogen early warnings and standardized Model Cards with verified 0-byte raw data leakage.</p>
+                            <a href="network.html" class="btn btn-primary btn-sm" id="card-brics-btn" style="background: #7E22CE;"><i class="ph-bold ph-arrow-right"></i> Explore Sovereign Hub</a>
                         </div>
                     </div>
 
-                    <!-- Crop Doctor -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/card_crop_id.png" alt="Crop Doctor — AI Disease Identification" loading="lazy">
+                </div>
+            </section>
+
+            <!-- ========== SUPPORTING EXTENSIONS (EXTRAS) ========== -->
+            <section class="services" aria-labelledby="extras-heading" style="padding-top: 10px; margin-top: 10px;">
+                <div style="background: var(--input-bg); border: 1px dashed var(--border-color); border-radius: var(--radius-xl); padding: 24px 20px;">
+                    <div class="services-heading" style="margin-bottom: 20px;">
+                        <div>
+                            <span style="font-size:11px; text-transform:uppercase; letter-spacing:0.7px; font-weight:700; color:var(--text-gray); display:inline-flex; align-items:center; gap:5px;">
+                                <i class="ph-bold ph-puzzle-piece"></i> Ecosystem Extensions &amp; Community Utilities
+                            </span>
+                            <h3 id="extras-heading" style="font-size:20px; font-weight:700; color:var(--text-dark); margin-top:2px;">Smallholder Support Tools (Extras)</h3>
                         </div>
-                        <div class="card-body">
-                            <div class="badge badge-blue"><i class="ph-fill ph-scan"></i> AI Disease Diagnosis</div>
-                            <h3>Crop Doctor — Instant Disease ID</h3>
-                            <p>Upload a photo from any device. AI detects disease, identifies crop type, and gives organic-first treatment plans with 2G/3G image compression.</p>
-                            <a href="crop_id.html" class="btn btn-primary btn-sm" id="card-cropid-btn"><i class="ph-bold ph-arrow-right"></i> Try Crop Doctor</a>
-                        </div>
+                        <span class="services-subtext" style="font-size:12px; color:var(--text-gray);">Convenience tools supporting farm operations</span>
                     </div>
 
-                    <!-- Mandi Market -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/mandi.png" alt="Mandi — Agricultural Marketplace" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <div class="badge badge-green"><i class="ph-fill ph-storefront"></i> Agri Market</div>
-                            <h3>Mandi — Agri Marketplace</h3>
-                            <p>Connect directly with verified buyers and sellers. Trade produce securely at transparent local prices — no middlemen.</p>
-                            <a href="market/mandi.html" class="btn btn-primary btn-sm" id="card-mandi-btn"><i class="ph-bold ph-arrow-right"></i> Visit Mandi</a>
-                        </div>
-                    </div>
+                    <div class="services-grid" id="extras-services-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px;">
 
-                    <!-- Market Prices -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/card_dashboard.png" alt="Live Market Price Dashboard" loading="lazy">
+                        <!-- Live Market Prices -->
+                        <div class="card" style="opacity:0.95;">
+                            <div class="card-image" style="height:120px;">
+                                <img src="assets/card_dashboard.png" alt="Live Market Prices" loading="lazy">
+                            </div>
+                            <div class="card-body" style="padding:14px;">
+                                <div class="badge badge-green" style="font-size:11px; margin-bottom:6px;"><i class="ph-fill ph-chart-line-up"></i> Market Utility</div>
+                                <h3 style="font-size:15px; margin-bottom:4px;">Market Price Updates</h3>
+                                <p style="font-size:12px; line-height:1.4; margin-bottom:12px;">Daily crop price trends and mandi pricing updates.</p>
+                                <a href="prices.html" class="btn btn-secondary-dark btn-sm" style="width:100%; font-size:12px; padding:6px 10px;"><i class="ph-bold ph-arrow-right"></i> View Prices</a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="badge badge-green"><i class="ph-fill ph-chart-line-up"></i> Live Market Prices</div>
-                            <h3>Live Market Price Updates</h3>
-                            <p>Real-time pricing for Corn, Wheat, Soybeans and more. Track trends and make data-driven sales decisions every day.</p>
-                            <a href="prices.html" class="btn btn-primary btn-sm" id="card-prices-btn"><i class="ph-bold ph-arrow-right"></i> View Prices</a>
-                        </div>
-                    </div>
 
-                    <!-- Gov Schemes -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/card_schemes.png" alt="Government Agricultural Schemes" loading="lazy">
+                        <!-- Real-time Weather -->
+                        <div class="card" style="opacity:0.95;">
+                            <div class="card-image" style="height:120px;">
+                                <img src="assets/card_weather.png" alt="Weather Forecast" loading="lazy">
+                            </div>
+                            <div class="card-body" style="padding:14px;">
+                                <div class="badge badge-orange" style="font-size:11px; margin-bottom:6px;"><i class="ph-fill ph-sun"></i> Weather Utility</div>
+                                <h3 style="font-size:15px; margin-bottom:4px;">Weather Forecasts</h3>
+                                <p style="font-size:12px; line-height:1.4; margin-bottom:12px;">Precipitation, temperature and wind conditions.</p>
+                                <a href="weather.html" class="btn btn-secondary-dark btn-sm" style="width:100%; font-size:12px; padding:6px 10px;"><i class="ph-bold ph-arrow-right"></i> Check Weather</a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="badge badge-purple"><i class="ph-fill ph-file-text"></i> Government Schemes</div>
-                            <h3>Agricultural Schemes &amp; Subsidies</h3>
-                            <p>Discover government subsidies, insurance policies, and financial aid tailored for farmers to maximize yield and profit.</p>
-                            <a href="schemes.html" class="btn btn-primary btn-sm" id="card-schemes-btn"><i class="ph-bold ph-arrow-right"></i> Explore Schemes</a>
-                        </div>
-                    </div>
 
-                    <!-- Weather -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/card_weather.png" alt="Real-Time Weather Forecast" loading="lazy">
+                        <!-- Gov Schemes -->
+                        <div class="card" style="opacity:0.95;">
+                            <div class="card-image" style="height:120px;">
+                                <img src="assets/card_schemes.png" alt="Government Agricultural Schemes" loading="lazy">
+                            </div>
+                            <div class="card-body" style="padding:14px;">
+                                <div class="badge badge-purple" style="font-size:11px; margin-bottom:6px;"><i class="ph-fill ph-file-text"></i> Financial Aid</div>
+                                <h3 style="font-size:15px; margin-bottom:4px;">Government Schemes</h3>
+                                <p style="font-size:12px; line-height:1.4; margin-bottom:12px;">Agricultural subsidies and insurance programs directory.</p>
+                                <a href="schemes.html" class="btn btn-secondary-dark btn-sm" style="width:100%; font-size:12px; padding:6px 10px;"><i class="ph-bold ph-arrow-right"></i> Explore Schemes</a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="badge badge-orange"><i class="ph-fill ph-sun"></i> Weather Forecast</div>
-                            <h3>Real-Time Weather Updates</h3>
-                            <p>Accurate, location-based forecasts for temperature, humidity, and rainfall — plan every farming activity with confidence.</p>
-                            <a href="weather.html" class="btn btn-primary btn-sm" id="card-weather-btn"><i class="ph-bold ph-arrow-right"></i> Check Weather</a>
-                        </div>
-                    </div>
 
-                    <!-- Equipment Rental -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/rental.png" alt="Tractor and Equipment Rental" loading="lazy" style="object-fit:cover; opacity:0.88;">
+                        <!-- Mandi Marketplace -->
+                        <div class="card" style="opacity:0.95;">
+                            <div class="card-image" style="height:120px;">
+                                <img src="assets/mandi.png" alt="Mandi Marketplace" loading="lazy">
+                            </div>
+                            <div class="card-body" style="padding:14px;">
+                                <div class="badge badge-green" style="font-size:11px; margin-bottom:6px;"><i class="ph-fill ph-storefront"></i> Marketplace</div>
+                                <h3 style="font-size:15px; margin-bottom:4px;">Mandi Marketplace</h3>
+                                <p style="font-size:12px; line-height:1.4; margin-bottom:12px;">Direct buyer-seller farmer trading without middlemen.</p>
+                                <a href="market/mandi.html" target="_blank" class="btn btn-secondary-dark btn-sm" style="width:100%; font-size:12px; padding:6px 10px;"><i class="ph-bold ph-arrow-right"></i> Visit Mandi</a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="badge badge-blue"><i class="ph-fill ph-tractor"></i> Equipment Rental</div>
-                            <h3>Tractor &amp; Equipment Rental</h3>
-                            <p>Rent tractors, harvesters, and farming equipment at the best local rates. No ownership costs — just get the job done.</p>
-                            <a href="rental/templates/index.html" target="_blank" class="btn btn-primary btn-sm" id="card-rental-btn"><i class="ph-bold ph-arrow-right"></i> Rent Now</a>
-                        </div>
-                    </div>
 
+                        <!-- Equipment Rental -->
+                        <div class="card" style="opacity:0.95;">
+                            <div class="card-image" style="height:120px;">
+                                <img src="assets/rental.png" alt="Tractor and Equipment Rental" loading="lazy">
+                            </div>
+                            <div class="card-body" style="padding:14px;">
+                                <div class="badge badge-blue" style="font-size:11px; margin-bottom:6px;"><i class="ph-fill ph-tractor"></i> Mechanization</div>
+                                <h3 style="font-size:15px; margin-bottom:4px;">Equipment Rental</h3>
+                                <p style="font-size:12px; line-height:1.4; margin-bottom:12px;">Tractor and farm implement rental at local rates.</p>
+                                <a href="rental/templates/index.html" target="_blank" class="btn btn-secondary-dark btn-sm" style="width:100%; font-size:12px; padding:6px 10px;"><i class="ph-bold ph-arrow-right"></i> Rent Gear</a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
         </main>
