@@ -7,8 +7,9 @@ info:
   version: 1.0.0
   contact:
     name: KARSAKAH Open Source Project
-    url: https://github.com/sachin24sk26/Karsakah
+    url: https://github.com/sachin24sk26/karsakah-dpg
   license:
+
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 

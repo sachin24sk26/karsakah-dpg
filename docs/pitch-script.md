@@ -13,7 +13,7 @@ This document contains the word-for-word timed presentation script, live demo se
 | **01:45 – 02:30** | **2G/3G WhatsApp & SMS Dispatch** | WhatsApp/SMS Modal on [advisory.html](file:///s:/s/ByteForce/advisory.html) | 160-char SMS for feature phones, 95% image compression for low-bandwidth 2G/3G. |
 | **02:30 – 03:45** | **BRICS Federation & Sovereign Nodes** | [network.html](file:///s:/s/ByteForce/network.html) | Multi-country profiles (8 BRICS+ nodes), simulated cross-border alert protocol, **Zero Raw-Data Transfer**. |
 | **03:45 – 04:30** | **Crop Doctor & Organic Controls** | [crop_id.html](file:///s:/s/ByteForce/crop_id.html) | Structured JSON schema, organic-first biocontrols, <0.6 confidence extension gate. |
-| **04:30 – 05:00** | **DPG Status & Impact Summary** | [README.md](file:///s:/s/ByteForce/README.md) & Roadmap | Apache-2.0, OpenAPI 3.0, instant 30-minute onboarding for new nations. |
+| **04:30 – 05:00** | **DPG-Aligned Status & Impact Summary** | [README.md](file:///s:/s/ByteForce/README.md) & Roadmap | Apache-2.0, OpenAPI 3.0, instant 30-minute onboarding for new nations. |
 
 ---
 
@@ -22,7 +22,7 @@ This document contains the word-for-word timed presentation script, live demo se
 ### 1. The Problem (00:00 – 00:45)
 > *"Judges, smallholder farmers produce over 30% of the world's food, yet they are trapped in a cycle of soil degradation, over-reliance on expensive synthetic chemical inputs, and fragmented black-box agricultural advice. Furthermore, as climate shifts accelerate pest migrations across continents, nations lack an interoperable, privacy-preserving standard to exchange agro-intelligence without compromising national data sovereignty.*
 > 
-> *Meet **KARSAKAH** — an open-source, interoperable Digital Public Good built for regenerative agriculture and cross-border BRICS federation."*
+> *Meet **KARSAKAH** — an open-source, DPG-aligned platform built for regenerative agriculture and cross-border BRICS federation."*
 
 ---
 
@@ -59,8 +59,8 @@ This document contains the word-for-word timed presentation script, live demo se
 
 ---
 
-### 6. Closing & Digital Public Good (04:30 – 05:00)
-> *"KARSAKAH is 100% open-source under Apache-2.0, adheres to strict OpenAPI 3.0 contracts, and includes a comprehensive 30-minute onboarding guide for any new nation to join.
+### 6. Closing & DPG Alignment (04:30 – 05:00)
+> *"KARSAKAH is 100% open-source under Apache-2.0, adheres to strict OpenAPI 3.0 contracts, aligns with the 9 criteria of the Digital Public Goods Standard, and includes a comprehensive 30-minute onboarding guide for any new nation to join.
 > 
 > KARSAKAH turns sovereign data into global regenerative resilience. Thank you!"*
 
