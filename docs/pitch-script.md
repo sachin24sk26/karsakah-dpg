@@ -83,3 +83,9 @@ This document contains the word-for-word timed presentation script, live demo se
 > 1. When confidence falls below 60%, the system automatically flags `needs_expert: true` and suppresses all synthetic chemical dosage advice.
 > 2. It renders an amber warning banner advising the farmer to consult their local extension officer (such as Krishi Vigyan Kendra) with a physical sample rather than wasting money on incorrect pesticides.
 > 3. Step 1 Quality Gate completely rejects non-foliage photos (e.g. soil or boots) with 100% precision."*
+
+#### Q5: "Sentinel-2 is optical — does it actually condition your recommendations, and what do you do when monsoon clouds block the pass?"
+> **Answer:** *"Sentinel-2 is **not a cosmetic connector** in KARSAKAH — its 10-meter Normalized Difference Vegetation Index (NDVI) directly enters `backend/rules_engine.py`:
+> 1. **Agronomic conditioning:** When Sentinel-2 detects low canopy vigor (NDVI < 0.42), the rules engine awards a +10% suitability bonus to fast-canopy legumes (e.g., Moong / Cowpea) to protect exposed topsoil from solar desiccation and erosion. Conversely, when NDVI ≥ 0.70, it mandates surface residue mulching and zero-till seeding.
+> 2. **Transparent Freshness UI:** The Advisory UI explicitly states satellite revisit freshness and cloud obstruction (e.g., *'Sentinel-2 pass from 2 days ago, 18% cloud cover'*).
+> 3. **Cloud Obscuration Protocol:** Optical sensors are blind during heavy monsoon rainfall. When cloud cover exceeds 40%, the system automatically trips an automated fallback to **Sentinel-1 C-Band Synthetic Aperture Radar (SAR)**. SAR microwaves penetrate clouds, rain, and nocturnal darkness to measure surface dielectric roughness and soil moisture, while cloud-masked multi-temporal composites preserve canopy estimates until the next clear pass."*

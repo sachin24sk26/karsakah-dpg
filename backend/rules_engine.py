@@ -137,8 +137,8 @@ CROP_DATABASE = {
     }
 }
 
-def evaluate_crop_suitability(crop_id: str, crop_info: dict, soil: dict, weather: dict, previous_crop: str = "") -> Dict[str, Any]:
-    """Score individual crop suitability and gather explainability reasons."""
+def evaluate_crop_suitability(crop_id: str, crop_info: dict, soil: dict, weather: dict, previous_crop: str = "", vegetation: dict = None) -> Dict[str, Any]:
+    """Score individual crop suitability and gather explainability reasons including satellite NDVI."""
     reasons = []
     practices = list(crop_info.get("practices", []))
     score = 1.0
@@ -190,6 +190,24 @@ def evaluate_crop_suitability(crop_id: str, crop_info: dict, soil: dict, weather
     else:
         reasons.append(f"Healthy soil organic carbon ({soc} g/kg) enhances nutrient bioavailability.")
 
+    # 6. Satellite Vegetation & Canopy Vigor Integration (Copernicus Sentinel-2 & Sentinel-1 SAR)
+    if vegetation:
+        ndvi = vegetation.get("ndvi", 0.55)
+        canopy_vigor = vegetation.get("canopy_vigor", "Moderate Vegetative")
+        cloud_blocked = vegetation.get("cloud_blocked", False)
+        cloud_cover = vegetation.get("cloud_cover_pct", 18)
+
+        if ndvi < 0.42:
+            # Low canopy vigor or bare post-harvest land
+            if crop_info.get("type") in ["Pulse / Legume", "Pulse / Cover / Forage"]:
+                score += 0.10
+                reasons.append(f"Satellite NDVI ({ndvi} · {canopy_vigor}) shows sparse ground cover; quick-canopy legume rotation protects topsoil from heat desiccation.")
+        elif ndvi >= 0.70:
+            reasons.append(f"Satellite NDVI ({ndvi} · {canopy_vigor}) confirms dense surface vegetative biomass; retain residue as surface mulch.")
+
+        if cloud_blocked:
+            practices.append(f"Satellite Protocol Notice: Optical pass obscured by {cloud_cover}% clouds; surface verified via Sentinel-1 SAR radar backscatter.")
+
     # Final bounded score
     final_score = round(max(0.1, min(0.98, score)), 2)
 
@@ -202,8 +220,8 @@ def evaluate_crop_suitability(crop_id: str, crop_info: dict, soil: dict, weather
         "regenerative_practices": practices
     }
 
-def generate_water_and_risk_plan(weather: dict, soil: dict) -> Dict[str, Any]:
-    """Generate dynamic water efficiency guidance and risk alerts from 7-day forecast."""
+def generate_water_and_risk_plan(weather: dict, soil: dict, vegetation: dict = None) -> Dict[str, Any]:
+    """Generate dynamic water efficiency guidance and risk alerts from 7-day forecast and satellite observations."""
     rain_sum = weather.get("rain_sum_mm_7d", 0.0)
     max_rain = weather.get("max_rain_day_mm", 0.0)
     max_prob = weather.get("max_rain_probability_pct", 0)
@@ -220,7 +238,15 @@ def generate_water_and_risk_plan(weather: dict, soil: dict) -> Dict[str, Any]:
     else:
         water_plan = f"Moderate water conditions. Soil moisture is adequate; schedule light irrigation only if top 5 cm soil feels dry."
 
-    # Risk alerts
+    # Satellite vegetation risk context
+    if vegetation:
+        ndvi = vegetation.get("ndvi", 0.55)
+        if ndvi < 0.35 and rain_sum < 5.0:
+            risks.append(f"Satellite vegetation stress alert: Low canopy NDVI ({ndvi}) combined with low precipitation. Urgent soil mulching advised.")
+        if vegetation.get("cloud_blocked"):
+            risks.append(f"Observation Notice: Sentinel-2 pass obscured by {vegetation.get('cloud_cover_pct')}% cloud cover. Switched automatically to Sentinel-1 SAR Radar soil backscatter.")
+
+    # Weather Risk alerts
     if max_rain >= 30.0:
         risks.append(f"Heavy rain alert ({max_rain} mm in 24h expected). Ensure clear drainage channels and delay topdressing fertilizers to avoid nutrient runoff.")
     if weather.get("temp_max_c", 30.0) >= 38.0:
@@ -239,9 +265,11 @@ def generate_water_and_risk_plan(weather: dict, soil: dict) -> Dict[str, Any]:
 def generate_advisory(data_bundle: Dict[str, Any], previous_crop: str = "wheat", farmer_goal: str = "regenerative") -> Dict[str, Any]:
     """
     Main entry point for generating explainable, regenerative crop and soil recommendations.
+    Integrates weather, soil chemistry, and Sentinel-2 satellite vegetation layers.
     """
     weather = data_bundle.get("weather", {})
     soil = data_bundle.get("soil", {})
+    vegetation = data_bundle.get("vegetation", {})
     provenance = data_bundle.get("data_provenance", {})
     confidence_val = provenance.get("composite_confidence", 0.85)
 
@@ -253,18 +281,18 @@ def generate_advisory(data_bundle: Dict[str, Any], previous_crop: str = "wheat",
     else:
         confidence_label = f"Low ({confidence_val}) - Based on regional defaults"
 
-    # Evaluate all candidate crops
+    # Evaluate all candidate crops with satellite vegetation feed
     evaluated_crops = []
     for crop_id, crop_info in CROP_DATABASE.items():
-        eval_res = evaluate_crop_suitability(crop_id, crop_info, soil, weather, previous_crop)
+        eval_res = evaluate_crop_suitability(crop_id, crop_info, soil, weather, previous_crop, vegetation)
         evaluated_crops.append(eval_res)
 
     # Sort crops by suitability score descending
     evaluated_crops.sort(key=lambda x: x["suitability_score"], reverse=True)
     top_recommendations = evaluated_crops[:3]
 
-    # Water & risk plan
-    water_risk = generate_water_and_risk_plan(weather, soil)
+    # Water & risk plan with satellite NDVI context
+    water_risk = generate_water_and_risk_plan(weather, soil, vegetation)
 
     # Voice scripts for smallholder TTS
     primary_crop = top_recommendations[0]["crop_name"]
@@ -282,6 +310,7 @@ def generate_advisory(data_bundle: Dict[str, Any], previous_crop: str = "wheat",
         "alternative_recommendations": top_recommendations[1:],
         "water_efficiency_plan": water_risk["water_efficiency_plan"],
         "risk_alerts": water_risk["risk_alerts"],
+        "vegetation": vegetation,
         "data_provenance": provenance,
         "voice_summary": {
             "en": voice_script_en,
