@@ -72,6 +72,42 @@ MODEL_CARDS = {
         "test_dataset_size": "65 irrigated desert/delta plots",
         "primary_objective": "Salinity buffering with organic amendments, precision drip scheduling, faba bean legume restoration.",
         "shared_insights_count": 8
+    },
+    "node-ru-krasnodar-01": {
+        "node_id": "node-ru-krasnodar-01",
+        "country": "RU",
+        "country_name": "Russia (Krasnodar Chernozem Node)",
+        "lead_institution": "VIM - Federal Scientific Agroengineering Center & RSAC",
+        "advisory_model": "Cold-Climate Cereal & Chernozem Carbon Engine v2.4",
+        "vision_model": "Gemini 2.5 Multi-Modal + Cereal Rust Pathology Library",
+        "accuracy_score": "89.8%",
+        "test_dataset_size": "110 steppe and chernozem trials",
+        "primary_objective": "Soil organic carbon preservation in chernozems, winter-dormancy snow-melt moisture retention, field pea rotation.",
+        "shared_insights_count": 12
+    },
+    "node-et-oromia-01": {
+        "node_id": "node-et-oromia-01",
+        "country": "ET",
+        "country_name": "Ethiopia (Oromia Highland Node)",
+        "lead_institution": "EIAR - Ethiopian Institute of Agricultural Research",
+        "advisory_model": "Highland Agroecology & Teff-Legume Rotation Engine v2.4",
+        "vision_model": "Gemini 2.5 Multi-Modal + East African Rust & Blight Library",
+        "accuracy_score": "88.1%",
+        "test_dataset_size": "70 highland smallholder plots",
+        "primary_objective": "Teff lodging reduction, biological chickpea/faba bean rotation, rust pathogen early-alert sharing with South Africa.",
+        "shared_insights_count": 7
+    },
+    "node-ae-desert-01": {
+        "node_id": "node-ae-desert-01",
+        "country": "AE",
+        "country_name": "UAE (Biosaline Desert Node)",
+        "lead_institution": "ICBA - International Center for Biosaline Agriculture",
+        "advisory_model": "Biosaline Halophyte & Arid Precision Engine v2.4",
+        "vision_model": "Gemini 2.5 Multi-Modal + Date Palm Pest Diagnostic Set",
+        "accuracy_score": "90.4%",
+        "test_dataset_size": "45 controlled-environment desert trials",
+        "primary_objective": "Hyper-arid water efficiency, marginal hypersaline soil cultivation (quinoa, salicornia), date palm weevil early warning.",
+        "shared_insights_count": 10
     }
 }
 

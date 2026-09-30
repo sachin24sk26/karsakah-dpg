@@ -1,0 +1,38 @@
+{
+  "country": "AE",
+  "country_name": "United Arab Emirates",
+  "node_id": "node-ae-desert-01",
+  "languages": ["ar", "en"],
+  "default_language": "ar",
+  "units": {
+    "area": "donum",
+    "currency": "AED",
+    "yield": "kg/sqm"
+  },
+  "major_crops": [
+    { "id": "date_palm", "name": "Date Palm (Phoenix dactylifera)", "family": "Arecaceae (Perennial)", "nitrogen_fixing": false },
+    { "id": "quinoa", "name": "Saline-Tolerant Quinoa", "family": "Amaranthaceae (Grain)", "nitrogen_fixing": false },
+    { "id": "salicornia", "name": "Salicornia (Halophyte)", "family": "Amaranthaceae (Oilseed/Forage)", "nitrogen_fixing": false },
+    { "id": "alfalfa", "name": "Alfalfa (Medicago sativa)", "family": "Fabaceae (Forage)", "nitrogen_fixing": true }
+  ],
+  "seasons": {
+    "winter": { "start_month": 11, "end_month": 4, "type": "Cool Field Season" },
+    "summer": { "start_month": 5, "end_month": 10, "type": "Hyper-Arid / Controlled CEA" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "moccae-ae"
+  },
+  "soil_defaults": {
+    "ph_min": 7.8,
+    "ph_max": 8.6,
+    "target_organic_carbon_g_kg": 5.0
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Ministry of Climate Change and Environment (MOCCAE)",
+    "emergency": "International Center for Biosaline Agriculture (ICBA)"
+  }
+}

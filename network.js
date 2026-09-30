@@ -10,7 +10,9 @@ const COUNTRY_FLAGS = {
     "ZA": "🇿🇦",
     "CN": "🇨🇳",
     "EG": "🇪🇬",
-    "RU": "🇷🇺"
+    "RU": "🇷🇺",
+    "ET": "🇪🇹",
+    "AE": "🇦🇪"
 };
 
 let activeNodes = [];
@@ -207,9 +209,12 @@ function highlightTransfer(source, target) {
     if (stream) stream.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-window.inspectNode = function(nodeId) {
-    const node = activeNodes.find(n => n.node_id === nodeId);
-    if (!node) return;
+window.inspectNode = function(identifier) {
+    const node = activeNodes.find(n => n.node_id === identifier || n.country === identifier);
+    if (!node) {
+        alert("Node details loading... please try again in a moment.");
+        return;
+    }
     const card = node.model_card || {};
     alert(
         `🏛️ MODEL CARD INSPECTOR: ${node.country_name} (${node.node_id})\n\n` +

@@ -1,0 +1,39 @@
+{
+  "country": "ET",
+  "country_name": "Ethiopia",
+  "node_id": "node-et-oromia-01",
+  "languages": ["am", "om", "en"],
+  "default_language": "am",
+  "units": {
+    "area": "hectare",
+    "currency": "ETB",
+    "yield": "qt/ha"
+  },
+  "major_crops": [
+    { "id": "teff", "name": "Teff (Eragrostis tef)", "family": "Poaceae (Cereal)", "nitrogen_fixing": false },
+    { "id": "coffee", "name": "Arabica Coffee", "family": "Rubiaceae (Perennial)", "nitrogen_fixing": false },
+    { "id": "faba_bean", "name": "Faba Bean", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "chickpea", "name": "Desi Chickpea", "family": "Fabaceae (Legume)", "nitrogen_fixing": true },
+    { "id": "sorghum", "name": "Sorghum", "family": "Poaceae (Cereal)", "nitrogen_fixing": false }
+  ],
+  "seasons": {
+    "meher": { "start_month": 6, "end_month": 11, "type": "Main Rainy Season (Kiremt)" },
+    "belg": { "start_month": 2, "end_month": 5, "type": "Short Rainy Season" }
+  },
+  "data_sources": {
+    "weather": "open-meteo",
+    "soil": "soilgrids",
+    "vegetation": "sentinel-2-stac",
+    "market": "eiar-market"
+  },
+  "soil_defaults": {
+    "ph_min": 5.5,
+    "ph_max": 7.0,
+    "target_organic_carbon_g_kg": 18.0
+  },
+  "advisory_rules_version": "2.4-agro",
+  "extension_contacts": {
+    "general": "Ethiopian Institute of Agricultural Research (EIAR)",
+    "emergency": "Ministry of Agriculture Extension Directorate (MoA)"
+  }
+}

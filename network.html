@@ -30,7 +30,7 @@
                     <span class="network-pill blue"><i class="ph-bold ph-lightning"></i> Real-Time Insight Exchange</span>
                 </div>
                 <h1 class="network-title"><i class="ph-bold ph-globe" style="color:#7E22CE;"></i> BRICS Agronomic Intelligence Hub</h1>
-                <p class="network-subtitle">Sovereign, decentralized nodes across India, Brazil, South Africa, China, and Russia — sharing early disease warnings, soil alerts, and model cards with zero raw-data leakage. The world's first open-source cross-border agricultural intelligence network.</p>
+                <p class="network-subtitle">Sovereign, decentralized nodes across India, Brazil, South Africa, China, Russia, Egypt, Ethiopia, and UAE — sharing early disease warnings, soil alerts, and model cards with zero raw-data leakage. The world's first open-source cross-border agricultural intelligence network.</p>
             </section>
 
             <!-- Network Stats -->
@@ -38,8 +38,8 @@
                 <div class="net-stat-card">
                     <div class="net-stat-icon purple"><i class="ph-bold ph-globe-hemisphere-west"></i></div>
                     <div>
-                        <div class="net-stat-val" id="stat-nodes">5</div>
-                        <div class="net-stat-label">Active Sovereign Nodes</div>
+                        <div class="net-stat-val" id="stat-nodes">8</div>
+                        <div class="net-stat-label">BRICS+ Sovereign Nodes</div>
                     </div>
                 </div>
                 <div class="net-stat-card">
@@ -216,6 +216,93 @@
                     </div>
                 </div>
 
+                <!-- Egypt -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇪🇬</span>
+                            <div>
+                                <div class="node-name">Egypt Node</div>
+                                <div class="node-id">node-EG-MALR-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge">
+                            <span class="node-status-dot"></span>Online
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Faba Bean, Wheat, Cotton, Clover</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">MALR · ARC Egypt · Nile Hydrology</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">~11M smallholders</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val">124 today</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">Arid Nile basin and delta salinity specialist. Buffers soil salinity with organic amendments and drip scheduling.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Last sync: 8s ago</span>
+                        <button class="btn-inspect" onclick="inspectNode('EG')">Inspect →</button>
+                    </div>
+                </div>
+
+                <!-- Ethiopia -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇪🇹</span>
+                            <div>
+                                <div class="node-name">Ethiopia Node</div>
+                                <div class="node-id">node-ET-EIAR-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge">
+                            <span class="node-status-dot"></span>Online
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Teff, Coffee, Chickpea, Sorghum</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">EIAR · MoA · Oromia Regional Ag</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">~16M smallholders</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val">98 today</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">East African highland ecology & legume rotation. Collaborates on wheat rust spore migration modeling with South Africa.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Last sync: 14s ago</span>
+                        <button class="btn-inspect" onclick="inspectNode('ET')">Inspect →</button>
+                    </div>
+                </div>
+
+                <!-- UAE -->
+                <div class="node-card">
+                    <div class="node-header">
+                        <div class="node-flag-title">
+                            <span class="node-flag">🇦🇪</span>
+                            <div>
+                                <div class="node-name">UAE Node</div>
+                                <div class="node-id">node-AE-ICBA-v1</div>
+                            </div>
+                        </div>
+                        <span class="node-status-badge">
+                            <span class="node-status-dot"></span>Online
+                        </span>
+                    </div>
+                    <div class="node-body">
+                        <div class="model-card-box">
+                            <div class="model-card-row"><span class="model-card-key">Crops Monitored</span><span class="model-card-val">Date Palm, Quinoa, Salicornia</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Data Sources</span><span class="model-card-val">ICBA · MOCCAE · Desert STAC</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Farmers Served</span><span class="model-card-val">Controlled CEA Farms</span></div>
+                            <div class="model-card-row"><span class="model-card-key">Insights Shared</span><span class="model-card-val">76 today</span></div>
+                        </div>
+                        <p style="font-size:12px; color:var(--text-gray); line-height:1.5;">Biosaline agriculture & hyper-arid CEA innovator. Feeds extreme heat tolerance parameters to South African & Indian drylands.</p>
+                    </div>
+                    <div class="node-footer">
+                        <span style="font-size:11px; color:var(--text-gray);">Last sync: 21s ago</span>
+                        <button class="btn-inspect" onclick="inspectNode('AE')">Inspect →</button>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Simulation + Live Stream -->
@@ -232,6 +319,11 @@
                                 <option value="IN">🇮🇳 India</option>
                                 <option value="BR">🇧🇷 Brazil</option>
                                 <option value="ZA">🇿🇦 South Africa</option>
+                                <option value="CN">🇨🇳 China</option>
+                                <option value="RU">🇷🇺 Russia</option>
+                                <option value="EG">🇪🇬 Egypt</option>
+                                <option value="ET">🇪🇹 Ethiopia</option>
+                                <option value="AE">🇦🇪 UAE</option>
                             </select>
                         </div>
                         <div class="form-group">
